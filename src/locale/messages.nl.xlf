@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="nl-NL" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="5899864845007428149" datatype="html">
+        <source><x id="PH" equiv-text="title"/> is verplicht</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/errors.service.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8934373812123470378" datatype="html">
+        <source><x id="PH" equiv-text="title"/> heeft het verkeerde patroon</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/errors.service.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="486981110227978885" datatype="html">
+        <source><x id="PH" equiv-text="title"/> heeft het verkeerde e-mailadresformaat</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/errors.service.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2535853537286282253" datatype="html">
+        <source><x id="PH" equiv-text="title"/> heeft de verkeerde lengte! Minimale lengte: <x id="PH_1" equiv-text="error"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/errors.service.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4134250510290369775" datatype="html">
+        <source><x id="PH" equiv-text="title"/> moet gelijk zijn!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/errors.service.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6652424493490915459" datatype="html">
+        <source>Fout: <x id="PH" equiv-text="title"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/errors.service.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6492831808763156510" datatype="html">
+        <source>Installatie</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">1,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8320337775488815470" datatype="html">
+        <source>Dit is het installatieproces van de ONVP website. Vul alstublieft de volgende waarden in om de website op te starten.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">3,5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6028371114637047813" datatype="html">
+        <source>Voornaam</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3337540717284723401" datatype="html">
+        <source> Voornaam is verplicht </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4407559560004943843" datatype="html">
+        <source>Achternaam</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5202458308518213857" datatype="html">
+        <source> Achternaam is verplicht </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4879517228803151475" datatype="html">
+        <source>E-mailadres</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3248935447521115110" datatype="html">
+        <source> Email is verplicht en moet worden ingetypt in de vorm adres@domein </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="935187492052582731" datatype="html">
+        <source>Versturen</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+
+    </body>
+  </file>
+</xliff>

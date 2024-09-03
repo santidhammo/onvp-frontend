@@ -1,0 +1,37 @@
+//see it's necessary import both scss/functions and scss/variables
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+$primary:       $green-600;
+$secondary:     $yellow-300;
+$success:       $green;
+$info:          $green-200;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-200;
+$dark:          $gray-900;
+
+// furthermore it's necessary override the $theme-colors
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+.ng-valid[required] input, .ng-valid.required input {
+  border-left: 5px solid $success; /* green */
+}
+
+.ng-invalid:not(form) input {
+  border-left: 5px solid $danger; /* red */
+}

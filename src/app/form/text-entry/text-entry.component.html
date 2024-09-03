@@ -1,0 +1,20 @@
+<div class="form-group">
+  <label [for]="name">{{ title }}</label>
+  <input
+    type="text"
+    class="form-control"
+    [id]="name"
+    [name]="name"
+    [(ngModel)]="value"
+    [disabled]="disabled"
+    (change)="onChange(value)"
+    #model="ngModel"
+    (focusout)="displayInvalid = true"
+  />
+
+  <div *ngIf="ngControl.invalid && displayInvalid" class="alert alert-danger">
+    <div *ngFor="let error of errorsService.getAllErrors(title, ngControl)">
+      {{ error }}
+    </div>
+  </div>
+</div>

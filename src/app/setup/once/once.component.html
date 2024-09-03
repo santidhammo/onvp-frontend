@@ -1,0 +1,51 @@
+<form #setupForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="modal" style="display: block">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <dialog-header title="Setup" i18n-title />
+        <dialog-explanation
+          explanation="This is the setup process of the ONVP website. Please enter the following details, to startup the website."
+          i18n-explanation
+        />
+
+        <div class="modal-body">
+          <form-text-entry
+            name="firstName"
+            title="First Name"
+            i18n-title
+            [(ngModel)]="model.firstName"
+            required
+          />
+
+          <form-text-entry
+            name="lastName"
+            title="Last Name"
+            i18n-title
+            [(ngModel)]="model.lastName"
+            required
+          />
+
+          <form-text-entry
+            name="email"
+            title="Email Address"
+            i18n-title
+            [(ngModel)]="model.email"
+            required
+            email
+          />
+        </div>
+        <div class="modal-footer">
+          <div class="form-group">
+            <input
+              type="submit"
+              class="btn btn-primary"
+              i18n-value
+              value="Submit"
+              [disabled]="setupForm.invalid"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
