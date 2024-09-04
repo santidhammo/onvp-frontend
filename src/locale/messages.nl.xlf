@@ -107,7 +107,55 @@
           <context context-type="linenumber">14,15</context>
         </context-group>
       </trans-unit>
-
+      <trans-unit id="160640128319879431" datatype="html">
+        <source>Gebruikersnaam</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8194554728555410336" datatype="html">
+        <source>Telefoonnummer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1847047605496409443" datatype="html">
+        <source>Straat</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="924959609101234956" datatype="html">
+        <source>Huisnummer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">60,61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1297032398744645488" datatype="html">
+        <source>Huisnummertoevoeging</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">67,68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7647550512660678493" datatype="html">
+        <source>Postcode</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">74,75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5269631474878618910" datatype="html">
+        <source>Woonplaats</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
+          <context context-type="linenumber">81,82</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
