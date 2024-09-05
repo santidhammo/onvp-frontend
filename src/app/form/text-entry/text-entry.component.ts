@@ -30,6 +30,7 @@ export class TextEntryComponent implements ControlValueAccessor {
 
   protected displayInvalid: boolean = false;
   protected value: any = null;
+  @Input() inputType: string = 'text';
 
   onChange = (_: any) => {};
   onTouched = () => {};

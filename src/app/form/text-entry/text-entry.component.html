@@ -10,6 +10,20 @@
     (change)="onChange(value)"
     #model="ngModel"
     (focusout)="displayInvalid = true"
+    *ngIf="inputType == 'text'"
+  />
+
+  <input
+    type="number"
+    class="form-control"
+    [id]="name"
+    [name]="name"
+    [(ngModel)]="value"
+    [disabled]="disabled"
+    (change)="onChange(value)"
+    #model="ngModel"
+    (focusout)="displayInvalid = true"
+    *ngIf="inputType == 'number'"
   />
 
   <div *ngIf="ngControl.invalid && displayInvalid" class="alert alert-danger">
