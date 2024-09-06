@@ -23,7 +23,7 @@ export class AppComponent {
     if (route.component != OnceComponent) {
       this.setupDetector.shouldSetup().then((should) => {
         if (should) {
-          router.navigate(['setup-once']).then((_) => {});
+          router.navigate(['setup']).then((_) => {});
         }
       });
     }
