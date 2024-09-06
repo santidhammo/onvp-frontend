@@ -10,6 +10,6 @@ export class DetectorService {
 
   async shouldSetup(): Promise<boolean> {
     const data = await firstValueFrom(this.http.get('/api/setup/should_setup'));
-    return data === false;
+    return data === true;
   }
 }
