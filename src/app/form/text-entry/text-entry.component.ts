@@ -24,8 +24,8 @@ import { ErrorsService } from '../errors.service';
   providers: [ErrorsService],
 })
 export class TextEntryComponent implements ControlValueAccessor {
-  @Input({ required: true }) title!: string;
   @Input({ required: true }) name!: string;
+  @Input() title!: string;
   @Input() disabled: boolean = false;
 
   protected displayInvalid: boolean = false;

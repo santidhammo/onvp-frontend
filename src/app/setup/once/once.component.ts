@@ -42,16 +42,14 @@ export class OnceComponent {
 
   async setup_and_await_activation_string(): Promise<string> {
     const data = await firstValueFrom(
-      this.http.post('/api/members/setup_first_operator', this.model),
+      this.http.post('/api/setup/setup_first_operator', this.model),
     );
     return data.toString();
   }
 
   onSubmit() {
-    console.log(this.model);
     this.setup_and_await_activation_string().then((activationString) => {
-      window.localStorage.setItem('activation_string', activationString);
-      this.router.navigate(['activation']).then((_) => {});
+      this.router.navigate([`activation/${activationString}`]).then((_) => {});
     });
   }
 }

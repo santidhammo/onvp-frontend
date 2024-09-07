@@ -1,1 +1,35 @@
-<p>activation works!</p>
+<form #activationForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="modal" style="display: block">
+    <app-dialog>
+      <dialog-header title="Member Activation" i18n-title />
+      <dialog-explanation
+        explanation="Please activate your account. Scan the given QR code in your Authentication application, and send the resulting code back to the system. This will activate your account."
+        i18n-explanation
+      />
+
+      <dialog-body>
+        <img
+          src="{{ activationBase64Png$ | async }}"
+          alt="Activation QR Code"
+          i18n-alt
+        />
+
+        <form-text-entry
+          name="activationString"
+          inputType="hidden"
+          [(ngModel)]="model.activationString"
+        />
+
+        <form-text-entry
+          title="Activation Code"
+          i18n-title
+          name="token"
+          [(ngModel)]="model.token"
+          required
+          minlength="6"
+          maxlength="6"
+        />
+      </dialog-body>
+    </app-dialog>
+  </div>
+</form>
