@@ -44,6 +44,34 @@
           <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="5025709138959449988" datatype="html">
+        <source>Lidactivatie</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/route/activation/activation.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4591028328144171895" datatype="html">
+        <source>Gelieve uw lidmaatschap te activeren. Scan de QR code in uw authenticatie-applicatie, en stuur de resulterende code terug naar het systeem. Dit zal uw lidmaatschap activeren.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/route/activation/activation.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4399925927102349547" datatype="html">
+        <source>Activatie QR Code</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/route/activation/activation.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8620303503002134718" datatype="html">
+        <source>Activatiecode</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/route/activation/activation.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="6492831808763156510" datatype="html">
         <source>Installatie</source>
         <context-group purpose="location">

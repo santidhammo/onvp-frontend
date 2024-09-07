@@ -51,6 +51,34 @@
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="5025709138959449988" datatype="html">
+        <source>Member Activation</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/route/activation/activation.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4591028328144171895" datatype="html">
+        <source>Please activate your account. Scan the given QR code in your Authentication application, and send the resulting code back to the system. This will activate your account.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/route/activation/activation.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4399925927102349547" datatype="html">
+        <source>Activation QR Code</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/route/activation/activation.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8620303503002134718" datatype="html">
+        <source>Activation Code</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/route/activation/activation.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="6492831808763156510" datatype="html">
         <source>Setup</source>
         <context-group purpose="location">
@@ -86,53 +114,46 @@
           <context context-type="linenumber">29,30</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="160640128319879431" datatype="html">
-        <source>User Name</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">38,39</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="8194554728555410336" datatype="html">
         <source>Phone Number</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">46,47</context>
+          <context context-type="linenumber">37,38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1847047605496409443" datatype="html">
         <source>Street</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">54</context>
+          <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="924959609101234956" datatype="html">
         <source>House Number</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">60,61</context>
+          <context context-type="linenumber">52,53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1297032398744645488" datatype="html">
         <source>House Number Postfix</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">67,68</context>
+          <context context-type="linenumber">61,62</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7647550512660678493" datatype="html">
         <source>Postal Code</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">74,75</context>
+          <context context-type="linenumber">67,68</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5269631474878618910" datatype="html">
         <source>Domicile</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">81,82</context>
+          <context context-type="linenumber">75,76</context>
         </context-group>
       </trans-unit>
     </body>
