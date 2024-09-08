@@ -1,0 +1,38 @@
+<form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="modal" style="display: block">
+    <app-dialog>
+      <dialog-header title="Login" i18n-title />
+      <dialog-explanation
+        explanation="Please enter your e-mail address and token"
+        i18n-explanation
+      />
+
+      <dialog-body>
+        <div class="alert-danger" *ngIf="loginFailed" i18n>Failed to login</div>
+
+        <form-text-entry
+          name="emailAddress"
+          title="Email Address"
+          i18n-title
+          [(ngModel)]="model.emailAddress"
+          required
+          email
+        />
+
+        <form-text-entry
+          name="token"
+          title="Token"
+          i18n-title
+          [(ngModel)]="model.token"
+          required
+          minlength="6"
+          maxlength="6"
+          pattern="^[0-9][0-9][0-9][0-9][0-9][0-9]$"
+        />
+      </dialog-body>
+      <dialog-footer>
+        <form-submit [disabled]="loginForm.invalid" />
+      </dialog-footer>
+    </app-dialog>
+  </div>
+</form>
