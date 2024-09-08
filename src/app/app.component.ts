@@ -3,11 +3,12 @@ import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { DetectorService } from './setup/detector/detector.service';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { OnceComponent } from './setup/once/once.component';
+import { MenuBarComponent } from './menu-bar/menu-bar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf, AsyncPipe, OnceComponent],
+  imports: [RouterOutlet, NgIf, AsyncPipe, OnceComponent, MenuBarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers: [DetectorService],

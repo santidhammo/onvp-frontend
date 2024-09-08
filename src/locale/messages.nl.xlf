@@ -79,6 +79,52 @@
           <context context-type="linenumber">1,3</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="6596188632959417754" datatype="html">
+        <source>Orkest Nieuwe Veste Plus</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/menu-bar/menu-bar.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2821179408673282599" datatype="html">
+        <source>Thuis</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/menu-bar/menu-bar.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2454050363478003966" datatype="html">
+        <source>Inloggen</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/menu-bar/menu-bar.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/route/login/login.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1358928551614255659" datatype="html">
+        <source>Gelieve uw e-mailadres en authenticatiecode op te geven</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/route/login/login.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3039940756451018621" datatype="html">
+        <source>Authenticatiecode</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/route/login/login.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="657977392829176648" datatype="html">
+        <source>Inloggen mislukt</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/route/login/login.component.html</context>
+          <context context-type="linenumber">11,13</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="8320337775488815470" datatype="html">
         <source>Dit is het installatieproces van de ONVP website. Vul alstublieft de volgende waarden in om de website op te starten.</source>
         <context-group purpose="location">

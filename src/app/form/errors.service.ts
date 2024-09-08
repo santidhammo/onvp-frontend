@@ -26,8 +26,10 @@ export class ErrorsService {
             message = $localize`${title} has wrong email format`;
             break;
           case 'minlength':
-            console.log(error);
-            message = $localize`${title} has wrong length! Required length: ${error}`;
+            message = $localize`${title} has wrong length! Required length: ${error.requiredLength}`;
+            break;
+          case 'maxlength':
+            message = $localize`${title} has wrong length! Required length: ${error.requiredLength}`;
             break;
           case 'areEqual':
             message = $localize`${title} must be equal!`;

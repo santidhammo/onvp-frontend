@@ -12,6 +12,7 @@ import { SubmitComponent } from '../../form/submit/submit.component';
 import { firstValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DetectorService } from '../detector/detector.service';
 
 @Component({
   selector: 'setup-once',
@@ -37,10 +38,16 @@ export class OnceComponent {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute,
-  ) {}
+    protected setupDetector: DetectorService,
+  ) {
+    setupDetector.shouldSetup().then((shouldSetup) => {
+      if (!shouldSetup) {
+        router.navigate(['']).then((_) => {});
+      }
+    });
+  }
 
-  async setup_and_await_activation_string(): Promise<string> {
+  async setupAndAwaitActivationString(): Promise<string> {
     const data = await firstValueFrom(
       this.http.post('/api/setup/setup_first_operator', this.model),
     );
@@ -48,7 +55,7 @@ export class OnceComponent {
   }
 
   onSubmit() {
-    this.setup_and_await_activation_string().then((activationString) => {
+    this.setupAndAwaitActivationString().then((activationString) => {
       this.router.navigate([`activation/${activationString}`]).then((_) => {});
     });
   }
