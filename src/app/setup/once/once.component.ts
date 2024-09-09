@@ -30,7 +30,6 @@ import { DetectorService } from '../detector/detector.service';
     SubmitComponent,
   ],
   templateUrl: './once.component.html',
-  styleUrl: './once.component.css',
 })
 export class OnceComponent {
   model = FirstOperator.createEmpty();

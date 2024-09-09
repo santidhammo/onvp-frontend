@@ -4,13 +4,13 @@ import { DetectorService } from './setup/detector/detector.service';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { OnceComponent } from './setup/once/once.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
+import { LoginService } from './security/login.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, NgIf, AsyncPipe, OnceComponent, MenuBarComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
   providers: [DetectorService],
 })
 export class AppComponent {
@@ -18,6 +18,7 @@ export class AppComponent {
 
   constructor(
     protected setupDetector: DetectorService,
+    protected loginService: LoginService,
     protected router: Router,
     private route: ActivatedRoute,
   ) {
@@ -28,5 +29,8 @@ export class AppComponent {
         }
       });
     }
+
+    this.loginService.testLogin().finally(null);
+    setInterval(() => this.loginService.testLogin().finally(null), 60000);
   }
 }

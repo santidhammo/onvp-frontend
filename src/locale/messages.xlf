@@ -69,11 +69,18 @@
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="9089808677255101366" datatype="html">
+        <source>Edit Configuration</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/menu-bar/menu-bar.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="2454050363478003966" datatype="html">
         <source>Login</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/menu-bar/menu-bar.component.html</context>
-          <context context-type="linenumber">9,10</context>
+          <context context-type="linenumber">18,19</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/route/login/login.component.html</context>
@@ -84,7 +91,7 @@
         <source>Logout</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/menu-bar/menu-bar.component.html</context>
-          <context context-type="linenumber">12,13</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5025709138959449988" datatype="html">
