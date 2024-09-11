@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-3">
+    <div
+      class="nav flex-column nav-pills"
+      id="v-pills-tab"
+      role="tablist"
+      aria-orientation="vertical"
+    >
+      <button
+        class="nav-link {{
+          (observeConfigMode() | async) == 'general' ? 'active' : ''
+        }}"
+        role="tab"
+        (click)="switchConfig('general')"
+        i18n
+      >
+        General
+      </button>
+      <button
+        class="nav-link {{
+          (observeConfigMode() | async) == 'members' ? 'active' : ''
+        }}"
+        role="tab"
+        (click)="switchConfig('members')"
+        i18n
+      >
+        Members
+      </button>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="tab-content">
+      <div *ngIf="(observeConfigMode() | async) == 'general'">
+        Cillum ad ut irure tempor velit nostrud occaecat ullamco aliqua anim
+        Lorem sint. Veniam sint duis incididunt do esse magna mollit excepteur
+        laborum qui. Id id reprehenderit sit est eu aliqua occaecat quis et
+        velit excepteur laborum mollit dolore eiusmod. Ipsum dolor in occaecat
+        commodo et voluptate minim reprehenderit mollit pariatur. Deserunt non
+        laborum enim et cillum eu deserunt excepteur ea incididunt minim
+        occaecat.
+      </div>
+      <config-members *ngIf="(observeConfigMode() | async) == 'members'" />
+    </div>
+  </div>
+</div>

@@ -5,7 +5,7 @@ import {
   Optional,
   Self,
 } from '@angular/core';
-import { NgForOf, NgIf } from '@angular/common';
+import { NgClass, NgForOf, NgIf } from '@angular/common';
 import {
   ControlValueAccessor,
   FormsModule,
@@ -17,9 +17,8 @@ import { ErrorsService } from '../errors.service';
 @Component({
   selector: 'form-text-entry',
   standalone: true,
-  imports: [NgIf, ReactiveFormsModule, FormsModule, NgForOf],
+  imports: [NgIf, ReactiveFormsModule, FormsModule, NgForOf, NgClass],
   templateUrl: './text-entry.component.html',
-  styleUrl: './text-entry.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ErrorsService],
 })
@@ -27,6 +26,7 @@ export class TextEntryComponent implements ControlValueAccessor {
   @Input({ required: true }) name!: string;
   @Input() title!: string;
   @Input() disabled: boolean = false;
+  @Input() labelLeft: boolean = false;
 
   protected displayInvalid: boolean = false;
   protected value: any = null;

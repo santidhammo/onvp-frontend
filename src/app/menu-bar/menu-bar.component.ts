@@ -8,7 +8,6 @@ import { AsyncPipe, NgIf } from '@angular/common';
   standalone: true,
   imports: [RouterLink, AsyncPipe, NgIf],
   templateUrl: './menu-bar.component.html',
-  styleUrl: './menu-bar.component.css',
 })
 export class MenuBarComponent {
   constructor(public loginService: LoginService) {}

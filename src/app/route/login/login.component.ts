@@ -29,7 +29,6 @@ import { LoginService } from '../../security/login.service';
     NgIf,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
 })
 export class LoginComponent {
   model = new LoginData();

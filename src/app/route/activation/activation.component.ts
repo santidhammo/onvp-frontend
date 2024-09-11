@@ -25,7 +25,6 @@ import { TokenData } from '../../security/token-data';
     TextEntryComponent,
   ],
   templateUrl: './activation.component.html',
-  styleUrl: './activation.component.css',
 })
 export class ActivationComponent {
   protected model: TokenData = new TokenData();

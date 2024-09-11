@@ -1,0 +1,47 @@
+<form #searchForm="ngForm" (ngSubmit)="doSearch()">
+  <div class="container">
+    <div class="row">
+      <div class="col col-8">
+        <form-text-entry
+          title="Search"
+          i18n-title
+          name="query"
+          [(ngModel)]="nameQuery"
+          [labelLeft]="true"
+        />
+      </div>
+      <div class="col col-2">
+        <form-submit />
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <table
+    class="table table-striped"
+    *ngIf="(observeRows() | async)?.length !== 0"
+  >
+    <thead>
+      <tr>
+        <th i18n>First Name</th>
+        <th i18n>Last Name</th>
+        <th i18n>Email Address</th>
+        <th i18n>Phone Number</th>
+      </tr>
+    </thead>
+
+    <tbody *ngFor="let row of observeRows() | async">
+      <tr>
+        <td>{{ row.firstName }}</td>
+        <td>{{ row.lastName }}</td>
+        <td>{{ row.emailAddress }}</td>
+        <td>{{ row.phoneNumber }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert-info" *ngIf="(observeRows() | async)?.length === 0" i18n>
+    No results available
+  </div>
+</form>
