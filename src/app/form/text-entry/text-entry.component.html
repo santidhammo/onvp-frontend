@@ -2,7 +2,7 @@
   <label
     [for]="name"
     class="control-label"
-    *ngIf="title !== null && title.length > 0"
+    *ngIf="title !== null && title.length > 0 && inputType != 'hidden'"
     [ngClass]="{ 'col-1 align-self-center d-block': labelLeft }"
     >{{ title }}</label
   >
@@ -45,7 +45,7 @@
       (change)="onChange(value)"
       #model="ngModel"
       (focusout)="displayInvalid = true"
-      *ngIf="inputType == 'number'"
+      *ngIf="inputType == 'hidden'"
     />
   </div>
 

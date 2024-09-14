@@ -11,10 +11,16 @@ export class RequestErrorHandlerService {
   constructor() {}
 
   handle(error: HttpErrorResponse) {
-    if (error.status === 0) {
-      this.errorsSource.next($localize`An error occurred: ${error.error}`);
+    console.log(error);
+    let errorObject = error.error;
+    if (errorObject.kind === 'BAD_REQUEST') {
+      this.errorsSource.next($localize`Error requesting the server for data`);
+    } else if (errorObject.message === '') {
+      this.errorsSource.next($localize`Unknown error occurred`);
     } else {
-      this.errorsSource.next(error.error);
+      this.errorsSource.next(
+        $localize`Server returned error: ${errorObject.message}`,
+      );
     }
   }
 

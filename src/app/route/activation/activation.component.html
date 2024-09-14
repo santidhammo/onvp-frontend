@@ -9,12 +9,13 @@
 
       <dialog-body>
         <img
-          src="{{ activationBase64Png$ | async }}"
+          src="{{ observeActivationBase64Png() | async }}"
           alt="Activation QR Code"
           i18n-alt
         />
 
         <form-text-entry
+          title="Activation String"
           name="activationString"
           inputType="hidden"
           [(ngModel)]="model.activationString"
@@ -30,6 +31,9 @@
           maxlength="6"
         />
       </dialog-body>
+      <dialog-footer>
+        <form-submit [disabled]="activationForm.invalid" />
+      </dialog-footer>
     </app-dialog>
   </div>
 </form>

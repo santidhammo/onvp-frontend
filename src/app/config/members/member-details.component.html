@@ -24,21 +24,83 @@
   >
     <thead>
       <tr>
+        <th>ID</th>
         <th i18n>First Name</th>
         <th i18n>Last Name</th>
         <th i18n>Email Address</th>
         <th i18n>Phone Number</th>
+        <th i18n>Actions</th>
       </tr>
     </thead>
 
     <tbody *ngFor="let row of observeRows() | async">
       <tr>
-        <td>{{ row.firstName }}</td>
-        <td>{{ row.lastName }}</td>
-        <td>{{ row.emailAddress }}</td>
-        <td>{{ row.phoneNumber }}</td>
+        <td class="align-middle">
+          <span [ngClass]="{ 'text-muted': !row.activated }">{{ row.id }}</span>
+        </td>
+        <td class="align-middle">
+          <span [ngClass]="{ 'text-muted': !row.activated }">{{
+            row.firstName
+          }}</span>
+        </td>
+        <td class="align-middle">
+          <span [ngClass]="{ 'text-muted': !row.activated }">{{
+            row.lastName
+          }}</span>
+        </td>
+        <td class="align-middle">
+          <span [ngClass]="{ 'text-muted': !row.activated }">
+            {{ row.emailAddress }}</span
+          >
+        </td>
+        <td class="align-middle">
+          <span [ngClass]="{ 'text-muted': !row.activated }">
+            {{ row.phoneNumber }}</span
+          >
+        </td>
+        <td>
+          <div class="btn-group">
+            <a
+              routerLink="config/edit-member/{{ row.id }}"
+              class="btn btn-secondary"
+            >
+              📝
+            </a>
+          </div>
+        </td>
       </tr>
     </tbody>
+
+    <tfoot>
+      <tr>
+        <td colspan="6" class="align-items-center">
+          <nav
+            aria-label="Page navigation example"
+            *ngIf="observePageCount() | async as resultPage"
+          >
+            <ul
+              class="pagination"
+              *ngFor="let navigatorPage of observeNavigatorPages() | async"
+            >
+              <li class="page-item" *ngIf="resultPage > 1">
+                <a
+                  class="page-link"
+                  (click)="page = navigatorPage.pageNumber"
+                  [attr.aria-label]="navigatorPage.pageNumber.toString()"
+                >
+                  <span *ngIf="navigatorPage.isStart">&laquo;</span>
+                  <span
+                    *ngIf="!(navigatorPage.isStart || navigatorPage.isEnd)"
+                    >{{ navigatorPage.pageNumber }}</span
+                  >
+                  <span *ngIf="navigatorPage.isEnd">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </td>
+      </tr>
+    </tfoot>
   </table>
 
   <div class="alert-info" *ngIf="(observeRows() | async)?.length === 0" i18n>

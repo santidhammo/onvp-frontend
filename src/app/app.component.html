@@ -1,7 +1,28 @@
 <main class="main">
   <app-menu-bar></app-menu-bar>
 
-  <div class="m-3">
+  <form
+    #errorForm="ngForm"
+    (ngSubmit)="this.requestErrorHandlerService.clearError()"
+    *ngIf="requestErrorHandlerService.observeErrors() | async as error"
+  >
+    <div class="modal" style="display: block">
+      <div class="modal-dialog alert alert-danger">
+        <div class="modal-content">
+          <dialog-header i18n-title title="An error occurred" />
+          <dialog-explanation [explanation]="error" />
+          <dialog-footer>
+            <form-submit title="Close" i18n-title [disabled]="false" />
+          </dialog-footer>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div
+    class="m-3"
+    *ngIf="!(requestErrorHandlerService.observeErrors() | async)"
+  >
     <router-outlet />
   </div>
 </main>

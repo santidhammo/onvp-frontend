@@ -2,8 +2,8 @@ import { Component, output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, switchMap, take } from 'rxjs/operators';
 import { AsyncPipe } from '@angular/common';
-import { firstValueFrom, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, firstValueFrom, Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BodyComponent } from '../../dialog/body/body.component';
 import { DialogComponent } from '../../dialog/dialog.component';
 import { ExplanationComponent } from '../../dialog/explanation/explanation.component';
@@ -11,6 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../../dialog/header/header.component';
 import { TextEntryComponent } from '../../form/text-entry/text-entry.component';
 import { TokenData } from '../../security/token-data';
+import { FooterComponent } from '../../dialog/footer/footer.component';
+import { SubmitComponent } from '../../form/submit/submit.component';
+import { waitForAsync } from '@angular/core/testing';
+import { RequestErrorHandlerService } from '../../generic/request-error-handler.service';
 
 @Component({
   selector: 'route-activation',
@@ -23,42 +27,54 @@ import { TokenData } from '../../security/token-data';
     FormsModule,
     HeaderComponent,
     TextEntryComponent,
+    FooterComponent,
+    SubmitComponent,
   ],
   templateUrl: './activation.component.html',
 })
 export class ActivationComponent {
   protected model: TokenData = new TokenData();
-  protected activationString$!: Observable<String>;
-  protected activationBase64Png$!: Observable<string>;
+  private activationBase64PngSource = new BehaviorSubject<string>('');
 
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
     private router: Router,
+    private requestErrorHandlerService: RequestErrorHandlerService,
   ) {}
 
-  ngOnInit() {
-    this.activationString$ = this.route.paramMap.pipe(
-      map((params) => {
-        const result = String(params.get('activationString'));
-        this.model.activationString = result;
-        return result;
-      }),
-    );
+  async ngOnInit() {
+    const params = await firstValueFrom(this.route.paramMap);
+    const activationString = String(params.get('activationString'));
 
-    this.activationBase64Png$ = this.activationString$
-      .pipe(
-        switchMap((activationString) =>
-          this.http.get(`/api/members/activation/code/${activationString}`),
-        ),
-      )
-      .pipe(map((pngData) => 'data:image/png;base64, ' + String(pngData)));
+    try {
+      const pngData =
+        'data:image/png;base64, ' +
+        (await firstValueFrom(
+          this.http.get<string>(
+            `/api/members/activation/code/${activationString}`,
+          ),
+        ));
+      this.model.activationString = activationString;
+      this.activationBase64PngSource.next(pngData);
+    } catch (error) {
+      await this.router.navigate(['']);
+      this.requestErrorHandlerService.handle(error as HttpErrorResponse);
+    }
+  }
+
+  public observeActivationBase64Png(): Observable<string> {
+    return this.activationBase64PngSource.asObservable();
   }
 
   async await_activation(): Promise<void> {
-    await firstValueFrom(
-      this.http.post('/api/members/activation/activate', this.model),
-    );
+    try {
+      await firstValueFrom(
+        this.http.post('/api/members/activation/activate', this.model),
+      );
+    } catch (error) {
+      this.requestErrorHandlerService.handle(error as HttpErrorResponse);
+    }
   }
 
   onSubmit() {

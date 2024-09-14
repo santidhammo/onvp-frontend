@@ -5,7 +5,7 @@ import {
   HttpParams,
 } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { MemberDetail } from '../interfaces/member-detail';
+import { MemberWithDetail } from '../interfaces/member-with-detail';
 import { SearchResult } from '../interfaces/search-result';
 import { RequestErrorHandlerService } from '../generic/request-error-handler.service';
 
@@ -21,14 +21,14 @@ export class MembersService {
   async searchMemberDetails(
     query: string,
     pageOffset: number,
-  ): Promise<SearchResult<MemberDetail>> {
+  ): Promise<SearchResult<MemberWithDetail>> {
     {
       try {
         const baseParams = new HttpParams()
           .set('q', query)
           .set('p', pageOffset);
         return await firstValueFrom(
-          this.http.get<SearchResult<MemberDetail>>(
+          this.http.get<SearchResult<MemberWithDetail>>(
             '/api/members/search_member_details',
             {
               params: baseParams,
