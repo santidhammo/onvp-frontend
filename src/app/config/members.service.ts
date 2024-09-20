@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, output } from '@angular/core';
 import {
   HttpClient,
   HttpErrorResponse,
@@ -39,6 +39,33 @@ export class MembersService {
         this.requestErrorHandlerService.handle(error as HttpErrorResponse);
         throw error;
       }
+    }
+  }
+
+  async getMemberWithDetailByIdAsync(id: number): Promise<MemberWithDetail> {
+    try {
+      return await firstValueFrom(
+        this.http.get<MemberWithDetail>(
+          `/api/members/member_with_detail/${id}`,
+        ),
+      );
+    } catch (error) {
+      this.requestErrorHandlerService.handle(error as HttpErrorResponse);
+      throw error;
+    }
+  }
+
+  async saveMember(data: MemberWithDetail): Promise<void> {
+    try {
+      await firstValueFrom(
+        this.http.post<MemberWithDetail>(
+          `/api/members/member_with_detail`,
+          data,
+        ),
+      );
+    } catch (error) {
+      this.requestErrorHandlerService.handle(error as HttpErrorResponse);
+      throw error;
     }
   }
 }

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MembersService } from '../members.service';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, last, Observable } from 'rxjs';
 import { MemberWithDetail } from '../../interfaces/member-with-detail';
 import { TextEntryComponent } from '../../form/text-entry/text-entry.component';
 import { FormsModule } from '@angular/forms';
@@ -8,6 +8,8 @@ import { SubmitComponent } from '../../form/submit/submit.component';
 import { AsyncPipe, NgClass, NgForOf, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NavigatorPage } from '../../generic/navigator-page';
+import { EditMemberComponent } from '../edit-member/edit-member.component';
+import { EditMemberWithDetailModelService } from '../edit-member-with-detail-model.service';
 
 @Component({
   selector: 'config-members',
@@ -21,65 +23,75 @@ import { NavigatorPage } from '../../generic/navigator-page';
     NgIf,
     NgClass,
     RouterLink,
+    EditMemberComponent,
   ],
   templateUrl: './member-details.component.html',
 })
 export class MemberDetailsComponent {
-  private totalCountSource = new BehaviorSubject<number | null>(null);
-  private pageSource = new BehaviorSubject<number | null>(null);
-  private pageCountSource = new BehaviorSubject<number>(0);
-  private rowsSource = new BehaviorSubject<MemberWithDetail[]>([]);
-  private navigatorPagesSource = new BehaviorSubject<NavigatorPage[]>([]);
+  private totalCount$ = new BehaviorSubject<number | null>(null);
+  private page$ = new BehaviorSubject<number | null>(null);
+  private pageCount$ = new BehaviorSubject<number>(0);
+  private rows$ = new BehaviorSubject<MemberWithDetail[]>([]);
+  private navigatorPages$ = new BehaviorSubject<NavigatorPage[]>([]);
 
-  page: number = 1;
-  // TODO: Need to get this from some kind of input field
-  nameQuery: string | null = null;
+  nameQuery: string = '';
+  constructor(
+    private memberService: MembersService,
+    protected editMemberWithDetailModelService: EditMemberWithDetailModelService,
+  ) {}
 
-  constructor(private memberService: MembersService) {}
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.doSearch();
+  }
 
   observeTotalCount(): Observable<number | null> {
-    return this.totalCountSource.asObservable();
+    return this.totalCount$.asObservable();
   }
 
   observePage(): Observable<number | null> {
-    return this.pageSource.asObservable();
+    return this.page$.asObservable();
   }
 
   observePageCount(): Observable<number> {
-    return this.pageCountSource.asObservable();
+    return this.pageCount$.asObservable();
   }
 
   observeRows(): Observable<MemberWithDetail[]> {
-    return this.rowsSource.asObservable();
+    return this.rows$.asObservable();
   }
 
   observeNavigatorPages(): Observable<NavigatorPage[]> {
-    return this.navigatorPagesSource.asObservable();
+    return this.navigatorPages$.asObservable();
   }
 
-  protected doSearch() {
-    if (this.nameQuery != null && this.nameQuery.length > 0) {
-      this.memberService
-        .searchMemberDetails(this.nameQuery, this.page - 1)
-        .then((result) => {
-          let page = result.pageOffset + 1;
-          this.pageSource.next(page);
-          this.pageCountSource.next(result.pageCount);
-          this.totalCountSource.next(result.totalCount);
-          this.rowsSource.next(result.rows);
-
-          const startPage = Math.max(1, page - 5);
-          const endPage = Math.min(page + 5, result.pageCount);
-          let navigator = [];
-          for (let i = startPage; i <= endPage; i++) {
-            navigator.push(
-              new NavigatorPage(i, i === page, i === startPage, i === endPage),
-            );
-          }
-          this.navigatorPagesSource.next(navigator);
-        });
+  refreshSearch() {
+    const lastPage = this.page$.getValue();
+    if (lastPage !== null) {
+      this.doSearch(lastPage);
+    } else {
+      this.doSearch();
     }
+  }
+
+  doSearch(pageNumber: number = 1) {
+    this.memberService
+      .searchMemberDetails(this.nameQuery, pageNumber - 1)
+      .then((result) => {
+        let page = result.pageOffset + 1;
+        this.page$.next(page);
+        this.pageCount$.next(result.pageCount);
+        this.totalCount$.next(result.totalCount);
+        this.rows$.next(result.rows);
+
+        const startPage = Math.max(1, page - 5);
+        const endPage = Math.min(page + 5, result.pageCount);
+        let navigator = [];
+        for (let i = startPage; i <= endPage; i++) {
+          navigator.push(
+            new NavigatorPage(i, i === page, i === startPage, i === endPage),
+          );
+        }
+        this.navigatorPages$.next(navigator);
+      });
   }
 }

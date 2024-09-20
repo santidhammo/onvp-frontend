@@ -1,0 +1,43 @@
+<form #memberWithDetailForm="ngForm" (ngSubmit)="submit($event)">
+  <app-dialog>
+    <dialog-header title="Edit Member" i18n-title />
+    <dialog-body>
+      <form-text-entry
+        name="firstName"
+        title="First Name"
+        i18n-title
+        [(ngModel)]="model.firstName"
+        required
+      />
+
+      <form-text-entry
+        name="lastName"
+        title="Last Name"
+        i18n-title
+        [(ngModel)]="model.lastName"
+        required
+      />
+
+      <form-text-entry
+        name="emailAddress"
+        title="Email Address"
+        i18n-title
+        [(ngModel)]="model.emailAddress"
+        required
+        email
+      />
+
+      <form-text-entry
+        name="phoneNumber"
+        title="Phone Number"
+        i18n-title
+        [(ngModel)]="model.phoneNumber"
+        required
+      />
+    </dialog-body>
+    <dialog-footer>
+      <form-cancel />
+      <form-submit [disabled]="memberWithDetailForm.invalid" />
+    </dialog-footer>
+  </app-dialog>
+</form>

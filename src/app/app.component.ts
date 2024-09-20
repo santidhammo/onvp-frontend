@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  NavigationStart,
+  Router,
+  RouterOutlet,
+} from '@angular/router';
 import { DetectorService } from './setup/detector/detector.service';
-import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
+import { AsyncPipe, Location, NgForOf, NgIf } from '@angular/common';
 import { OnceComponent } from './setup/once/once.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { LoginService } from './security/login.service';
@@ -41,7 +47,7 @@ export class AppComponent {
     protected loginService: LoginService,
     protected requestErrorHandlerService: RequestErrorHandlerService,
     protected router: Router,
-    private route: ActivatedRoute,
+    protected route: ActivatedRoute,
   ) {
     if (route.component != OnceComponent) {
       this.setupDetector.shouldSetup().then((should) => {
@@ -53,5 +59,17 @@ export class AppComponent {
 
     this.loginService.testLogin().finally(null);
     setInterval(() => this.loginService.testLogin().finally(null), 60000);
+
+    router.events.subscribe((event) => {
+      console.log(event);
+      if (event instanceof NavigationStart) {
+        this.requestErrorHandlerService.clearError();
+      }
+    });
+  }
+
+  clearErrorMaybeRetry() {
+    this.requestErrorHandlerService.clearError();
+    window.location.reload();
   }
 }

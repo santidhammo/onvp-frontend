@@ -16,6 +16,27 @@
           <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="7585826646011739428" datatype="html">
+        <source>Bewerken</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/config/members/member-details.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7934833136974560675" datatype="html">
+        <source>Opnieuw</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5605993045193979158" datatype="html">
+        <source>Lid Bewerken</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/config/edit-member/edit-member.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="486981110227978885" datatype="html">
         <source><x id="PH" equiv-text="title"/> heeft het verkeerde e-mailadresformaat</source>
         <context-group purpose="location">
@@ -242,6 +263,91 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/menu-bar/menu-bar.component.html</context>
           <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8952723263254348159" datatype="html">
+        <source>Fout bij het bevragen van data aan de dienstverlener</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/generic/request-error-handler.service.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7344916272817440707" datatype="html">
+        <source>Dienstverlener heeft de volgende foutmelding gegeven: <x id="PH" equiv-text="error.message"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/generic/request-error-handler.service.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/generic/request-error-handler.service.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/generic/request-error-handler.service.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1774861783268079974" datatype="html">
+        <source>Er is een onbekende fout voorgekomen</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/generic/request-error-handler.service.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2800474005706891314" datatype="html">
+        <source> Inloggen mislukt </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/route/login/login.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2159130950882492111" datatype="html">
+        <source>Annuleren</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/cancel/cancel.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4580988005648117665" datatype="html">
+        <source>Zoeken</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/config/members/member-details.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3193976279273491157" datatype="html">
+        <source>Acties</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/config/members/member-details.component.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2930742510712560730" datatype="html">
+        <source> Geen resultaten gevonden </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/config/members/member-details.component.html</context>
+          <context context-type="linenumber">107,108</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="836321179652220398" datatype="html">
+        <source> Algemeen </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/route/config/config.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2415344939350446162" datatype="html">
+        <source> Leden </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/route/config/config.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7065464372847182937" datatype="html">
+        <source>Er is een fout voorgekomen</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">12,13</context>
         </context-group>
       </trans-unit>
     </body>

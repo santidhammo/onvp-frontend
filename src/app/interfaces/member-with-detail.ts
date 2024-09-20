@@ -5,6 +5,6 @@ export interface MemberWithDetail {
   emailAddress: string;
   phoneNumber: string;
   activated: boolean;
-  musicalInstrumentId: number;
-  pictureAssetId: number;
+  musicalInstrumentId: number | null;
+  pictureAssetId: number | null;
 }

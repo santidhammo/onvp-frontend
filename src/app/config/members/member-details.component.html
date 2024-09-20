@@ -61,10 +61,12 @@
         <td>
           <div class="btn-group">
             <a
-              routerLink="config/edit-member/{{ row.id }}"
-              class="btn btn-secondary"
+              (click)="editMemberWithDetailModelService.startEditMember(row.id)"
+              class="btn btn-outline-primary"
+              aria-label="Edit"
+              i18n-aria-label
             >
-              📝
+              ...
             </a>
           </div>
         </td>
@@ -74,19 +76,19 @@
     <tfoot>
       <tr>
         <td colspan="6" class="align-items-center">
-          <nav
-            aria-label="Page navigation example"
-            *ngIf="observePageCount() | async as resultPage"
-          >
-            <ul
-              class="pagination"
-              *ngFor="let navigatorPage of observeNavigatorPages() | async"
-            >
-              <li class="page-item" *ngIf="resultPage > 1">
+          <nav *ngIf="observePageCount() | async as pageCount">
+            <ul class="pagination" *ngIf="pageCount > 1">
+              <li
+                class="page-item"
+                *ngFor="let navigatorPage of observeNavigatorPages() | async"
+              >
                 <a
                   class="page-link"
-                  (click)="page = navigatorPage.pageNumber"
+                  (click)="doSearch(navigatorPage.pageNumber)"
                   [attr.aria-label]="navigatorPage.pageNumber.toString()"
+                  [ngClass]="{
+                    active: (observePage() | async) == navigatorPage.pageNumber,
+                  }"
                 >
                   <span *ngIf="navigatorPage.isStart">&laquo;</span>
                   <span
@@ -106,4 +108,11 @@
   <div class="alert-info" *ngIf="(observeRows() | async)?.length === 0" i18n>
     No results available
   </div>
+
+  <config-edit-member
+    *ngIf="
+      (editMemberWithDetailModelService.observeEditMember() | async) !== null
+    "
+    (onSaved)="refreshSearch()"
+  ></config-edit-member>
 </form>

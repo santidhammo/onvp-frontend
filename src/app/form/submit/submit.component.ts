@@ -10,6 +10,7 @@ import { FormGroup } from '@angular/forms';
 export class SubmitComponent {
   @Input() disabled: boolean | null = null;
   @Input() title: string | null = null;
+  @Input() name: string | null = null;
 
   getTitle(): string {
     return this.title === null ? $localize`Submit` : this.title;

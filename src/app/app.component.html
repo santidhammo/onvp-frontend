@@ -3,7 +3,7 @@
 
   <form
     #errorForm="ngForm"
-    (ngSubmit)="this.requestErrorHandlerService.clearError()"
+    (ngSubmit)="clearErrorMaybeRetry()"
     *ngIf="requestErrorHandlerService.observeErrors() | async as error"
   >
     <div class="modal" style="display: block">
@@ -12,7 +12,7 @@
           <dialog-header i18n-title title="An error occurred" />
           <dialog-explanation [explanation]="error" />
           <dialog-footer>
-            <form-submit title="Close" i18n-title [disabled]="false" />
+            <form-submit title="Retry" i18n-title name="retry" />
           </dialog-footer>
         </div>
       </div>
