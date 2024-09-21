@@ -16,6 +16,20 @@
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="4907348924287251930" datatype="html">
+        <source>Edit Member Picture</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/config/edit-member-picture/edit-member-picture.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8399469779273227421" datatype="html">
+        <source>Picture of the member</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/config/edit-member-picture/edit-member-picture.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="5605993045193979158" datatype="html">
         <source>Edit Member</source>
         <context-group purpose="location">
@@ -105,14 +119,21 @@
         <source>Edit</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/config/members/member-details.component.html</context>
-          <context context-type="linenumber">67</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8757632046177548463" datatype="html">
+        <source>Profile Picture</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/config/members/member-details.component.html</context>
+          <context context-type="linenumber">73,74</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2930742510712560730" datatype="html">
         <source> No results available </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/config/members/member-details.component.html</context>
-          <context context-type="linenumber">109,110</context>
+          <context context-type="linenumber">113,114</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2159130950882492111" datatype="html">

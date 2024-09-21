@@ -1,0 +1,25 @@
+<form #memberPictureForm="ngForm" (ngSubmit)="submit($event)">
+  <app-dialog>
+    <dialog-header title="Edit Member Picture" i18n-title />
+    <dialog-body>
+      <div class="text-center" *ngIf="observePictureUrl() | async as url">
+        <img
+          class="rounded"
+          [ngSrc]="url"
+          alt="Picture of the member"
+          i18n-alt
+          [width]="413 / 2.5"
+          [height]="531 / 2.5"
+        />
+
+        <hr />
+      </div>
+
+      <input type="file" (change)="onPictureSelected($event)" />
+    </dialog-body>
+    <dialog-footer>
+      <form-cancel />
+      <form-submit [disabled]="selectedFile === null" />
+    </dialog-footer>
+  </app-dialog>
+</form>

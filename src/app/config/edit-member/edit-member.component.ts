@@ -47,7 +47,7 @@ export class EditMemberComponent {
   async submit(event: SubmitEvent): Promise<void> {
     const submitter = event.submitter as HTMLFormElement;
     if (submitter.name === 'cancel') {
-      this.editMemberWithDetailModelService.stopEditMember();
+      this.editMemberWithDetailModelService.stopEdit();
     } else {
       await this.editMemberWithDetailModelService.save(this.model);
       this.onSaved.emit();

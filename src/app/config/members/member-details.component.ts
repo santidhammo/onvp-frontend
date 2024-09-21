@@ -10,6 +10,8 @@ import { RouterLink } from '@angular/router';
 import { NavigatorPage } from '../../generic/navigator-page';
 import { EditMemberComponent } from '../edit-member/edit-member.component';
 import { EditMemberWithDetailModelService } from '../edit-member-with-detail-model.service';
+import { EditMemberPictureService } from '../edit-member-picture.service';
+import { EditMemberPictureComponent } from '../edit-member-picture/edit-member-picture.component';
 
 @Component({
   selector: 'config-members',
@@ -24,6 +26,7 @@ import { EditMemberWithDetailModelService } from '../edit-member-with-detail-mod
     NgClass,
     RouterLink,
     EditMemberComponent,
+    EditMemberPictureComponent,
   ],
   templateUrl: './member-details.component.html',
 })
@@ -38,6 +41,7 @@ export class MemberDetailsComponent {
   constructor(
     private memberService: MembersService,
     protected editMemberWithDetailModelService: EditMemberWithDetailModelService,
+    protected editMemberPictureService: EditMemberPictureService,
   ) {}
 
   ngOnInit() {

@@ -68,4 +68,26 @@ export class MembersService {
       throw error;
     }
   }
+
+  async getMemberPictureAssetIdAsync(id: number): Promise<string | null> {
+    try {
+      return await firstValueFrom(
+        this.http.get<string | null>(`/api/members/member_picture/${id}`),
+      );
+    } catch (error) {
+      this.requestErrorHandlerService.handle(error as HttpErrorResponse);
+      throw error;
+    }
+  }
+
+  async savePictureAsset(file: File, id: number) {
+    try {
+      await firstValueFrom(
+        this.http.post<null>(`/api/members/member_picture/${id}`, file),
+      );
+    } catch (error) {
+      this.requestErrorHandlerService.handle(error as HttpErrorResponse);
+      throw error;
+    }
+  }
 }

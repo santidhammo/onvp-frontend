@@ -61,13 +61,17 @@
         <td>
           <div class="btn-group">
             <a
-              (click)="editMemberWithDetailModelService.startEditMember(row.id)"
+              (click)="editMemberWithDetailModelService.startEdit(row.id)"
               class="btn btn-outline-primary"
-              aria-label="Edit"
-              i18n-aria-label
+              i18n
+              >Edit</a
             >
-              ...
-            </a>
+            <a
+              (click)="editMemberPictureService.startEdit(row.id)"
+              class="btn btn-outline-primary"
+              i18n
+              >Profile Picture</a
+            >
           </div>
         </td>
       </tr>
@@ -115,4 +119,9 @@
     "
     (onSaved)="refreshSearch()"
   ></config-edit-member>
+
+  <config-edit-member-picture
+    *ngIf="(editMemberPictureService.observeEditMemberId() | async) !== null"
+  >
+  </config-edit-member-picture>
 </form>

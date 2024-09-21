@@ -14,7 +14,7 @@ export class EditMemberWithDetailModelService {
     null,
   );
 
-  startEditMember(memberId: number): void {
+  startEdit(memberId: number): void {
     this.membersService
       .getMemberWithDetailByIdAsync(memberId)
       .then((memberWithDetail: MemberWithDetail | null) =>
@@ -22,7 +22,7 @@ export class EditMemberWithDetailModelService {
       );
   }
 
-  stopEditMember() {
+  stopEdit() {
     this.editMemberWithDetail$.next(null);
   }
 
@@ -45,7 +45,7 @@ export class EditMemberWithDetailModelService {
         await this.membersService.saveMember(modified);
       } catch (error) {
       } finally {
-        this.stopEditMember();
+        this.stopEdit();
       }
     }
   }
