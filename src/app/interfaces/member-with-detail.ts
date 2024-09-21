@@ -6,5 +6,5 @@ export interface MemberWithDetail {
   phoneNumber: string;
   activated: boolean;
   musicalInstrumentId: number | null;
-  pictureAssetId: number | null;
+  pictureAssetId: string | null;
 }

@@ -6,7 +6,7 @@ export class MemberWithDetailModel {
   emailAddress!: string;
   phoneNumber!: string;
   musicalInstrumentId!: number | null;
-  pictureAssetId!: number | null;
+  pictureAssetId!: string | null;
 
   constructor() {
     this.setup(null);
