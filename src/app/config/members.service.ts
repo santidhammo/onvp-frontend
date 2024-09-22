@@ -8,6 +8,7 @@ import { firstValueFrom } from 'rxjs';
 import { MemberWithDetail } from '../interfaces/member-with-detail';
 import { SearchResult } from '../interfaces/search-result';
 import { RequestErrorHandlerService } from '../generic/request-error-handler.service';
+import { MemberRegistrationDataModel } from './member-registration-data-model';
 
 @Injectable({
   providedIn: 'root',
@@ -84,6 +85,17 @@ export class MembersService {
     try {
       await firstValueFrom(
         this.http.post<null>(`/api/members/member_picture/${id}`, file),
+      );
+    } catch (error) {
+      this.requestErrorHandlerService.handle(error as HttpErrorResponse);
+      throw error;
+    }
+  }
+
+  async registerMember(model: MemberRegistrationDataModel) {
+    try {
+      const data = await firstValueFrom(
+        this.http.put('/api/members/member', model),
       );
     } catch (error) {
       this.requestErrorHandlerService.handle(error as HttpErrorResponse);

@@ -365,10 +365,38 @@
         </context-group>
       </trans-unit>
       <trans-unit id="8757632046177548463" datatype="html">
-        <source>Profielafbeelding</source>
+        <source><Profielafbeelding></Profielafbeelding></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/config/members/member-details.component.html</context>
           <context context-type="linenumber">73,74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4145388993288653422" datatype="html">
+        <source>Registreer lid</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/config/config-register-member/config-register-member.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="679041050333477369" datatype="html">
+        <source>Dit is het registratiedialoogvenser voor een nieuw lid. Voer de gegevens van het lid in, in het formulier en verstuur. Een e-mail wordt aan het lid gestuurd ter activatie.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/config/config-register-member/config-register-member.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1207234198432054218" datatype="html">
+        <source> Registreer new lid </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/config/members/member-details.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8757632046177548463" datatype="html">
+        <source>Profilefoto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/config/members/member-details.component.html</context>
+          <context context-type="linenumber">84,85</context>
         </context-group>
       </trans-unit>
     </body>

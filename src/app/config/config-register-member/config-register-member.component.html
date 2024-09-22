@@ -1,8 +1,8 @@
-<form #setupForm="ngForm" (ngSubmit)="onSubmit()">
+<form #registrationForm="ngForm" (ngSubmit)="onSubmit($event)">
   <app-dialog>
-    <dialog-header title="Setup" i18n-title />
+    <dialog-header title="Register Member" i18n-title />
     <dialog-explanation
-      explanation="This is the setup process of the ONVP website. Please enter the following details, to startup the website."
+      explanation="This is the registration dialog for a new member. Please enter the details here and submit. An email will be send to the member for further activation"
       i18n-explanation
     />
 
@@ -78,7 +78,8 @@
       />
     </dialog-body>
     <dialog-footer>
-      <form-submit [disabled]="setupForm.invalid" />
+      <form-cancel />
+      <form-submit [disabled]="registrationForm.invalid" />
     </dialog-footer>
   </app-dialog>
 </form>
