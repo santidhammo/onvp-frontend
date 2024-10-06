@@ -6,18 +6,18 @@ import {
   Router,
   RouterOutlet,
 } from '@angular/router';
-import { DetectorService } from './setup/detector/detector.service';
+import { SetupRequestService } from './services/backend/request/setup-request.service';
 import { AsyncPipe, Location, NgForOf, NgIf } from '@angular/common';
-import { OnceComponent } from './setup/once/once.component';
-import { MenuBarComponent } from './menu-bar/menu-bar.component';
-import { LoginService } from './security/login.service';
-import { RequestErrorHandlerService } from './generic/request-error-handler.service';
-import { HeaderComponent } from './dialog/header/header.component';
-import { ExplanationComponent } from './dialog/explanation/explanation.component';
+import { SetupDetectorComponent } from './components/setup/setup-detector.component';
+import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
+import { AuthorizationRequestService } from './services/backend/request/authorization-request.service';
+import { ErrorHandlerService } from './services/handlers/error-handler.service';
+import { HeaderComponent } from './components/dialog/header/header.component';
+import { ExplanationComponent } from './components/dialog/explanation/explanation.component';
 import { FormsModule } from '@angular/forms';
-import { FooterComponent } from './dialog/footer/footer.component';
-import { SubmitComponent } from './form/submit/submit.component';
-import { DialogComponent } from './dialog/dialog.component';
+import { FooterComponent } from './components/dialog/footer/footer.component';
+import { SubmitComponent } from './components/form/submit/submit.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +26,7 @@ import { DialogComponent } from './dialog/dialog.component';
     RouterOutlet,
     NgIf,
     AsyncPipe,
-    OnceComponent,
+    SetupDetectorComponent,
     MenuBarComponent,
     NgForOf,
     HeaderComponent,
@@ -37,19 +37,19 @@ import { DialogComponent } from './dialog/dialog.component';
     DialogComponent,
   ],
   templateUrl: './app.component.html',
-  providers: [DetectorService],
+  providers: [SetupRequestService],
 })
 export class AppComponent {
   title = 'onvp-frontend';
 
   constructor(
-    protected setupDetector: DetectorService,
-    protected loginService: LoginService,
-    protected requestErrorHandlerService: RequestErrorHandlerService,
+    protected setupDetector: SetupRequestService,
+    protected authorizationRequestService: AuthorizationRequestService,
+    protected requestErrorHandlerService: ErrorHandlerService,
     protected router: Router,
     protected route: ActivatedRoute,
   ) {
-    if (route.component != OnceComponent) {
+    if (route.component != SetupDetectorComponent) {
       this.setupDetector.shouldSetup().then((should) => {
         if (should) {
           router.navigate(['setup']).then((_) => {});
@@ -57,11 +57,13 @@ export class AppComponent {
       });
     }
 
-    this.loginService.testLogin().finally(null);
-    setInterval(() => this.loginService.testLogin().finally(null), 60000);
+    this.authorizationRequestService.refresh().finally(null);
+    setInterval(
+      () => this.authorizationRequestService.refresh().finally(null),
+      60000,
+    );
 
     router.events.subscribe((event) => {
-      console.log(event);
       if (event instanceof NavigationStart) {
         this.requestErrorHandlerService.clearError();
       }

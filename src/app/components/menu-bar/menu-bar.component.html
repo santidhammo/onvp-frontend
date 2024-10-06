@@ -1,0 +1,38 @@
+<nav id="menu-bar" class="navbar navbar-expand-sm navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="" i18n>Nieuwe Veste Plus Orchestra</a>
+    <ul class="navbar-nav">
+      <li
+        class="nav-item"
+        *ngIf="
+          authorizationRequestService.observeHasRole(Role.OPERATOR) | async
+        "
+      >
+        <a routerLink="config" class="nav-link link-primary" i18n
+          >Edit Configuration</a
+        >
+      </li>
+      <div class="vr"></div>
+      <li
+        class="nav-item"
+        *ngIf="!(authorizationRequestService.observeAuthorized() | async)"
+      >
+        <a routerLink="login" class="nav-link link-primary" i18n>Login</a>
+      </li>
+      <li
+        class="nav-item"
+        *ngIf="
+          authorizationRequestService.observeAuthorized()
+            | async as authorizationResponse
+        "
+      >
+        <a routerLink="logout" class="nav-link link-primary">
+          <span i18n>Logout</span>&nbsp;
+          <small class="text-muted"
+            >({{ authorizationResponse.member.fullName }})</small
+          >
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

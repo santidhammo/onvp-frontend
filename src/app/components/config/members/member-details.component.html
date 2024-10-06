@@ -1,0 +1,139 @@
+<form #searchForm="ngForm" (ngSubmit)="doSearch()">
+  <div class="container">
+    <div class="row">
+      <div class="col col-8">
+        <form-text-entry
+          title="Search"
+          i18n-title
+          name="query"
+          [(ngModel)]="nameQuery"
+          [labelLeft]="true"
+        />
+      </div>
+      <div class="col col-2">
+        <form-submit />
+      </div>
+    </div>
+  </div>
+</form>
+
+<hr />
+
+<div class="btn-group">
+  <button
+    class="btn btn-outline-primary"
+    (click)="memberRegistrationService.startRegistration()"
+    i18n
+  >
+    Register new member
+  </button>
+</div>
+
+<hr />
+
+<table
+  class="table table-striped"
+  *ngIf="(observeRows() | async)?.length !== 0"
+>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th i18n>First Name</th>
+      <th i18n>Last Name</th>
+      <th i18n>Email Address</th>
+      <th i18n>Phone Number</th>
+      <th i18n>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody *ngFor="let row of observeRows() | async">
+    <tr>
+      <td class="align-middle">
+        <span [ngClass]="{ 'text-muted': !row.activated }">{{ row.id }}</span>
+      </td>
+      <td class="align-middle">
+        <span [ngClass]="{ 'text-muted': !row.activated }">{{
+          row.firstName
+        }}</span>
+      </td>
+      <td class="align-middle">
+        <span [ngClass]="{ 'text-muted': !row.activated }">{{
+          row.lastName
+        }}</span>
+      </td>
+      <td class="align-middle">
+        <span [ngClass]="{ 'text-muted': !row.activated }">
+          {{ row.emailAddress }}</span
+        >
+      </td>
+      <td class="align-middle">
+        <span [ngClass]="{ 'text-muted': !row.activated }">
+          {{ row.phoneNumber }}</span
+        >
+      </td>
+      <td>
+        <div class="btn-group">
+          <a
+            (click)="editMemberId = row.id"
+            class="btn btn-outline-primary"
+            i18n
+            >Edit</a
+          >
+          <a
+            (click)="editMemberPictureService.startEdit(row.id)"
+            class="btn btn-outline-primary"
+            i18n
+            >Profile Picture</a
+          >
+        </div>
+      </td>
+    </tr>
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <td colspan="6" class="align-items-center">
+        <nav *ngIf="observePageCount() | async as pageCount">
+          <ul class="pagination" *ngIf="pageCount > 1">
+            <li
+              class="page-item"
+              *ngFor="let navigatorPage of observeNavigatorPages() | async"
+            >
+              <a
+                class="page-link"
+                (click)="doSearch(navigatorPage.pageNumber)"
+                [attr.aria-label]="navigatorPage.pageNumber.toString()"
+                [ngClass]="{
+                  active: (observePage() | async) == navigatorPage.pageNumber,
+                }"
+              >
+                <span *ngIf="navigatorPage.isStart">&laquo;</span>
+                <span *ngIf="!(navigatorPage.isStart || navigatorPage.isEnd)">{{
+                  navigatorPage.pageNumber
+                }}</span>
+                <span *ngIf="navigatorPage.isEnd">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+
+<div class="alert-info" *ngIf="(observeRows() | async)?.length === 0" i18n>
+  No results available
+</div>
+
+<config-edit-member [editMemberId]="editMemberId" (onSaved)="refreshSearch()" />
+
+<config-edit-member-picture
+  *ngIf="
+    (editMemberPictureService.observeEditMemberPictureAsset() | async) !== null
+  "
+/>
+
+<config-register-member
+  *ngIf="memberRegistrationService.observeRegistrationEnabled() | async"
+  (onSaved)="refreshSearch()"
+/>

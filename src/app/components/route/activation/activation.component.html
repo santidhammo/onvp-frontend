@@ -1,0 +1,37 @@
+<form #activationForm="ngForm" (ngSubmit)="submit()">
+  <app-dialog>
+    <dialog-header title="Member Activation" i18n-title />
+    <dialog-explanation
+      explanation="Please activate your account. Scan the given QR code in your Authentication application, and send the resulting code back to the system. This will activate your account."
+      i18n-explanation
+    />
+
+    <dialog-body>
+      <img
+        src="{{ observeActivationBase64Png() | async }}"
+        alt="Activation QR Code"
+        i18n-alt
+      />
+
+      <form-text-entry
+        title="Activation String"
+        name="activationString"
+        inputType="hidden"
+        [(ngModel)]="model.activationString"
+      />
+
+      <form-text-entry
+        title="Activation Code"
+        i18n-title
+        name="token"
+        [(ngModel)]="model.token"
+        required
+        minlength="6"
+        maxlength="6"
+      />
+    </dialog-body>
+    <dialog-footer>
+      <form-submit [disabled]="activationForm.invalid" />
+    </dialog-footer>
+  </app-dialog>
+</form>
