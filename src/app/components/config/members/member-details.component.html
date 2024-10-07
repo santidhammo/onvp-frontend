@@ -50,6 +50,11 @@
 
 <hr />
 
+<app-paginator
+  [searchResultProvider]="observeSearchResult"
+  (navigateTo)="doSearch($event)"
+/>
+
 <table
   class="table table-striped"
   *ngIf="(observeRows() | async)?.length !== 0"
@@ -108,36 +113,6 @@
       </td>
     </tr>
   </tbody>
-
-  <tfoot>
-    <tr>
-      <td colspan="6" class="align-items-center">
-        <nav *ngIf="observePageCount() | async as pageCount">
-          <ul class="pagination" *ngIf="pageCount > 1">
-            <li
-              class="page-item"
-              *ngFor="let navigatorPage of observeNavigatorPages() | async"
-            >
-              <a
-                class="page-link"
-                (click)="doSearch(navigatorPage.pageNumber)"
-                [attr.aria-label]="navigatorPage.pageNumber.toString()"
-                [ngClass]="{
-                  active: (observePage() | async) == navigatorPage.pageNumber,
-                }"
-              >
-                <span *ngIf="navigatorPage.isStart">&laquo;</span>
-                <span *ngIf="!(navigatorPage.isStart || navigatorPage.isEnd)">{{
-                  navigatorPage.pageNumber
-                }}</span>
-                <span *ngIf="navigatorPage.isEnd">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </td>
-    </tr>
-  </tfoot>
 </table>
 
 <div class="alert-info" *ngIf="(observeRows() | async)?.length === 0" i18n>

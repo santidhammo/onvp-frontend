@@ -31,6 +31,8 @@ import { EditMemberComponent } from '../edit-member/edit-member.component';
 import { EditMemberPictureComponent } from '../edit-member-picture/edit-member-picture.component';
 import { ConfigRegisterMemberComponent } from '../config-register-member/config-register-member.component';
 import { ErrorHandlerService } from '../../../services/handlers/error-handler.service';
+import { SearchResult } from '../../../model/search/search-result';
+import { PaginatorComponent } from '../../search/paginator/paginator.component';
 
 @Component({
   selector: 'config-members',
@@ -47,15 +49,18 @@ import { ErrorHandlerService } from '../../../services/handlers/error-handler.se
     EditMemberComponent,
     EditMemberPictureComponent,
     ConfigRegisterMemberComponent,
+    PaginatorComponent,
   ],
   templateUrl: './member-details.component.html',
 })
 export class MemberDetailsComponent implements OnInit {
-  private totalCount$ = new BehaviorSubject<number | null>(null);
+  // private totalCount$ = new BehaviorSubject<number | null>(null);
   private page$ = new BehaviorSubject<number | null>(null);
-  private pageCount$ = new BehaviorSubject<number>(0);
+  // private pageCount$ = new BehaviorSubject<number>(0);
   private rows$ = new BehaviorSubject<MemberResponse[]>([]);
-  private navigatorPages$ = new BehaviorSubject<NavigatorPage[]>([]);
+  // private navigatorPages$ = new BehaviorSubject<NavigatorPage[]>([]);
+  private searchResult$ =
+    new BehaviorSubject<SearchResult<MemberResponse> | null>(null);
 
   nameQuery: string = '';
   editMemberId: number | null = null;
@@ -71,24 +76,27 @@ export class MemberDetailsComponent implements OnInit {
     this.doSearch();
   }
 
-  observeTotalCount(): Observable<number | null> {
-    return this.totalCount$.asObservable();
-  }
-
-  observePage(): Observable<number | null> {
-    return this.page$.asObservable();
-  }
-
-  observePageCount(): Observable<number> {
-    return this.pageCount$.asObservable();
+  // observeTotalCount(): Observable<number | null> {
+  //   return this.totalCount$.asObservable();
+  // }
+  //
+  // observePage(): Observable<number | null> {
+  //   return this.page$.asObservable();
+  // }
+  //
+  // observePageCount(): Observable<number> {
+  //   return this.pageCount$.asObservable();
+  // }
+  //
+  // observeNavigatorPages(): Observable<NavigatorPage[]> {
+  //   return this.navigatorPages$.asObservable();
+  // }
+  get observeSearchResult(): Observable<SearchResult<MemberResponse> | null> {
+    return this.searchResult$.asObservable();
   }
 
   observeRows(): Observable<MemberResponse[]> {
     return this.rows$.asObservable();
-  }
-
-  observeNavigatorPages(): Observable<NavigatorPage[]> {
-    return this.navigatorPages$.asObservable();
   }
 
   refreshSearch() {
@@ -106,19 +114,20 @@ export class MemberDetailsComponent implements OnInit {
       .then((result) => {
         let page = result.pageOffset + 1;
         this.page$.next(page);
-        this.pageCount$.next(result.pageCount);
-        this.totalCount$.next(result.totalCount);
         this.rows$.next(result.rows);
+        this.searchResult$.next(result);
+        // this.pageCount$.next(result.pageCount);
+        // this.totalCount$.next(result.totalCount);
 
-        const startPage = Math.max(1, page - 5);
-        const endPage = Math.min(page + 5, result.pageCount);
-        let navigator = [];
-        for (let i = startPage; i <= endPage; i++) {
-          navigator.push(
-            new NavigatorPage(i, i === page, i === startPage, i === endPage),
-          );
-        }
-        this.navigatorPages$.next(navigator);
+        // const startPage = Math.max(1, page - 5);
+        // const endPage = Math.min(page + 5, result.pageCount);
+        // let navigator = [];
+        // for (let i = startPage; i <= endPage; i++) {
+        //   navigator.push(
+        //     new NavigatorPage(i, i === page, i === startPage, i === endPage),
+        //   );
+        // }
+        // this.navigatorPages$.next(navigator);
       })
       .catch(this.requestErrorHandlerService.handle);
   }
