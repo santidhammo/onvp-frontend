@@ -25,7 +25,7 @@ you need to first add a package that implements end-to-end testing capabilities.
 
 # Copyright
 
-    ONVP Backend - Backend API provider for the ONVP website
+    ONVP Frontend - Frontend of the ONVP website
     
     Copyright (c) 2024.  Sjoerd van Leent
     
