@@ -1,3 +1,22 @@
+<!--
+  ~  ONVP Backend - Backend API provider for the ONVP website
+  ~
+  ~ Copyright (c) 2024.  Sjoerd van Leent
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
 <form #searchForm="ngForm" (ngSubmit)="doSearch()">
   <div class="container">
     <div class="row">
@@ -22,7 +41,7 @@
 <div class="btn-group">
   <button
     class="btn btn-outline-primary"
-    (click)="memberRegistrationService.startRegistration()"
+    (click)="enableMemberRegistration = true"
     i18n
   >
     Register new member
@@ -80,7 +99,7 @@
             >Edit</a
           >
           <a
-            (click)="editMemberPictureService.startEdit(row.id)"
+            (click)="editPictureMemberId = row.id"
             class="btn btn-outline-primary"
             i18n
             >Profile Picture</a
@@ -125,15 +144,9 @@
   No results available
 </div>
 
-<config-edit-member [editMemberId]="editMemberId" (onSaved)="refreshSearch()" />
-
-<config-edit-member-picture
-  *ngIf="
-    (editMemberPictureService.observeEditMemberPictureAsset() | async) !== null
-  "
-/>
-
+<config-edit-member [memberId]="editMemberId" (onSaved)="refreshSearch()" />
+<config-edit-member-picture [memberId]="editPictureMemberId" />
 <config-register-member
-  *ngIf="memberRegistrationService.observeRegistrationEnabled() | async"
+  [enabled]="enableMemberRegistration"
   (onSaved)="refreshSearch()"
 />

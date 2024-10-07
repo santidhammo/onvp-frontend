@@ -1,4 +1,23 @@
-import { Component } from '@angular/core';
+/*
+ *  ONVP Backend - Backend API provider for the ONVP website
+ *
+ * Copyright (c) 2024.  Sjoerd van Leent
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+import { Component, OnInit } from '@angular/core';
 import { MemberRequestService } from '../../../services/backend/request/member-request.service';
 import { BehaviorSubject, last, Observable } from 'rxjs';
 import { MemberResponse } from '../../../model/responses/member-response';
@@ -7,12 +26,10 @@ import { FormsModule } from '@angular/forms';
 import { SubmitComponent } from '../../form/submit/submit.component';
 import { AsyncPipe, NgClass, NgForOf, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { NavigatorPage } from '../../generic/navigator-page';
+import { NavigatorPage } from '../../../model/search/navigator-page';
 import { EditMemberComponent } from '../edit-member/edit-member.component';
-import { EditMemberPictureService } from '../../../services/member/edit-member-picture.service';
 import { EditMemberPictureComponent } from '../edit-member-picture/edit-member-picture.component';
 import { ConfigRegisterMemberComponent } from '../config-register-member/config-register-member.component';
-import { MemberRegistrationService } from '../../../services/member/member-registration.service';
 import { ErrorHandlerService } from '../../../services/handlers/error-handler.service';
 
 @Component({
@@ -33,7 +50,7 @@ import { ErrorHandlerService } from '../../../services/handlers/error-handler.se
   ],
   templateUrl: './member-details.component.html',
 })
-export class MemberDetailsComponent {
+export class MemberDetailsComponent implements OnInit {
   private totalCount$ = new BehaviorSubject<number | null>(null);
   private page$ = new BehaviorSubject<number | null>(null);
   private pageCount$ = new BehaviorSubject<number>(0);
@@ -42,11 +59,11 @@ export class MemberDetailsComponent {
 
   nameQuery: string = '';
   editMemberId: number | null = null;
+  editPictureMemberId: number | null = null;
+  enableMemberRegistration: boolean = false;
 
   constructor(
     private memberService: MemberRequestService,
-    protected editMemberPictureService: EditMemberPictureService,
-    protected memberRegistrationService: MemberRegistrationService,
     private requestErrorHandlerService: ErrorHandlerService,
   ) {}
 
