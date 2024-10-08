@@ -17,7 +17,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Component, Input, output } from '@angular/core';
+import { Component, input, Input, OnInit, output } from '@angular/core';
 import { BodyComponent } from '../../dialog/body/body.component';
 import { DialogComponent } from '../../dialog/dialog.component';
 import { ExplanationComponent } from '../../dialog/explanation/explanation.component';
@@ -51,26 +51,23 @@ import { AsyncPipe, NgIf } from '@angular/common';
   ],
   templateUrl: './config-register-member.component.html',
 })
-export class ConfigRegisterMemberComponent {
+export class ConfigRegisterMemberComponent implements OnInit {
   constructor(
     private memberCommandService: MemberCommandService,
     private errorHandlerService: ErrorHandlerService,
   ) {}
 
-  enabled$ = new BehaviorSubject<boolean>(false);
+  enabledInput = input.required<Observable<boolean>>();
   onSaved = output();
+  onCancelled = output();
   model = new MemberRegistrationCommand();
 
-  @Input()
-  get enabled(): boolean {
-    return this.enabled$.value;
-  }
-
-  set enabled(enabled: boolean) {
-    if (!enabled) {
-      this.model = new MemberRegistrationCommand();
-    }
-    this.enabled$.next(enabled);
+  ngOnInit() {
+    this.enabledInput().subscribe((enabled) => {
+      if (!enabled) {
+        this.model = new MemberRegistrationCommand();
+      }
+    });
   }
 
   submit(event: SubmitEvent) {
@@ -78,13 +75,14 @@ export class ConfigRegisterMemberComponent {
     if (submitter.name !== 'cancel') {
       this.memberCommandService
         .register(this.model)
-        .then(this.onSaved.emit)
-        .catch(this.errorHandlerService.handle);
+        .then(() => this.onSaved.emit())
+        .catch((error) => this.errorHandlerService.handle(error));
+    } else {
+      this.onCancelled.emit();
     }
-    this.enabled = false;
   }
 
   observeEnabled(): Observable<boolean> {
-    return this.enabled$.asObservable();
+    return this.enabledInput();
   }
 }

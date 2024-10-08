@@ -1,0 +1,35 @@
+<div
+  class="position-relative d-flex align-items-center justify-content-center"
+  *ngIf="observePageCount() | async as pageCount"
+>
+  <span
+    class="align-content-center text-primary bg-light position-absolute end-0 top-0 bottom-0 rounded ps-3 pe-3"
+    i18n
+  >
+    <strong>Total Records</strong>: {{ observeTotalCount() | async }}
+  </span>
+  <nav>
+    <ul class="pagination m-0" *ngIf="pageCount > 1">
+      <li
+        role="button"
+        class="page-item"
+        *ngFor="let navigatorPage of observeNavigatorPages() | async"
+      >
+        <a
+          class="page-link"
+          (click)="navigateTo.emit(navigatorPage.pageNumber)"
+          [attr.aria-label]="navigatorPage.pageNumber.toString()"
+          [ngClass]="{
+            active: (observePage() | async) == navigatorPage.pageNumber,
+          }"
+        >
+          <span *ngIf="navigatorPage.isStart">&laquo;</span>
+          <span *ngIf="!(navigatorPage.isStart || navigatorPage.isEnd)">{{
+            navigatorPage.pageNumber
+          }}</span>
+          <span *ngIf="navigatorPage.isEnd">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

@@ -117,6 +117,10 @@
           <context context-type="linenumber">68</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
           <context context-type="linenumber">64</context>
         </context-group>
@@ -126,6 +130,10 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/config-register-member/config-register-member.component.html</context>
           <context context-type="linenumber">74,75</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
+          <context context-type="linenumber">38,39</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
@@ -139,6 +147,10 @@
           <context context-type="linenumber">83,84</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
+          <context context-type="linenumber">48,49</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
           <context context-type="linenumber">79,80</context>
         </context-group>
@@ -148,6 +160,10 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/config-register-member/config-register-member.component.html</context>
           <context context-type="linenumber">89,90</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
+          <context context-type="linenumber">55,56</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
@@ -161,8 +177,23 @@
           <context context-type="linenumber">97,98</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
+          <context context-type="linenumber">64,65</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
           <context context-type="linenumber">93,94</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5605993045193979158" datatype="html">
+        <source>Edit Member</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member/edit-member.component.html</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4907348924287251930" datatype="html">
@@ -177,13 +208,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/edit-member-picture/edit-member-picture.component.html</context>
           <context context-type="linenumber">32,33</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5605993045193979158" datatype="html">
-        <source>Edit Member</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/edit-member/edit-member.component.html</context>
-          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4580988005648117665" datatype="html">
@@ -214,11 +238,18 @@
           <context context-type="linenumber">105</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="1470121978970986760" datatype="html">
+        <source>Edit Address</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/members/member-details.component.html</context>
+          <context context-type="linenumber">110,111</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="8757632046177548463" datatype="html">
         <source>Profile Picture</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/members/member-details.component.html</context>
-          <context context-type="linenumber">110,111</context>
+          <context context-type="linenumber">116,117</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4116296290237874686" datatype="html">
@@ -226,7 +257,7 @@
 </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/members/member-details.component.html</context>
-          <context context-type="linenumber">119,122</context>
+          <context context-type="linenumber">125,128</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2159130950882492111" datatype="html">
@@ -388,7 +419,7 @@
         <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Total Records<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>: <x id="INTERPOLATION" equiv-text="{{ observeTotalCount() | async }}"/> </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/search/paginator/paginator.component.html</context>
-          <context context-type="linenumber">6,8</context>
+          <context context-type="linenumber">9,11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6492831808763156510" datatype="html">

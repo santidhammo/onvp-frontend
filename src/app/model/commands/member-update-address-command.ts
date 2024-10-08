@@ -17,6 +17,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { MemberAddressResponse } from '../responses/member-address-response';
+
 export class MemberUpdateAddressCommand {
   constructor(
     public street: string = '',
@@ -25,4 +27,20 @@ export class MemberUpdateAddressCommand {
     public postalCode: string = '',
     public domicile: string = '',
   ) {}
+
+  setup(response: MemberAddressResponse | null) {
+    if (response !== null) {
+      this.street = response.street;
+      this.houseNumber = response.houseNumber;
+      this.houseNumberPostfix = response.houseNumberPostfix;
+      this.postalCode = response.postalCode;
+      this.domicile = response.domicile;
+    } else {
+      this.street = '';
+      this.houseNumber = 0;
+      this.houseNumberPostfix = '';
+      this.postalCode = '';
+      this.domicile = '';
+    }
+  }
 }

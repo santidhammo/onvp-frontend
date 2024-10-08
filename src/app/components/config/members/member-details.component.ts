@@ -33,6 +33,7 @@ import { ConfigRegisterMemberComponent } from '../config-register-member/config-
 import { ErrorHandlerService } from '../../../services/handlers/error-handler.service';
 import { SearchResult } from '../../../model/search/search-result';
 import { PaginatorComponent } from '../../search/paginator/paginator.component';
+import { EditMemberAddressComponent } from '../edit-member-address/edit-member-address.component';
 
 @Component({
   selector: 'config-members',
@@ -50,6 +51,7 @@ import { PaginatorComponent } from '../../search/paginator/paginator.component';
     EditMemberPictureComponent,
     ConfigRegisterMemberComponent,
     PaginatorComponent,
+    EditMemberAddressComponent,
   ],
   templateUrl: './member-details.component.html',
 })
@@ -62,35 +64,21 @@ export class MemberDetailsComponent implements OnInit {
   private searchResult$ =
     new BehaviorSubject<SearchResult<MemberResponse> | null>(null);
 
+  protected editMemberId$ = new BehaviorSubject<number | null>(null);
+  protected editAddressMemberId$ = new BehaviorSubject<number | null>(null);
+  protected editPictureMemberId$ = new BehaviorSubject<number | null>(null);
+  protected registerEnabled$ = new BehaviorSubject<boolean>(false);
+
   nameQuery: string = '';
-  editMemberId: number | null = null;
-  editPictureMemberId: number | null = null;
-  enableMemberRegistration: boolean = false;
 
   constructor(
     private memberService: MemberRequestService,
     private requestErrorHandlerService: ErrorHandlerService,
   ) {}
-
   ngOnInit() {
     this.doSearch();
   }
 
-  // observeTotalCount(): Observable<number | null> {
-  //   return this.totalCount$.asObservable();
-  // }
-  //
-  // observePage(): Observable<number | null> {
-  //   return this.page$.asObservable();
-  // }
-  //
-  // observePageCount(): Observable<number> {
-  //   return this.pageCount$.asObservable();
-  // }
-  //
-  // observeNavigatorPages(): Observable<NavigatorPage[]> {
-  //   return this.navigatorPages$.asObservable();
-  // }
   get observeSearchResult(): Observable<SearchResult<MemberResponse> | null> {
     return this.searchResult$.asObservable();
   }
@@ -116,18 +104,6 @@ export class MemberDetailsComponent implements OnInit {
         this.page$.next(page);
         this.rows$.next(result.rows);
         this.searchResult$.next(result);
-        // this.pageCount$.next(result.pageCount);
-        // this.totalCount$.next(result.totalCount);
-
-        // const startPage = Math.max(1, page - 5);
-        // const endPage = Math.min(page + 5, result.pageCount);
-        // let navigator = [];
-        // for (let i = startPage; i <= endPage; i++) {
-        //   navigator.push(
-        //     new NavigatorPage(i, i === page, i === startPage, i === endPage),
-        //   );
-        // }
-        // this.navigatorPages$.next(navigator);
       })
       .catch(this.requestErrorHandlerService.handle);
   }

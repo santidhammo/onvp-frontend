@@ -17,7 +17,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Component, Input } from '@angular/core';
+import { Component, input, Input, OnInit, output } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { BodyComponent } from '../../dialog/body/body.component';
 import { CancelComponent } from '../../form/cancel/cancel.component';
@@ -50,46 +50,51 @@ import { MemberCommandService } from '../../../services/backend/command/member-c
   ],
   templateUrl: './edit-member-picture.component.html',
 })
-export class EditMemberPictureComponent {
+export class EditMemberPictureComponent implements OnInit {
+  memberIdObservableInput = input.required<Observable<number | null>>();
+  onSaved = output();
+  onCancelled = output();
+
+  pictureUrl$ = new BehaviorSubject<string | null>(null);
+  memberId$ = new BehaviorSubject<number | null>(null);
+  selectedFile: File | null = null;
+
   constructor(
     private memberRequestService: MemberRequestService,
     private memberCommandService: MemberCommandService,
     private errorHandlerService: ErrorHandlerService,
   ) {}
 
-  pictureUrl$ = new BehaviorSubject<string | null>(null);
-  memberId$ = new BehaviorSubject<number | null>(null);
-  selectedFile: File | null = null;
-
   observePictureUrl(): Observable<string | null> {
     return this.pictureUrl$.asObservable();
   }
 
-  @Input()
-  get memberId(): number | null {
-    return this.memberId$.getValue();
+  ngOnInit() {
+    this.startObservingMemberIdInput();
   }
 
-  set memberId(memberId: number | null) {
-    if (memberId !== null) {
-      this.memberRequestService
-        .picture(memberId)
-        .then((imageAssetIdResponse) => {
-          if (imageAssetIdResponse.assetId !== null) {
-            this.memberId$.next(memberId);
-            this.pictureUrl$.next(
-              `/api/members/member_picture/${memberId}.png?${imageAssetIdResponse.assetId}`,
-            );
-          } else {
-            this.memberId$.next(null);
-            this.pictureUrl$.next(null);
-          }
-        })
-        .catch(this.errorHandlerService.handle);
-    } else {
-      this.memberId$.next(null);
-      this.pictureUrl$.next(null);
-    }
+  private startObservingMemberIdInput() {
+    this.memberIdObservableInput().subscribe((memberId) => {
+      if (memberId !== null) {
+        this.memberRequestService
+          .picture(memberId)
+          .then((imageAssetIdResponse) => {
+            if (imageAssetIdResponse.assetId !== null) {
+              this.memberId$.next(memberId);
+              this.pictureUrl$.next(
+                `/api/members/member_picture/${memberId}.png?${imageAssetIdResponse.assetId}`,
+              );
+            } else {
+              this.memberId$.next(null);
+              this.pictureUrl$.next(null);
+            }
+          })
+          .catch((error) => this.errorHandlerService.handle(error));
+      } else {
+        this.memberId$.next(null);
+        this.pictureUrl$.next(null);
+      }
+    });
   }
 
   async submit(event: SubmitEvent): Promise<void> {
@@ -102,12 +107,14 @@ export class EditMemberPictureComponent {
             this.selectedFile,
             memberId,
           );
+          this.onSaved.emit();
         } catch (error) {
           this.errorHandlerService.handle(error);
         }
       }
+    } else {
+      this.onCancelled.emit();
     }
-    this.memberId = null;
   }
 
   onPictureSelected($event: Event) {

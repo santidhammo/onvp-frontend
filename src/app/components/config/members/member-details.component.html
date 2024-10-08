@@ -41,7 +41,7 @@
 <div class="btn-group">
   <button
     class="btn btn-outline-primary"
-    (click)="enableMemberRegistration = true"
+    (click)="registerEnabled$.next(true)"
     i18n
   >
     Register new member
@@ -98,13 +98,19 @@
       <td>
         <div class="btn-group">
           <a
-            (click)="editMemberId = row.id"
+            (click)="editMemberId$.next(row.id)"
             class="btn btn-outline-primary"
             i18n
             >Edit</a
           >
           <a
-            (click)="editPictureMemberId = row.id"
+            (click)="editAddressMemberId$.next(row.id)"
+            class="btn btn-outline-primary"
+            i18n
+            >Edit Address</a
+          >
+          <a
+            (click)="editPictureMemberId$.next(row.id)"
             class="btn btn-outline-primary"
             i18n
             >Profile Picture</a
@@ -119,9 +125,44 @@
   No results available
 </div>
 
-<config-edit-member [memberId]="editMemberId" (onSaved)="refreshSearch()" />
-<config-edit-member-picture [memberId]="editPictureMemberId" />
+<!--
+The following component is used to register new members
+-->
 <config-register-member
-  [enabled]="enableMemberRegistration"
-  (onSaved)="refreshSearch()"
+  [enabledInput]="registerEnabled$.asObservable()"
+  (onSaved)="refreshSearch(); registerEnabled$.next(false)"
+  (onCancelled)="registerEnabled$.next(false)"
+/>
+
+<!--
+The following components are used to manage already registered members
+-->
+
+<!--
+When the member is successfully saved, the details might have changed such that
+the member is out of order and/or the display is incorrect in the list
+ -->
+<config-edit-member
+  [memberIdObservableInput]="editMemberId$.asObservable()"
+  (onSaved)="refreshSearch(); editMemberId$.next(null)"
+  (onCancelled)="editMemberId$.next(null)"
+/>
+
+<!--
+When the member is successfully saved, no details of the main screen are changed,
+thus there is no need to reload.
+-->
+<config-edit-member-address
+  [memberIdObservableInput]="editAddressMemberId$.asObservable()"
+  (onSaved)="editAddressMemberId$.next(null)"
+  (onCancelled)="editAddressMemberId$.next(null)"
+/>
+<!--
+When the member's picture is successfully saved, no details of the main screen are changed,
+thus there is no need to reload.
+-->
+<config-edit-member-picture
+  [memberIdObservableInput]="editPictureMemberId$.asObservable()"
+  (onSaved)="editPictureMemberId$.next(null)"
+  (onCancelled)="editPictureMemberId$.next(null)"
 />

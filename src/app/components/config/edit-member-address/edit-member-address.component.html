@@ -18,7 +18,7 @@
   -->
 
 <form
-  #memberWithDetailForm="ngForm"
+  #memberEditAddressForm="ngForm"
   (ngSubmit)="submit($event)"
   *ngIf="observeEditResponse() | async"
 >
@@ -26,41 +26,50 @@
     <dialog-header title="Edit Member" i18n-title />
     <dialog-body>
       <form-text-entry
-        name="firstName"
-        title="First Name"
+        name="street"
+        title="Street"
         i18n-title
-        [(ngModel)]="model.firstName"
+        [(ngModel)]="model.street"
         required
       />
 
       <form-text-entry
-        name="lastName"
-        title="Last Name"
+        name="houseNumber"
+        title="House Number"
         i18n-title
-        [(ngModel)]="model.lastName"
+        [(ngModel)]="model.houseNumber"
         required
+        pattern="^[0-9]+$"
+        inputType="number"
       />
 
       <form-text-entry
-        name="emailAddress"
-        title="Email Address"
+        name="houseNumberPostfix"
+        title="House Number Postfix"
         i18n-title
-        [(ngModel)]="model.emailAddress"
-        required
-        email
+        [(ngModel)]="model.houseNumberPostfix"
       />
 
       <form-text-entry
-        name="phoneNumber"
-        title="Phone Number"
+        name="postalCode"
+        title="Postal Code"
         i18n-title
-        [(ngModel)]="model.phoneNumber"
+        [(ngModel)]="model.postalCode"
+        required
+        pattern="^[0-9][0-9][0-9][0-9][A-Z][A-Z]$"
+      />
+
+      <form-text-entry
+        name="domicile"
+        title="Domicile"
+        i18n-title
+        [(ngModel)]="model.domicile"
         required
       />
     </dialog-body>
     <dialog-footer>
       <form-cancel />
-      <form-submit [disabled]="memberWithDetailForm.invalid" />
+      <form-submit [disabled]="memberEditAddressForm.invalid" />
     </dialog-footer>
   </app-dialog>
 </form>

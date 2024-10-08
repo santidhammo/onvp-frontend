@@ -29,6 +29,7 @@ import { SearchResult } from '../../../model/search/search-result';
 import { ErrorHandlerService } from '../../handlers/error-handler.service';
 import { MemberActivationCommand } from '../../../model/commands/member-activation-command';
 import { ImageAssetIdResponse } from '../../../model/responses/image-asset-id-response';
+import { MemberAddressResponse } from '../../../model/responses/member-address-response';
 
 @Injectable({
   providedIn: 'root',
@@ -52,14 +53,15 @@ export class MemberRequestService {
   }
 
   async find(id: number): Promise<MemberResponse> {
-    try {
-      return await firstValueFrom(
-        this.http.get<MemberResponse>(`/api/members/${id}`),
-      );
-    } catch (error) {
-      this.requestErrorHandlerService.handle(error as HttpErrorResponse);
-      throw error;
-    }
+    return await firstValueFrom(
+      this.http.get<MemberResponse>(`/api/members/${id}`),
+    );
+  }
+
+  async findAddress(id: number): Promise<MemberAddressResponse> {
+    return await firstValueFrom(
+      this.http.get<MemberAddressResponse>(`/api/members/${id}/address`),
+    );
   }
 
   async picture(id: number): Promise<ImageAssetIdResponse> {

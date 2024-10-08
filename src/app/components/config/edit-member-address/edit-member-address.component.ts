@@ -17,50 +17,51 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Component, input, Input, OnInit, output } from '@angular/core';
-import { AsyncPipe, NgIf } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { TextEntryComponent } from '../../form/text-entry/text-entry.component';
-import { BodyComponent } from '../../dialog/body/body.component';
-import { DialogComponent } from '../../dialog/dialog.component';
-import { ExplanationComponent } from '../../dialog/explanation/explanation.component';
-import { HeaderComponent } from '../../dialog/header/header.component';
-import { FooterComponent } from '../../dialog/footer/footer.component';
-import { SubmitComponent } from '../../form/submit/submit.component';
-import { CancelComponent } from '../../form/cancel/cancel.component';
-import { MemberUpdateCommand } from '../../../model/commands/member-update-command';
-import { ErrorHandlerService } from '../../../services/handlers/error-handler.service';
+import { Component, input, OnInit, output } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { MemberRequestService } from '../../../services/backend/request/member-request.service';
 import { MemberCommandService } from '../../../services/backend/command/member-command.service';
+import { ErrorHandlerService } from '../../../services/handlers/error-handler.service';
+import { MemberUpdateAddressCommand } from '../../../model/commands/member-update-address-command';
+import { MemberAddressResponse } from '../../../model/responses/member-address-response';
+import { AsyncPipe, NgIf } from '@angular/common';
+import { BodyComponent } from '../../dialog/body/body.component';
+import { CancelComponent } from '../../form/cancel/cancel.component';
+import { DialogComponent } from '../../dialog/dialog.component';
+import { FooterComponent } from '../../dialog/footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from '../../dialog/header/header.component';
+import { SubmitComponent } from '../../form/submit/submit.component';
+import { TextEntryComponent } from '../../form/text-entry/text-entry.component';
 import { MemberResponse } from '../../../model/responses/member-response';
-import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
-  selector: 'config-edit-member',
+  selector: 'config-edit-member-address',
   standalone: true,
   imports: [
     AsyncPipe,
-    FormsModule,
-    NgIf,
-    TextEntryComponent,
     BodyComponent,
-    DialogComponent,
-    ExplanationComponent,
-    HeaderComponent,
-    FooterComponent,
-    SubmitComponent,
     CancelComponent,
+    DialogComponent,
+    FooterComponent,
+    FormsModule,
+    HeaderComponent,
+    NgIf,
+    SubmitComponent,
+    TextEntryComponent,
   ],
-  templateUrl: './edit-member.component.html',
+  templateUrl: './edit-member-address.component.html',
 })
-export class EditMemberComponent implements OnInit {
+export class EditMemberAddressComponent implements OnInit {
   memberIdObservableInput = input.required<Observable<number | null>>();
   onSaved = output();
   onCancelled = output();
 
-  model = new MemberUpdateCommand();
+  protected model = new MemberUpdateAddressCommand();
 
-  private editResponse$ = new BehaviorSubject<MemberResponse | null>(null);
+  private editResponse$ = new BehaviorSubject<MemberAddressResponse | null>(
+    null,
+  );
 
   constructor(
     private memberRequestService: MemberRequestService,
@@ -68,13 +69,13 @@ export class EditMemberComponent implements OnInit {
     private errorHandlerService: ErrorHandlerService,
   ) {}
 
-  observeEditResponse(): Observable<MemberResponse | null> {
+  observeEditResponse(): Observable<MemberAddressResponse | null> {
     return this.editResponse$.asObservable();
   }
 
   ngOnInit() {
-    this.startObservingEditResponse();
     this.startObservingMemberIdInput();
+    this.startObservingEditResponse();
   }
 
   private startObservingEditResponse() {
@@ -87,7 +88,7 @@ export class EditMemberComponent implements OnInit {
     this.memberIdObservableInput().subscribe((memberId) => {
       if (memberId !== null) {
         this.memberRequestService
-          .find(memberId)
+          .findAddress(memberId)
           .then((response) => this.editResponse$.next(response))
           .catch((error) => this.errorHandlerService.handle(error));
       } else {
@@ -102,7 +103,7 @@ export class EditMemberComponent implements OnInit {
       const last = this.editResponse$.getValue();
       if (last) {
         this.memberCommandService
-          .update(last.id, this.model)
+          .updateAddress(last.id, this.model)
           .then(() => this.onSaved.emit())
           .catch((error) => this.errorHandlerService.handle(error));
       }

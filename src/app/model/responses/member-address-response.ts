@@ -20,8 +20,8 @@
 export interface MemberAddressResponse {
   id: number;
   street: string;
-  house_number: number;
-  house_number_postfix: string;
-  postal_code: string;
+  houseNumber: number;
+  houseNumberPostfix: string;
+  postalCode: string;
   domicile: string;
 }
