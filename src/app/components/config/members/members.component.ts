@@ -34,6 +34,7 @@ import { ErrorHandlerService } from '../../../services/handlers/error-handler.se
 import { SearchResult } from '../../../model/search/search-result';
 import { PaginatorComponent } from '../../search/paginator/paginator.component';
 import { EditMemberAddressComponent } from '../edit-member-address/edit-member-address.component';
+import { UnregisterMemberComponent } from '../unregister-member/unregister-member.component';
 
 @Component({
   selector: 'config-members',
@@ -52,6 +53,7 @@ import { EditMemberAddressComponent } from '../edit-member-address/edit-member-a
     RegisterMemberComponent,
     PaginatorComponent,
     EditMemberAddressComponent,
+    UnregisterMemberComponent,
   ],
   templateUrl: './members.component.html',
 })
@@ -65,6 +67,7 @@ export class MembersComponent implements OnInit {
   protected editAddressMemberId$ = new BehaviorSubject<number | null>(null);
   protected editPictureMemberId$ = new BehaviorSubject<number | null>(null);
   protected registerEnabled$ = new BehaviorSubject<boolean>(false);
+  protected unregisterMemberId$ = new BehaviorSubject<number | null>(null);
 
   nameQuery: string = '';
 

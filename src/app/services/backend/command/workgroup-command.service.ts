@@ -36,4 +36,8 @@ export class WorkgroupCommandService {
   async register(model: WorkgroupRegisterCommand) {
     await firstValueFrom(this.http.post('/api/workgroups/', model));
   }
+
+  async delete(id: number): Promise<void> {
+    await firstValueFrom(this.http.delete(`/api/workgroups/${id}`));
+  }
 }

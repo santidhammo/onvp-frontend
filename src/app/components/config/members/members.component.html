@@ -115,6 +115,12 @@
             i18n
             >Profile Picture</a
           >
+          <a
+            (click)="unregisterMemberId$.next(row.id)"
+            class="btn btn-outline-primary"
+            i18n
+            >Unregister</a
+          >
         </div>
       </td>
     </tr>
@@ -165,4 +171,12 @@ thus there is no need to reload.
   [memberIdObservableInput]="editPictureMemberId$.asObservable()"
   (onSaved)="editPictureMemberId$.next(null)"
   (onCancelled)="editPictureMemberId$.next(null)"
+/>
+<!--
+When the member is successfully unregistered, the search has to be refreshed
+-->
+<config-unregister-member
+  [memberIdObservableInput]="unregisterMemberId$.asObservable()"
+  (onSaved)="refreshSearch(); unregisterMemberId$.next(null)"
+  (onCancelled)="unregisterMemberId$.next(null)"
 />

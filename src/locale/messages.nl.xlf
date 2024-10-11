@@ -471,6 +471,58 @@
           <context context-type="linenumber">47,48</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="2267951994342176288" datatype="html">
+        <source>Lid Afmelden</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/unregister-member/unregister-member.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6962699013778688473" datatype="html">
+        <source>Doorgaan</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/unregister-member/unregister-member.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/unregister-workgroup/unregister-workgroup.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7143377966857284332" datatype="html">
+        <source>Werkgroep afmelden</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/unregister-workgroup/unregister-workgroup.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8426224947227400092" datatype="html">
+        <source>Afmelden</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
+          <context context-type="linenumber">122,123</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
+          <context context-type="linenumber">88,89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8272813546141478779" datatype="html">
+        <source> Weet u zeker dat u het lid met de naam: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeName() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
+      &gt;"/> wilt afmelden? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/unregister-member/unregister-member.component.html</context>
+          <context context-type="linenumber">28,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5959469162377550995" datatype="html">
+        <source> Weet u zeker dat u de werkgroep met de naam: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeName() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
+      &gt;"/> wilt afmelden? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/unregister-workgroup/unregister-workgroup.component.html</context>
+          <context context-type="linenumber">28,32</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>

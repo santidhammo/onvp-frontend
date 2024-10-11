@@ -32,6 +32,8 @@ import { RegisterMemberComponent } from '../register-member/register-member.comp
 import { EditMemberComponent } from '../edit-member/edit-member.component';
 import { RegisterWorkgroupComponent } from '../register-workgroup/register-workgroup.component';
 import { EditWorkgroupComponent } from '../edit-workgroup/edit-workgroup.component';
+import { UnregisterMemberComponent } from '../unregister-member/unregister-member.component';
+import { UnregisterWorkgroupComponent } from '../unregister-workgroup/unregister-workgroup.component';
 
 @Component({
   selector: 'config-workgroups',
@@ -48,6 +50,8 @@ import { EditWorkgroupComponent } from '../edit-workgroup/edit-workgroup.compone
     EditMemberComponent,
     RegisterWorkgroupComponent,
     EditWorkgroupComponent,
+    UnregisterMemberComponent,
+    UnregisterWorkgroupComponent,
   ],
   templateUrl: './workgroups.component.html',
 })
@@ -59,6 +63,7 @@ export class WorkgroupsComponent {
 
   protected editWorkgroupId$ = new BehaviorSubject<number | null>(null);
   protected registerEnabled$ = new BehaviorSubject<boolean>(false);
+  protected unregisterWorkgroupId$ = new BehaviorSubject<number | null>(null);
 
   nameQuery: string = '';
 

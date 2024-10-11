@@ -50,4 +50,8 @@ export class MemberCommandService {
       this.http.post<null>(`/api/members/${id}/picture.png`, file),
     );
   }
+
+  async delete(id: number): Promise<void> {
+    await firstValueFrom(this.http.delete(`/api/members/${id}`));
+  }
 }

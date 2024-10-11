@@ -81,6 +81,12 @@
             i18n
             >Edit</a
           >
+          <a
+            (click)="unregisterWorkgroupId$.next(row.id)"
+            class="btn btn-outline-primary"
+            i18n
+            >Unregister</a
+          >
         </div>
       </td>
     </tr>
@@ -112,4 +118,12 @@ the member is out of order and/or the display is incorrect in the list
   [workgroupIdObservableInput]="editWorkgroupId$.asObservable()"
   (onSaved)="refreshSearch(); editWorkgroupId$.next(null)"
   (onCancelled)="editWorkgroupId$.next(null)"
+/>
+<!--
+When the workgroup is successfully unregistered, the search has to be refreshed
+-->
+<config-unregister-workgroup
+  [workgroupIdObservableInput]="unregisterWorkgroupId$.asObservable()"
+  (onSaved)="refreshSearch(); unregisterWorkgroupId$.next(null)"
+  (onCancelled)="unregisterWorkgroupId$.next(null)"
 />
