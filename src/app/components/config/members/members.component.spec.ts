@@ -17,10 +17,25 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { MemberRegistrationCommand } from './member-registration-command';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-describe('MemberRegistrationDataModel', () => {
-  it('should create an instance', () => {
-    expect(new MemberRegistrationCommand()).toBeTruthy();
+import { MembersComponent } from './members.component';
+
+describe('MembersComponent', () => {
+  let component: MembersComponent;
+  let fixture: ComponentFixture<MembersComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [MembersComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(MembersComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });

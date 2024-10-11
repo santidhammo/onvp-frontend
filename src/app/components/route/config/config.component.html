@@ -45,6 +45,17 @@
       >
         Members
       </button>
+
+      <button
+        class="nav-link {{
+          (observeConfigMode() | async) == 'workgroups' ? 'active' : ''
+        }}"
+        role="tab"
+        (click)="switchConfig('workgroups')"
+        i18n
+      >
+        Work Groups
+      </button>
     </div>
   </div>
   <div class="col-9">
@@ -59,6 +70,9 @@
         occaecat.
       </div>
       <config-members *ngIf="(observeConfigMode() | async) == 'members'" />
+      <config-workgroups
+        *ngIf="(observeConfigMode() | async) == 'workgroups'"
+      />
     </div>
   </div>
 </div>

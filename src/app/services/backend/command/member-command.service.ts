@@ -21,7 +21,7 @@ import { Injectable } from '@angular/core';
 import { MemberUpdateCommand } from '../../../model/commands/member-update-command';
 import { firstValueFrom } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { MemberRegistrationCommand } from '../../../model/commands/member-registration-command';
+import { MemberRegisterCommand } from '../../../model/commands/member-register-command';
 import { MemberUpdateAddressCommand } from '../../../model/commands/member-update-address-command';
 
 @Injectable({
@@ -41,7 +41,7 @@ export class MemberCommandService {
     await firstValueFrom(this.http.post(`/api/members/${id}/address`, command));
   }
 
-  async register(model: MemberRegistrationCommand) {
+  async register(model: MemberRegisterCommand) {
     await firstValueFrom(this.http.post('/api/members/', model));
   }
 

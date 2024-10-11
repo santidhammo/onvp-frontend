@@ -19,18 +19,18 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConfigRegisterMemberComponent } from './config-register-member.component';
+import { RegisterMemberComponent } from './register-member.component';
 
 describe('ConfigRegisterMemberComponent', () => {
-  let component: ConfigRegisterMemberComponent;
-  let fixture: ComponentFixture<ConfigRegisterMemberComponent>;
+  let component: RegisterMemberComponent;
+  let fixture: ComponentFixture<RegisterMemberComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ConfigRegisterMemberComponent],
+      imports: [RegisterMemberComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ConfigRegisterMemberComponent);
+    fixture = TestBed.createComponent(RegisterMemberComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

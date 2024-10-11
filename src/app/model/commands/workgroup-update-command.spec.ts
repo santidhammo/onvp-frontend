@@ -17,12 +17,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { AddressRegisterSubCommand } from '../sub_commands/address-register-sub-command';
-import { DetailRegisterSubCommand } from '../sub_commands/detail-register-sub-command';
+import { WorkgroupUpdateCommand } from './workgroup-update-command';
 
-export class MemberRegistrationCommand {
-  constructor(
-    public detailRegisterSubCommand: DetailRegisterSubCommand = new DetailRegisterSubCommand(),
-    public addressRegisterSubCommand: AddressRegisterSubCommand = new AddressRegisterSubCommand(),
-  ) {}
-}
+describe('WorkgroupUpdateCommand', () => {
+  it('should create an instance', () => {
+    expect(new WorkgroupUpdateCommand()).toBeTruthy();
+  });
+});

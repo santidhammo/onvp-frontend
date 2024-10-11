@@ -21,12 +21,13 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AsyncPipe, NgIf } from '@angular/common';
-import { MemberDetailsComponent } from '../../config/members/member-details.component';
+import { MembersComponent } from '../../config/members/members.component';
+import { WorkgroupsComponent } from '../../config/workgroups/workgroups.component';
 
 @Component({
   selector: 'route-config',
   standalone: true,
-  imports: [RouterLink, AsyncPipe, NgIf, MemberDetailsComponent],
+  imports: [RouterLink, AsyncPipe, NgIf, MembersComponent, WorkgroupsComponent],
   templateUrl: './config.component.html',
 })
 export class ConfigComponent {

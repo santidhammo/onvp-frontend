@@ -1,0 +1,22 @@
+<form
+  #workgroupForm="ngForm"
+  (ngSubmit)="submit($event)"
+  *ngIf="observeEditResponse() | async"
+>
+  <app-dialog>
+    <dialog-header title="Edit Work Group" i18n-title />
+    <dialog-body>
+      <form-text-entry
+        name="Name"
+        title="Name"
+        i18n-title
+        [(ngModel)]="model.name"
+        required
+      />
+    </dialog-body>
+    <dialog-footer>
+      <form-cancel />
+      <form-submit [disabled]="workgroupForm.invalid" />
+    </dialog-footer>
+  </app-dialog>
+</form>

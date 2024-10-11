@@ -26,7 +26,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../../dialog/header/header.component';
 import { SubmitComponent } from '../../form/submit/submit.component';
 import { TextEntryComponent } from '../../form/text-entry/text-entry.component';
-import { MemberRegistrationCommand } from '../../../model/commands/member-registration-command';
+import { MemberRegisterCommand } from '../../../model/commands/member-register-command';
 import { CancelComponent } from '../../form/cancel/cancel.component';
 import { ErrorHandlerService } from '../../../services/handlers/error-handler.service';
 import { MemberCommandService } from '../../../services/backend/command/member-command.service';
@@ -49,9 +49,9 @@ import { AsyncPipe, NgIf } from '@angular/common';
     AsyncPipe,
     NgIf,
   ],
-  templateUrl: './config-register-member.component.html',
+  templateUrl: './register-member.component.html',
 })
-export class ConfigRegisterMemberComponent implements OnInit {
+export class RegisterMemberComponent implements OnInit {
   constructor(
     private memberCommandService: MemberCommandService,
     private errorHandlerService: ErrorHandlerService,
@@ -60,12 +60,12 @@ export class ConfigRegisterMemberComponent implements OnInit {
   enabledInput = input.required<Observable<boolean>>();
   onSaved = output();
   onCancelled = output();
-  model = new MemberRegistrationCommand();
+  model = new MemberRegisterCommand();
 
   ngOnInit() {
     this.enabledInput().subscribe((enabled) => {
       if (!enabled) {
-        this.model = new MemberRegistrationCommand();
+        this.model = new MemberRegisterCommand();
       }
     });
   }

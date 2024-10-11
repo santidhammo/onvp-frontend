@@ -9,6 +9,11 @@
     <strong>Total Records</strong>: {{ observeTotalCount() | async }}
   </span>
   <nav>
+    <ul class="pagination m-0" *ngIf="pageCount <= 1">
+      <li role="button" class="page-item">
+        <span class="page-link border border-0 border-opacity-100">&nbsp;</span>
+      </li>
+    </ul>
     <ul class="pagination m-0" *ngIf="pageCount > 1">
       <li
         role="button"

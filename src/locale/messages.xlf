@@ -16,175 +16,6 @@
           <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4145388993288653422" datatype="html">
-        <source>Register Member</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/config-register-member/config-register-member.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="679041050333477369" datatype="html">
-        <source>This is the registration dialog for a new member. Please enter the details here and submit. An email will be send to the member for further activation</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/config-register-member/config-register-member.component.html</context>
-          <context context-type="linenumber">28,29</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6028371114637047813" datatype="html">
-        <source>First Name</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/config-register-member/config-register-member.component.html</context>
-          <context context-type="linenumber">35,36</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/edit-member/edit-member.component.html</context>
-          <context context-type="linenumber">30,31</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/member-details.component.html</context>
-          <context context-type="linenumber">65,66</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
-          <context context-type="linenumber">31,32</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4407559560004943843" datatype="html">
-        <source>Last Name</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/config-register-member/config-register-member.component.html</context>
-          <context context-type="linenumber">43,44</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/edit-member/edit-member.component.html</context>
-          <context context-type="linenumber">38,39</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/member-details.component.html</context>
-          <context context-type="linenumber">66,67</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
-          <context context-type="linenumber">39,40</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4879517228803151475" datatype="html">
-        <source>Email Address</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/config-register-member/config-register-member.component.html</context>
-          <context context-type="linenumber">51,52</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/edit-member/edit-member.component.html</context>
-          <context context-type="linenumber">46,47</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/member-details.component.html</context>
-          <context context-type="linenumber">67,68</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/route/login/login.component.html</context>
-          <context context-type="linenumber">35,36</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
-          <context context-type="linenumber">47,48</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8194554728555410336" datatype="html">
-        <source>Phone Number</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/config-register-member/config-register-member.component.html</context>
-          <context context-type="linenumber">59,60</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/edit-member/edit-member.component.html</context>
-          <context context-type="linenumber">55,56</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/member-details.component.html</context>
-          <context context-type="linenumber">68,69</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
-          <context context-type="linenumber">55,56</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1847047605496409443" datatype="html">
-        <source>Street</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/config-register-member/config-register-member.component.html</context>
-          <context context-type="linenumber">68</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
-          <context context-type="linenumber">31</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
-          <context context-type="linenumber">64</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="924959609101234956" datatype="html">
-        <source>House Number</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/config-register-member/config-register-member.component.html</context>
-          <context context-type="linenumber">74,75</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
-          <context context-type="linenumber">38,39</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
-          <context context-type="linenumber">70,71</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1297032398744645488" datatype="html">
-        <source>House Number Postfix</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/config-register-member/config-register-member.component.html</context>
-          <context context-type="linenumber">83,84</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
-          <context context-type="linenumber">48,49</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
-          <context context-type="linenumber">79,80</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7647550512660678493" datatype="html">
-        <source>Postal Code</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/config-register-member/config-register-member.component.html</context>
-          <context context-type="linenumber">89,90</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
-          <context context-type="linenumber">55,56</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
-          <context context-type="linenumber">85,86</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5269631474878618910" datatype="html">
-        <source>Domicile</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/config-register-member/config-register-member.component.html</context>
-          <context context-type="linenumber">97,98</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
-          <context context-type="linenumber">64,65</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
-          <context context-type="linenumber">93,94</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="5605993045193979158" datatype="html">
         <source>Edit Member</source>
         <context-group purpose="location">
@@ -194,6 +25,81 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/edit-member/edit-member.component.html</context>
           <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1847047605496409443" datatype="html">
+        <source>Street</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/register-member/register-member.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="924959609101234956" datatype="html">
+        <source>House Number</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/register-member/register-member.component.html</context>
+          <context context-type="linenumber">74,75</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
+          <context context-type="linenumber">70,71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1297032398744645488" datatype="html">
+        <source>House Number Postfix</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
+          <context context-type="linenumber">48,49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/register-member/register-member.component.html</context>
+          <context context-type="linenumber">83,84</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
+          <context context-type="linenumber">79,80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7647550512660678493" datatype="html">
+        <source>Postal Code</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/register-member/register-member.component.html</context>
+          <context context-type="linenumber">89,90</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
+          <context context-type="linenumber">85,86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5269631474878618910" datatype="html">
+        <source>Domicile</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member-address/edit-member-address.component.html</context>
+          <context context-type="linenumber">64,65</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/register-member/register-member.component.html</context>
+          <context context-type="linenumber">97,98</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
+          <context context-type="linenumber">93,94</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4907348924287251930" datatype="html">
@@ -210,45 +116,155 @@
           <context context-type="linenumber">32,33</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="6028371114637047813" datatype="html">
+        <source>First Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member/edit-member.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
+          <context context-type="linenumber">65,66</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/register-member/register-member.component.html</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4407559560004943843" datatype="html">
+        <source>Last Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member/edit-member.component.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
+          <context context-type="linenumber">66,67</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/register-member/register-member.component.html</context>
+          <context context-type="linenumber">43,44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4879517228803151475" datatype="html">
+        <source>Email Address</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member/edit-member.component.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
+          <context context-type="linenumber">67,68</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/register-member/register-member.component.html</context>
+          <context context-type="linenumber">51,52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/route/login/login.component.html</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
+          <context context-type="linenumber">47,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8194554728555410336" datatype="html">
+        <source>Phone Number</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member/edit-member.component.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
+          <context context-type="linenumber">68,69</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/register-member/register-member.component.html</context>
+          <context context-type="linenumber">59,60</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/setup/setup-detector.component.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5299873419251227126" datatype="html">
+        <source>Edit Work Group</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-workgroup/edit-workgroup.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-workgroup/edit-workgroup.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/register-workgroup/register-workgroup.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
+          <context context-type="linenumber">64,65</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="4580988005648117665" datatype="html">
         <source>Search</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/member-details.component.html</context>
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
           <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1207234198432054218" datatype="html">
         <source> Register new member </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/member-details.component.html</context>
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
           <context context-type="linenumber">47,48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3193976279273491157" datatype="html">
         <source>Actions</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/member-details.component.html</context>
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
           <context context-type="linenumber">69,70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7585826646011739428" datatype="html">
         <source>Edit</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/member-details.component.html</context>
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
           <context context-type="linenumber">105</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
+          <context context-type="linenumber">82</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1470121978970986760" datatype="html">
         <source>Edit Address</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/member-details.component.html</context>
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
           <context context-type="linenumber">110,111</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8757632046177548463" datatype="html">
         <source>Profile Picture</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/member-details.component.html</context>
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
           <context context-type="linenumber">116,117</context>
         </context-group>
       </trans-unit>
@@ -256,8 +272,47 @@
         <source> No results available
 </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/member-details.component.html</context>
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
           <context context-type="linenumber">125,128</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
+          <context context-type="linenumber">90,93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4145388993288653422" datatype="html">
+        <source>Register Member</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/register-member/register-member.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="679041050333477369" datatype="html">
+        <source>This is the registration dialog for a new member. Please enter the details here and submit. An email will be send to the member for further activation</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/register-member/register-member.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7091097861717138508" datatype="html">
+        <source>Register Work Group</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/register-workgroup/register-workgroup.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4798760364604106488" datatype="html">
+        <source>This is the registration dialog for a new work group. Please enter the details here and submit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/register-workgroup/register-workgroup.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2642747276604529492" datatype="html">
+        <source> Register new work group </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
+          <context context-type="linenumber">47,48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2159130950882492111" datatype="html">
@@ -392,6 +447,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/route/config/config.component.html</context>
           <context context-type="linenumber">46,47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4430445113417187796" datatype="html">
+        <source> Work Groups </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/route/config/config.component.html</context>
+          <context context-type="linenumber">57,58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1358928551614255659" datatype="html">

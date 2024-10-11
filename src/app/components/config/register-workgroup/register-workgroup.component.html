@@ -18,49 +18,28 @@
   -->
 
 <form
-  #memberDetailForm="ngForm"
+  #registrationForm="ngForm"
   (ngSubmit)="submit($event)"
-  *ngIf="observeEditResponse() | async"
+  *ngIf="observeEnabled() | async"
 >
   <app-dialog>
-    <dialog-header title="Edit Member" i18n-title />
+    <dialog-header title="Register Work Group" i18n-title />
+    <dialog-explanation
+      explanation="This is the registration dialog for a new work group. Please enter the details here and submit"
+      i18n-explanation
+    />
     <dialog-body>
       <form-text-entry
-        name="firstName"
-        title="First Name"
+        name="Name"
+        title="Name"
         i18n-title
-        [(ngModel)]="model.firstName"
-        required
-      />
-
-      <form-text-entry
-        name="lastName"
-        title="Last Name"
-        i18n-title
-        [(ngModel)]="model.lastName"
-        required
-      />
-
-      <form-text-entry
-        name="emailAddress"
-        title="Email Address"
-        i18n-title
-        [(ngModel)]="model.emailAddress"
-        required
-        email
-      />
-
-      <form-text-entry
-        name="phoneNumber"
-        title="Phone Number"
-        i18n-title
-        [(ngModel)]="model.phoneNumber"
+        [(ngModel)]="model.name"
         required
       />
     </dialog-body>
     <dialog-footer>
       <form-cancel />
-      <form-submit [disabled]="memberDetailForm.invalid" />
+      <form-submit [disabled]="registrationForm.invalid" />
     </dialog-footer>
   </app-dialog>
 </form>

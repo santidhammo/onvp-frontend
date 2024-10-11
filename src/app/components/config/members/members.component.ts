@@ -29,7 +29,7 @@ import { RouterLink } from '@angular/router';
 import { NavigatorPage } from '../../../model/search/navigator-page';
 import { EditMemberComponent } from '../edit-member/edit-member.component';
 import { EditMemberPictureComponent } from '../edit-member-picture/edit-member-picture.component';
-import { ConfigRegisterMemberComponent } from '../config-register-member/config-register-member.component';
+import { RegisterMemberComponent } from '../register-member/register-member.component';
 import { ErrorHandlerService } from '../../../services/handlers/error-handler.service';
 import { SearchResult } from '../../../model/search/search-result';
 import { PaginatorComponent } from '../../search/paginator/paginator.component';
@@ -49,18 +49,15 @@ import { EditMemberAddressComponent } from '../edit-member-address/edit-member-a
     RouterLink,
     EditMemberComponent,
     EditMemberPictureComponent,
-    ConfigRegisterMemberComponent,
+    RegisterMemberComponent,
     PaginatorComponent,
     EditMemberAddressComponent,
   ],
-  templateUrl: './member-details.component.html',
+  templateUrl: './members.component.html',
 })
-export class MemberDetailsComponent implements OnInit {
-  // private totalCount$ = new BehaviorSubject<number | null>(null);
+export class MembersComponent implements OnInit {
   private page$ = new BehaviorSubject<number | null>(null);
-  // private pageCount$ = new BehaviorSubject<number>(0);
   private rows$ = new BehaviorSubject<MemberResponse[]>([]);
-  // private navigatorPages$ = new BehaviorSubject<NavigatorPage[]>([]);
   private searchResult$ =
     new BehaviorSubject<SearchResult<MemberResponse> | null>(null);
 
