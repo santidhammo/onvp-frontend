@@ -288,6 +288,10 @@
       <source>Public Access</source>
       <target>Publieke toegang</target>
     </trans-unit>
+      <trans-unit id="1519646385387360644" datatype="html">
+        <source>Member work groups</source>
+        <target>Werkgroep lidmaatschap</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -17,13 +17,9 @@
   ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<form
-  #memberDetailForm="ngForm"
-  (ngSubmit)="submit($event)"
-  *ngIf="observeEditResponse() | async"
->
-  <app-dialog>
-    <dialog-header title="Edit Member" i18n-title />
+<app-dialog *ngIf="observeEditResponse | async">
+  <dialog-header title="Edit Member" i18n-title />
+  <form #memberDetailForm="ngForm" (ngSubmit)="submit($event)">
     <dialog-body>
       <form-text-entry
         name="firstName"
@@ -62,5 +58,14 @@
       <form-cancel />
       <form-submit [disabled]="memberDetailForm.invalid" />
     </dialog-footer>
-  </app-dialog>
-</form>
+  </form>
+
+  <ng-container *ngIf="(observeWorkgroupResponses | async)?.length !== 0">
+    <dialog-explanation explanation="Member work groups" i18n-explanation />
+    <ul>
+      <li *ngFor="let workgroup of observeWorkgroupResponses | async">
+        {{ workgroup.name }}
+      </li>
+    </ul>
+  </ng-container>
+</app-dialog>

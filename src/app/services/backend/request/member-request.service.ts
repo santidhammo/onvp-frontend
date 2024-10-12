@@ -30,6 +30,7 @@ import { ErrorHandlerService } from '../../handlers/error-handler.service';
 import { MemberActivationCommand } from '../../../model/commands/member-activation-command';
 import { ImageAssetIdResponse } from '../../../model/responses/image-asset-id-response';
 import { MemberAddressResponse } from '../../../model/responses/member-address-response';
+import { WorkgroupResponse } from '../../../model/responses/workgroup-response';
 
 @Injectable({
   providedIn: 'root',
@@ -64,6 +65,12 @@ export class MemberRequestService {
     );
   }
 
+  async findWorkgroups(id: number): Promise<WorkgroupResponse[]> {
+    return await firstValueFrom(
+      this.http.get<WorkgroupResponse[]>(`/api/members/${id}/workgroups`),
+    );
+  }
+
   async picture(id: number): Promise<ImageAssetIdResponse> {
     try {
       return await firstValueFrom(
@@ -81,7 +88,7 @@ export class MemberRequestService {
     );
   }
 
-  async activation_code(activationString: string): Promise<string> {
+  async activationCode(activationString: string): Promise<string> {
     const data = await firstValueFrom(
       this.http.get<string>(`/api/members/activation/code/${activationString}`),
     );

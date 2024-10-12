@@ -66,7 +66,7 @@ export class ActivationComponent implements OnInit {
       const activationString = String(params.get('activationString'));
       try {
         const pngData =
-          await this.memberRequestService.activation_code(activationString);
+          await this.memberRequestService.activationCode(activationString);
         this.model.activationString = activationString;
         this.activationBase64PngSource.next(pngData);
       } catch (error) {

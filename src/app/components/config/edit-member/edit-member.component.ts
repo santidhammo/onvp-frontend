@@ -18,7 +18,7 @@
  */
 
 import { Component, input, Input, OnInit, output } from '@angular/core';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TextEntryComponent } from '../../form/text-entry/text-entry.component';
 import { BodyComponent } from '../../dialog/body/body.component';
@@ -34,6 +34,8 @@ import { MemberRequestService } from '../../../services/backend/request/member-r
 import { MemberCommandService } from '../../../services/backend/command/member-command.service';
 import { MemberResponse } from '../../../model/responses/member-response';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { WorkgroupResponse } from '../../../model/responses/workgroup-response';
+import { WorkgroupRequestService } from '../../../services/backend/request/workgroup-request.service';
 
 @Component({
   selector: 'config-edit-member',
@@ -50,6 +52,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
     FooterComponent,
     SubmitComponent,
     CancelComponent,
+    NgForOf,
   ],
   templateUrl: './edit-member.component.html',
 })
@@ -61,6 +64,9 @@ export class EditMemberComponent implements OnInit {
   model = new MemberUpdateCommand();
 
   private editResponse$ = new BehaviorSubject<MemberResponse | null>(null);
+  private editWorkgroupResponses$ = new BehaviorSubject<WorkgroupResponse[]>(
+    [],
+  );
 
   constructor(
     private memberRequestService: MemberRequestService,
@@ -68,8 +74,12 @@ export class EditMemberComponent implements OnInit {
     private errorHandlerService: ErrorHandlerService,
   ) {}
 
-  observeEditResponse(): Observable<MemberResponse | null> {
+  get observeEditResponse(): Observable<MemberResponse | null> {
     return this.editResponse$.asObservable();
+  }
+
+  get observeWorkgroupResponses(): Observable<WorkgroupResponse[]> {
+    return this.editWorkgroupResponses$.asObservable();
   }
 
   ngOnInit() {
@@ -78,7 +88,7 @@ export class EditMemberComponent implements OnInit {
   }
 
   private startObservingEditResponse() {
-    this.observeEditResponse().subscribe((response) => {
+    this.observeEditResponse.subscribe((response) => {
       this.model.setup(response);
     });
   }
@@ -88,7 +98,15 @@ export class EditMemberComponent implements OnInit {
       if (memberId !== null) {
         this.memberRequestService
           .find(memberId)
-          .then((response) => this.editResponse$.next(response))
+          .then((response) => {
+            this.memberRequestService
+              .findWorkgroups(memberId)
+              .then((workgroupResponses) => {
+                this.editResponse$.next(response);
+                this.editWorkgroupResponses$.next(workgroupResponses);
+              })
+              .catch((error) => this.errorHandlerService.handle(error));
+          })
           .catch((error) => this.errorHandlerService.handle(error));
       } else {
         this.editResponse$.next(null);

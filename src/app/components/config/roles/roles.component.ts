@@ -112,7 +112,7 @@ export class RolesComponent implements OnInit {
     composedResult: SearchResult<RoleClassComposition>,
     rows: WorkgroupResponse[],
   ) {
-    let row = rows.pop();
+    let row = rows.shift();
 
     if (row) {
       const name = row.name;
@@ -142,7 +142,7 @@ export class RolesComponent implements OnInit {
     composedResult: SearchResult<RoleClassComposition>,
     rows: MemberResponse[],
   ) {
-    let row = rows.pop();
+    let row = rows.shift();
 
     if (row) {
       const name = row.fullName;

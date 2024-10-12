@@ -38,7 +38,7 @@
     </div>
   </form>
 
-  <div class="m-3" *ngIf="!(errorHandlerService.observeErrors() | async)">
+  <div *ngIf="!(errorHandlerService.observeErrors() | async)">
     <router-outlet />
   </div>
 </main>

@@ -17,35 +17,41 @@
   ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<div class="row">
-  <div class="col-3">
-    <div
-      class="nav flex-column nav-pills"
-      role="tablist"
-      aria-orientation="vertical"
-      *ngFor="
-        let configMode of [
-          ConfigMode.MEMBERS,
-          ConfigMode.WORKGROUPS,
-          ConfigMode.ROLES,
-        ]
-      "
-    >
-      <button
-        class="nav-link"
-        [ngClass]="{ active: (observe() | async) == configMode }"
-        role="tab"
-        (click)="switchMode(configMode)"
+<div class="container-fluid min-vh-100 d-flex flex-column">
+  <div class="row flex-grow-1">
+    <div class="col-3 bg-light">
+      <div
+        class="nav flex-column nav-pills"
+        role="tablist"
+        aria-orientation="vertical"
+        *ngFor="
+          let configMode of [
+            ConfigMode.MEMBERS,
+            ConfigMode.WORKGROUPS,
+            ConfigMode.ROLES,
+          ]
+        "
       >
-        {{ ConfigMode.getTitle(configMode) }}
-      </button>
+        <button
+          class="nav-link"
+          [ngClass]="{ active: (observe() | async) == configMode }"
+          role="tab"
+          (click)="switchMode(configMode)"
+        >
+          {{ ConfigMode.getTitle(configMode) }}
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="col-9">
-    <div class="tab-content">
-      <config-members *ngIf="(observe() | async) == ConfigMode.MEMBERS" />
-      <config-workgroups *ngIf="(observe() | async) == ConfigMode.WORKGROUPS" />
-      <config-roles *ngIf="(observe() | async) == ConfigMode.ROLES" />
+    <div class="col-9">
+      <div class="m-3">
+        <div class="tab-content">
+          <config-members *ngIf="(observe() | async) == ConfigMode.MEMBERS" />
+          <config-workgroups
+            *ngIf="(observe() | async) == ConfigMode.WORKGROUPS"
+          />
+          <config-roles *ngIf="(observe() | async) == ConfigMode.ROLES" />
+        </div>
+      </div>
     </div>
   </div>
 </div>
