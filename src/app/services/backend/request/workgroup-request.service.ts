@@ -31,7 +31,7 @@ import { MemberResponse } from '../../../model/responses/member-response';
 export class WorkgroupRequestService {
   constructor(
     private http: HttpClient,
-    private requestErrorHandlerService: ErrorHandlerService,
+    private errorHandlerService: ErrorHandlerService,
   ) {}
 
   async search(

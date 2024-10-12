@@ -17,7 +17,20 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { ConfigMode } from './config-mode';
+
 export enum RoleClass {
   MEMBER = 'MEMBER',
   WORKGROUP = 'WORKGROUP',
+}
+
+export namespace RoleClass {
+  export function getTitle(roleClass: RoleClass): string {
+    switch (roleClass) {
+      case RoleClass.MEMBER:
+        return $localize`Member Roles`;
+      case RoleClass.WORKGROUP:
+        return $localize`Work Group Roles`;
+    }
+  }
 }

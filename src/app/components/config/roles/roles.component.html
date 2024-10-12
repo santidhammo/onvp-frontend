@@ -1,0 +1,86 @@
+<ul class="nav nav-tabs" aria-orientation="horizontal" role="tablist">
+  <li
+    class="nav-item"
+    *ngFor="let roleClass of [RoleClass.MEMBER, RoleClass.WORKGROUP]"
+  >
+    <a
+      (click)="switchClass(roleClass)"
+      [ngClass]="{
+        active: (observeRoleClass | async) == roleClass,
+        enabled: !(observeRunning | async),
+      }"
+      class="nav-link"
+      href="javascript:"
+    >
+      {{ RoleClass.getTitle(roleClass) }}</a
+    >
+  </li>
+</ul>
+
+<form #searchForm="ngForm" (ngSubmit)="doSearch()">
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col col-8">
+        <form-text-entry
+          title="Search"
+          i18n-title
+          name="query"
+          [(ngModel)]="nameQuery"
+          [labelLeft]="true"
+        />
+      </div>
+      <div class="col col-2">
+        <form-submit />
+      </div>
+    </div>
+  </div>
+</form>
+
+<hr />
+
+<app-paginator
+  [searchResultProvider]="observeSearchResult"
+  (navigateTo)="doSearch($event)"
+/>
+
+<table class="table table-striped" *ngIf="(observeRows | async)?.length !== 0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th i18n>Name</th>
+      <th i18n>Roles</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let row of observeRows | async">
+    <tr>
+      <td class="align-middle">
+        <span>{{ row.id }}</span>
+      </td>
+      <td class="align-middle">
+        <span>{{ row.name }}</span>
+      </td>
+      <td class="align-middle">
+        <button class="btn btn-group disabled">
+          {{ Role.getTitle(Role.MEMBER) }}
+        </button>
+
+        <ng-container
+          *ngFor="let role of [Role.ORCHESTRA_COMMITTEE, Role.OPERATOR]"
+        >
+          <button
+            class="btn btn-group"
+            [ngClass]="{
+              'btn-primary': row.hasRole(role),
+              'btn-outline-secondary': !row.hasRole(role),
+            }"
+            (click)="
+              changeRole(row.roleClass, row.id, role, !row.hasRole(role))
+            "
+          >
+            {{ Role.getTitle(role) }}
+          </button>
+        </ng-container>
+      </td>
+    </tr>
+  </tbody>
+</table>

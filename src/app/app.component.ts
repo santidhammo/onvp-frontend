@@ -64,7 +64,7 @@ export class AppComponent {
   constructor(
     protected setupDetector: SetupRequestService,
     protected authorizationRequestService: AuthorizationRequestService,
-    protected requestErrorHandlerService: ErrorHandlerService,
+    protected errorHandlerService: ErrorHandlerService,
     protected router: Router,
     protected route: ActivatedRoute,
   ) {
@@ -84,13 +84,13 @@ export class AppComponent {
 
     router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        this.requestErrorHandlerService.clearError();
+        this.errorHandlerService.clearError();
       }
     });
   }
 
   clearErrorMaybeRetry() {
-    this.requestErrorHandlerService.clearError();
+    this.errorHandlerService.clearError();
     window.location.reload();
   }
 }

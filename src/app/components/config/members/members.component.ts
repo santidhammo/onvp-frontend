@@ -72,8 +72,8 @@ export class MembersComponent implements OnInit {
   nameQuery: string = '';
 
   constructor(
-    private memberService: MemberRequestService,
-    private requestErrorHandlerService: ErrorHandlerService,
+    private memberRequestService: MemberRequestService,
+    private errorHandlerService: ErrorHandlerService,
   ) {}
   ngOnInit() {
     this.doSearch();
@@ -97,7 +97,7 @@ export class MembersComponent implements OnInit {
   }
 
   doSearch(pageNumber: number = 1) {
-    this.memberService
+    this.memberRequestService
       .search(this.nameQuery, pageNumber - 1)
       .then((result) => {
         let page = result.pageOffset + 1;
@@ -105,6 +105,8 @@ export class MembersComponent implements OnInit {
         this.rows$.next(result.rows);
         this.searchResult$.next(result);
       })
-      .catch(this.requestErrorHandlerService.handle);
+      .catch((e) => {
+        this.errorHandlerService.handle(e);
+      });
   }
 }

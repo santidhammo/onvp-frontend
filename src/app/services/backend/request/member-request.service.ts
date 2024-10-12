@@ -37,7 +37,7 @@ import { MemberAddressResponse } from '../../../model/responses/member-address-r
 export class MemberRequestService {
   constructor(
     private http: HttpClient,
-    private requestErrorHandlerService: ErrorHandlerService,
+    private errorHandlerService: ErrorHandlerService,
   ) {}
 
   async search(
@@ -70,7 +70,7 @@ export class MemberRequestService {
         this.http.get<ImageAssetIdResponse>(`/api/members/${id}/picture`),
       );
     } catch (error) {
-      this.requestErrorHandlerService.handle(error as HttpErrorResponse);
+      this.errorHandlerService.handle(error as HttpErrorResponse);
       throw error;
     }
   }

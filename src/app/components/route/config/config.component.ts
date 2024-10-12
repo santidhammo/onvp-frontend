@@ -20,24 +20,37 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe, NgClass, NgForOf, NgIf } from '@angular/common';
 import { MembersComponent } from '../../config/members/members.component';
 import { WorkgroupsComponent } from '../../config/workgroups/workgroups.component';
+import { RolesComponent } from '../../config/roles/roles.component';
+import { ConfigMode } from '../../../generic/primitive/config-mode';
 
 @Component({
   selector: 'route-config',
   standalone: true,
-  imports: [RouterLink, AsyncPipe, NgIf, MembersComponent, WorkgroupsComponent],
+  imports: [
+    RouterLink,
+    AsyncPipe,
+    NgIf,
+    MembersComponent,
+    WorkgroupsComponent,
+    RolesComponent,
+    NgForOf,
+    NgClass,
+  ],
   templateUrl: './config.component.html',
 })
 export class ConfigComponent {
-  private configModeSwitch = new BehaviorSubject<String>('general');
+  protected readonly ConfigMode = ConfigMode;
 
-  observeConfigMode(): Observable<String> {
-    return this.configModeSwitch.asObservable();
+  private mode$ = new BehaviorSubject<ConfigMode>(ConfigMode.MEMBERS);
+
+  observe(): Observable<ConfigMode> {
+    return this.mode$.asObservable();
   }
 
-  switchConfig(configMode: string) {
-    this.configModeSwitch.next(configMode);
+  switchMode(configMode: ConfigMode) {
+    this.mode$.next(configMode);
   }
 }

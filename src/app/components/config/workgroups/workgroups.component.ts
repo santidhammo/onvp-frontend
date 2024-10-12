@@ -69,7 +69,7 @@ export class WorkgroupsComponent {
 
   constructor(
     private workgroupRequestService: WorkgroupRequestService,
-    private requestErrorHandlerService: ErrorHandlerService,
+    private errorHandlerService: ErrorHandlerService,
   ) {}
   ngOnInit() {
     this.doSearch();
@@ -101,6 +101,8 @@ export class WorkgroupsComponent {
         this.rows$.next(result.rows);
         this.searchResult$.next(result);
       })
-      .catch(this.requestErrorHandlerService.handle);
+      .catch((e) => {
+        this.errorHandlerService.handle(e);
+      });
   }
 }

@@ -23,7 +23,7 @@
   <form
     #errorForm="ngForm"
     (ngSubmit)="clearErrorMaybeRetry()"
-    *ngIf="requestErrorHandlerService.observeErrors() | async as error"
+    *ngIf="errorHandlerService.observeErrors() | async as error"
   >
     <div class="modal" style="display: block">
       <div class="modal-dialog alert alert-danger">
@@ -38,10 +38,7 @@
     </div>
   </form>
 
-  <div
-    class="m-3"
-    *ngIf="!(requestErrorHandlerService.observeErrors() | async)"
-  >
+  <div class="m-3" *ngIf="!(errorHandlerService.observeErrors() | async)">
     <router-outlet />
   </div>
 </main>

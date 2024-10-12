@@ -3,526 +3,291 @@
   <file source-language="nl-NL" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="5899864845007428149" datatype="html">
-        <source><x id="PH" equiv-text="title"/> is verplicht</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/form/errors.service.ts</context>
-          <context context-type="linenumber">19</context>
-        </context-group>
+        <source><x id="PH" equiv-text="title"/> is required</source>
+        <target><x id="PH" equiv-text="title"/> is verplicht</target>
       </trans-unit>
       <trans-unit id="8934373812123470378" datatype="html">
-        <source><x id="PH" equiv-text="title"/> heeft het verkeerde patroon</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/form/errors.service.ts</context>
-          <context context-type="linenumber">23</context>
-        </context-group>
+        <source><x id="PH" equiv-text="title"/> has wrong pattern</source>
+        <target><x id="PH" equiv-text="title"/> niet volgens patroon</target>
       </trans-unit>
       <trans-unit id="7585826646011739428" datatype="html">
-        <source>Bewerken</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/config/members/members.component.html</context>
-          <context context-type="linenumber">67</context>
-        </context-group>
+        <source>Edit</source>
+        <target>Bewerken</target>
       </trans-unit>
       <trans-unit id="7934833136974560675" datatype="html">
-        <source>Opnieuw</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">15</context>
-        </context-group>
+        <source>Retry</source>
+        <target>Opnieuw</target>
       </trans-unit>
       <trans-unit id="5605993045193979158" datatype="html">
-        <source>Lid Bewerken</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/config/edit-member/edit-member.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
+        <source>Edit Member</source>
+        <target>Lid Bewerken</target>
       </trans-unit>
       <trans-unit id="486981110227978885" datatype="html">
-        <source><x id="PH" equiv-text="title"/> heeft het verkeerde e-mailadresformaat</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/form/errors.service.ts</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
+        <source><x id="PH" equiv-text="title"/> has wrong email format</source>
+        <target><x id="PH" equiv-text="title"/> heeft het verkeerde e-mailadresformaat</target>
       </trans-unit>
       <trans-unit id="2535853537286282253" datatype="html">
-        <source><x id="PH" equiv-text="title"/> heeft de verkeerde lengte! Minimale lengte: <x id="PH_1" equiv-text="error"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/form/errors.service.ts</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
+        <source><x id="PH" equiv-text="title"/> has wrong length! Required length: <x id="PH_1" equiv-text="error.requiredLength"/></source>
+        <target><x id="PH" equiv-text="title"/> heeft de verkeerde lengte! Minimale lengte: <x id="PH_1" equiv-text="error.requiredLength"/></target>
       </trans-unit>
       <trans-unit id="4134250510290369775" datatype="html">
-        <source><x id="PH" equiv-text="title"/> moet gelijk zijn!</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/form/errors.service.ts</context>
-          <context context-type="linenumber">33</context>
-        </context-group>
+        <source><x id="PH" equiv-text="title"/> must be equal!</source>
+        <target><x id="PH" equiv-text="title"/> moet gelijk zijn!</target>
       </trans-unit>
       <trans-unit id="6652424493490915459" datatype="html">
-        <source>Fout: <x id="PH" equiv-text="title"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/form/errors.service.ts</context>
-          <context context-type="linenumber">37</context>
-        </context-group>
+        <source>Error: <x id="PH" equiv-text="title"/></source>
+        <target>Fout: <x id="PH" equiv-text="title"/></target>
       </trans-unit>
       <trans-unit id="5025709138959449988" datatype="html">
-        <source>Lidactivatie</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/route/activation/activation.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
+        <source>Member Activation</source>
+        <target>Lidactivatie</target>
       </trans-unit>
       <trans-unit id="4591028328144171895" datatype="html">
-        <source>Gelieve uw lidmaatschap te activeren. Scan de QR code in uw authenticatie-applicatie, en stuur de resulterende code terug naar het systeem. Dit zal uw lidmaatschap activeren.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/route/activation/activation.component.html</context>
-          <context context-type="linenumber">6,7</context>
-        </context-group>
+        <source>Please activate your account. Scan the given QR code in your Authentication application, and send the resulting code back to the system. This will activate your account.</source>
+        <target>Gelieve uw lidmaatschap te activeren. Scan de QR code in uw authenticatie-applicatie, en stuur de resulterende code terug naar het systeem. Dit zal uw lidmaatschap activeren.</target>
       </trans-unit>
       <trans-unit id="4399925927102349547" datatype="html">
-        <source>Activatie QR Code</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/route/activation/activation.component.html</context>
-          <context context-type="linenumber">13,14</context>
-        </context-group>
+        <source>Activation QR Code</source>
+        <target>Activatie QR Code</target>
       </trans-unit>
       <trans-unit id="8620303503002134718" datatype="html">
-        <source>Activatiecode</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/route/activation/activation.component.html</context>
-          <context context-type="linenumber">24,25</context>
-        </context-group>
+        <source>Activation Code</source>
+        <target>Activatiecode</target>
       </trans-unit>
       <trans-unit id="6492831808763156510" datatype="html">
-        <source>Installatie</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">1,3</context>
-        </context-group>
+        <source>Setup</source>
+        <target>Installatie</target>
       </trans-unit>
       <trans-unit id="6596188632959417754" datatype="html">
-        <source>Orkest Nieuwe Veste Plus</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/menu-bar/menu-bar.component.html</context>
-          <context context-type="linenumber">3,4</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2821179408673282599" datatype="html">
-        <source>Thuis</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/menu-bar/menu-bar.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
+        <source>Nieuwe Veste Plus Orchestra</source>
+        <target>Orkest Nieuwe Veste Plus</target>
       </trans-unit>
       <trans-unit id="2454050363478003966" datatype="html">
-        <source>Inloggen</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/menu-bar/menu-bar.component.html</context>
-          <context context-type="linenumber">9,10</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/route/login/login.component.html</context>
-          <context context-type="linenumber">4</context>
-        </context-group>
+        <source>Login</source>
+        <target>Inloggen</target>
       </trans-unit>
       <trans-unit id="3797778920049399855" datatype="html">
-        <source>Uitloggen</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/menu-bar/menu-bar.component.html</context>
-          <context context-type="linenumber">12,13</context>
-        </context-group>
+        <source>Logout</source>
+        <target>Uitloggen</target>
       </trans-unit>
       <trans-unit id="1358928551614255659" datatype="html">
-        <source>Gelieve uw e-mailadres en authenticatiecode op te geven</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/route/login/login.component.html</context>
-          <context context-type="linenumber">6,7</context>
-        </context-group>
+        <source>Please enter your e-mail address and token</source>
+        <target>Gelieve uw e-mailadres en authenticatiecode op te geven</target>
       </trans-unit>
       <trans-unit id="3039940756451018621" datatype="html">
-        <source>Authenticatiecode</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/route/login/login.component.html</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="657977392829176648" datatype="html">
-        <source>Inloggen mislukt</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/route/login/login.component.html</context>
-          <context context-type="linenumber">11,13</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8320337775488815470" datatype="html">
-        <source>Dit is het installatieproces van de ONVP website. Vul alstublieft de volgende waarden in om de website op te starten.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">3,5</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6028371114637047813" datatype="html">
-        <source>Voornaam</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">8,9</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3337540717284723401" datatype="html">
-        <source> Voornaam is verplicht </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">26,27</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4407559560004943843" datatype="html">
-        <source>Achternaam</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">10,11</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5202458308518213857" datatype="html">
-        <source> Achternaam is verplicht </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">45,46</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4879517228803151475" datatype="html">
-        <source>E-mailadres</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">12,13</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3248935447521115110" datatype="html">
-        <source> Email is verplicht en moet worden ingetypt in de vorm adres@domein </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">65</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="935187492052582731" datatype="html">
-        <source>Versturen</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">14,15</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="160640128319879431" datatype="html">
-        <source>Gebruikersnaam</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">38,39</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8194554728555410336" datatype="html">
-        <source>Telefoonnummer</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">46,47</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1847047605496409443" datatype="html">
-        <source>Straat</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">54</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="924959609101234956" datatype="html">
-        <source>Huisnummer</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">60,61</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1297032398744645488" datatype="html">
-        <source>Huisnummertoevoeging</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">67,68</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7647550512660678493" datatype="html">
-        <source>Postcode</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">74,75</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5269631474878618910" datatype="html">
-        <source>Woonplaats</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/setup/once/once.component.html</context>
-          <context context-type="linenumber">81,82</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="9089808677255101366" datatype="html">
-        <source>Bewerk configuratie</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/menu-bar/menu-bar.component.html</context>
-          <context context-type="linenumber">13,14</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8952723263254348159" datatype="html">
-        <source>Fout bij het bevragen van data aan de dienstverlener</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/generic/request-error-handler.service.ts</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7344916272817440707" datatype="html">
-        <source>Dienstverlener heeft de volgende foutmelding gegeven: <x id="PH" equiv-text="error.message"/></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/generic/request-error-handler.service.ts</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/generic/request-error-handler.service.ts</context>
-          <context context-type="linenumber">25</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/generic/request-error-handler.service.ts</context>
-          <context context-type="linenumber">32</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1774861783268079974" datatype="html">
-        <source>Er is een onbekende fout voorgekomen</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/generic/request-error-handler.service.ts</context>
-          <context context-type="linenumber">28</context>
-        </context-group>
+        <source>Token</source>
+        <target>Authenticatiecode</target>
       </trans-unit>
       <trans-unit id="2800474005706891314" datatype="html">
-        <source> Inloggen mislukt </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/route/login/login.component.html</context>
-          <context context-type="linenumber">11,12</context>
-        </context-group>
+        <source> Failed to login </source>
+        <target> Inloggen mislukt </target>
+      </trans-unit>
+      <trans-unit id="8320337775488815470" datatype="html">
+        <source>This is the setup process of the ONVP website. Please enter the following details, to startup the website.</source>
+        <target>Dit is het installatieproces van de ONVP website. Vul alstublieft de volgende waarden in om de website op te starten.</target>
+      </trans-unit>
+      <trans-unit id="6028371114637047813" datatype="html">
+        <source>First Name</source>
+        <target>Voornaam</target>
+      </trans-unit>
+      <trans-unit id="4407559560004943843" datatype="html">
+        <source>Last Name</source>
+        <target>Achternaam</target>
+      </trans-unit>
+      <trans-unit id="4879517228803151475" datatype="html">
+        <source>Email Address</source>
+        <target>E-mailadres</target>
+      </trans-unit>
+      <trans-unit id="935187492052582731" datatype="html">
+        <source>Submit</source>
+        <target>Versturen</target>
+      </trans-unit>
+      <trans-unit id="8194554728555410336" datatype="html">
+        <source>Phone Number</source>
+        <target>Telefoonnummer</target>
+      </trans-unit>
+      <trans-unit id="1847047605496409443" datatype="html">
+        <source>Street</source>
+        <target>Straat</target>
+      </trans-unit>
+      <trans-unit id="924959609101234956" datatype="html">
+        <source>House Number</source>
+        <target>Huisnummer</target>
+      </trans-unit>
+      <trans-unit id="1297032398744645488" datatype="html">
+        <source>House Number Postfix</source>
+        <target>Huisnummertoevoeging</target>
+      </trans-unit>
+      <trans-unit id="7647550512660678493" datatype="html">
+        <source>Postal Code</source>
+        <target>Postcode</target>
+      </trans-unit>
+      <trans-unit id="5269631474878618910" datatype="html">
+        <source>Domicile</source>
+        <target>Woonplaats</target>
+      </trans-unit>
+      <trans-unit id="9089808677255101366" datatype="html">
+        <source>Edit Configuration</source>
+        <target>Bewerk configuratie</target>
+      </trans-unit>
+      <trans-unit id="8952723263254348159" datatype="html">
+        <source>Error requesting the server for data</source>
+        <target>Fout bij het bevragen van data aan de dienstverlener</target>
+      </trans-unit>
+      <trans-unit id="7344916272817440707" datatype="html">
+        <source>Server returned error: <x id="PH" equiv-text="error.message"/></source>
+        <target>Dienstverlener heeft de volgende foutmelding gegeven: <x id="PH" equiv-text="error.message"/></target>
+      </trans-unit>
+      <trans-unit id="1774861783268079974" datatype="html">
+        <source>Unknown error occurred</source>
+        <target>Er is een onbekende fout voorgekomen</target>
+      </trans-unit>
+      <trans-unit id="2800474005706891314" datatype="html">
+        <source> Failed to login </source>
+        <target> Inloggen mislukt </target>
       </trans-unit>
       <trans-unit id="2159130950882492111" datatype="html">
-        <source>Annuleren</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/form/cancel/cancel.component.ts</context>
-          <context context-type="linenumber">15</context>
-        </context-group>
+        <source>Cancel</source>
+        <target>Annuleren</target>
       </trans-unit>
       <trans-unit id="4580988005648117665" datatype="html">
-        <source>Zoeken</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/config/members/members.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
+        <source>Search</source>
+        <target>Zoeken</target>
       </trans-unit>
       <trans-unit id="3193976279273491157" datatype="html">
-        <source>Acties</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/config/members/members.component.html</context>
-          <context context-type="linenumber">32,33</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2930742510712560730" datatype="html">
-        <source> Geen resultaten gevonden </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/config/members/members.component.html</context>
-          <context context-type="linenumber">107,108</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="836321179652220398" datatype="html">
-        <source> Algemeen </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/route/config/config.component.html</context>
-          <context context-type="linenumber">17,18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2415344939350446162" datatype="html">
-        <source> Leden </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/route/config/config.component.html</context>
-          <context context-type="linenumber">27,28</context>
-        </context-group>
+        <source>Actions</source>
+        <target>Acties</target>
       </trans-unit>
       <trans-unit id="7065464372847182937" datatype="html">
-        <source>Er is een fout voorgekomen</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">12,13</context>
-        </context-group>
+        <source>An error occurred</source>
+        <target>Er is een fout voorgekomen</target>
       </trans-unit>
       <trans-unit id="4907348924287251930" datatype="html">
-        <source>Lidafbeelding Bewerken</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/config/edit-member-picture/edit-member-picture.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
+        <source>Edit Member Picture</source>
+        <target>Lidafbeelding Bewerken</target>
       </trans-unit>
       <trans-unit id="8399469779273227421" datatype="html">
-        <source>Afbeelding van het lid</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/config/edit-member-picture/edit-member-picture.component.html</context>
-          <context context-type="linenumber">9,10</context>
-        </context-group>
+        <source>Picture of the member</source>
+        <target>Afbeelding van het lid</target>
       </trans-unit>
       <trans-unit id="8757632046177548463" datatype="html">
-        <source><Profielafbeelding></Profielafbeelding></source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/config/members/members.component.html</context>
-          <context context-type="linenumber">73,74</context>
-        </context-group>
+        <source>Profile Picture</source>
+        <source>Profielafbeelding</source>
       </trans-unit>
       <trans-unit id="4145388993288653422" datatype="html">
-        <source>Registreer lid</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/config/config-register-member/register-member.component.html</context>
-          <context context-type="linenumber">3</context>
-        </context-group>
+        <source>Register Member</source>
+        <target>Registreer lid</target>
       </trans-unit>
       <trans-unit id="679041050333477369" datatype="html">
-        <source>Dit is het registratiedialoogvenser voor een nieuw lid. Voer de gegevens van het lid in, in het formulier en verstuur. Een e-mail wordt aan het lid gestuurd ter activatie.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/config/config-register-member/register-member.component.html</context>
-          <context context-type="linenumber">5,6</context>
-        </context-group>
+        <source>This is the registration dialog for a new member. Please enter the details here and submit. An email will be send to the member for further activation</source>
+        <target>Dit is het registratiedialoogvenser voor een nieuw lid. Voer de gegevens van het lid in, in het formulier en verstuur. Een e-mail wordt aan het lid gestuurd ter activatie.</target>
       </trans-unit>
       <trans-unit id="1207234198432054218" datatype="html">
-        <source> Registreer new lid </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/config/members/members.component.html</context>
-          <context context-type="linenumber">28,29</context>
-        </context-group>
+        <source> Register new member </source>
+        <target> Registreer new lid </target>
       </trans-unit>
       <trans-unit id="8757632046177548463" datatype="html">
-        <source>Profilefoto</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/config/members/members.component.html</context>
-          <context context-type="linenumber">84,85</context>
-        </context-group>
+        <source>Profile Picture</source>
+        <target>Profilefoto</target>
       </trans-unit>
       <trans-unit id="3609983727027804587" datatype="html">
-        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Totaal aantal rijen<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>: <x id="INTERPOLATION" equiv-text="{{ observeTotalCount() | async }}"/> </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/search/paginator/paginator.component.html</context>
-          <context context-type="linenumber">6,8</context>
-        </context-group>
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Total Records<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>: <x id="INTERPOLATION" equiv-text="{{ observeTotalCount() | async }}"/> </source>
+        <target><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Totaal aantal rijen<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>: <x id="INTERPOLATION" equiv-text="{{ observeTotalCount() | async }}"/> </target>
       </trans-unit>
       <trans-unit id="4116296290237874686" datatype="html">
-        <source> Geen resultaten beschikbaar
+        <source> No results available
         </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
-          <context context-type="linenumber">119,122</context>
-        </context-group>
+        <target> Geen resultaten beschikbaar
+        </target>
       </trans-unit>
       <trans-unit id="1470121978970986760" datatype="html">
-        <source>Adres Bewerken</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
-          <context context-type="linenumber">110,111</context>
-        </context-group>
+        <source>Edit Address</source>
+        <target>Adres Bewerken</target>
       </trans-unit>
       <trans-unit id="7091097861717138508" datatype="html">
-        <source>Registreer Werkgroep</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/register-workgroup/register-workgroup.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
+        <source>Register Work Group</source>
+        <target>Registreer Werkgroep</target>
       </trans-unit>
       <trans-unit id="4798760364604106488" datatype="html">
-        <source>Dit is het registratiedialoogvenster voor een werkgroep. Gelieve de details op te geven en te versturen</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/register-workgroup/register-workgroup.component.html</context>
-          <context context-type="linenumber">28,29</context>
-        </context-group>
+        <source>This is the registration dialog for a new work group. Please enter the details here and submit</source>
+        <target>Dit is het registratiedialoogvenster voor een werkgroep. Gelieve de details op te geven en te versturen</target>
       </trans-unit>
       <trans-unit id="8953033926734869941" datatype="html">
-        <source>Naam</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/edit-workgroup/edit-workgroup.component.html</context>
-          <context context-type="linenumber">12</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/register-workgroup/register-workgroup.component.html</context>
-          <context context-type="linenumber">35</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
-          <context context-type="linenumber">64,65</context>
-        </context-group>
+        <source>Name</source>
+        <target>Naam</target>
       </trans-unit>
       <trans-unit id="5299873419251227126" datatype="html">
-        <source>Werkgroep Bewerken</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/edit-workgroup/edit-workgroup.component.html</context>
-          <context context-type="linenumber">7</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4430445113417187796" datatype="html">
-        <source> Werkgroepen </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/route/config/config.component.html</context>
-          <context context-type="linenumber">57,58</context>
-        </context-group>
+        <source>Edit Work Group</source>
+        <target>Werkgroep Bewerken</target>
       </trans-unit>
       <trans-unit id="2642747276604529492" datatype="html">
-        <source> Registeer nieuwe werkgroep </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
-          <context context-type="linenumber">47,48</context>
-        </context-group>
+        <source> Register new work group </source>
+        <target> Registeer nieuwe werkgroep </target>
       </trans-unit>
       <trans-unit id="2267951994342176288" datatype="html">
-        <source>Lid Afmelden</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/unregister-member/unregister-member.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
+        <source>Unregister Member</source>
+        <target>Lid Afmelden</target>
       </trans-unit>
       <trans-unit id="6962699013778688473" datatype="html">
-        <source>Doorgaan</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/unregister-member/unregister-member.component.html</context>
-          <context context-type="linenumber">34</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/unregister-workgroup/unregister-workgroup.component.html</context>
-          <context context-type="linenumber">34</context>
-        </context-group>
+        <source>Continue</source>
+        <target>Doorgaan</target>
       </trans-unit>
       <trans-unit id="7143377966857284332" datatype="html">
-        <source>Werkgroep afmelden</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/unregister-workgroup/unregister-workgroup.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
+        <source>Unregister Work Group</source>
+        <target>Werkgroep afmelden</target>
       </trans-unit>
       <trans-unit id="8426224947227400092" datatype="html">
-        <source>Afmelden</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
-          <context context-type="linenumber">122,123</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
-          <context context-type="linenumber">88,89</context>
-        </context-group>
+        <source>Unregister</source>
+        <target>Afmelden</target>
       </trans-unit>
       <trans-unit id="8272813546141478779" datatype="html">
-        <source> Weet u zeker dat u het lid met de naam: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeName() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
-      &gt;"/> wilt afmelden? </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/unregister-member/unregister-member.component.html</context>
-          <context context-type="linenumber">28,32</context>
-        </context-group>
+        <source> Are you sure to unregister the member with name: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeName() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
+      &gt;"/>? </source>
+        <target> Weet u zeker dat u het lid met de naam: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeName() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
+      &gt;"/> wilt afmelden? </target>
       </trans-unit>
       <trans-unit id="5959469162377550995" datatype="html">
-        <source> Weet u zeker dat u de werkgroep met de naam: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeName() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
-      &gt;"/> wilt afmelden? </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/unregister-workgroup/unregister-workgroup.component.html</context>
-          <context context-type="linenumber">28,32</context>
-        </context-group>
+        <source> Are you sure to unregister the work group with name: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeName() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
+      &gt;"/>? </source>
+        <target> Weet u zeker dat u de werkgroep met de naam: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeName() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
+      &gt;"/> wilt afmelden? </target>
       </trans-unit>
+      <trans-unit id="4691887509600985309" datatype="html">
+        <source>Members</source>
+        <target>Leden</target>
+      </trans-unit>
+      <trans-unit id="1684117475967318394" datatype="html">
+        <source>Work Groups</source>
+        <target>Werkgroepen</target>
+      </trans-unit>
+      <trans-unit id="795890916060309463" datatype="html">
+        <source>Roles</source>
+        <target>Rollen</target>
+      </trans-unit>
+      <trans-unit id="2997307845619095560" datatype="html">
+        <source>Member Roles</source>
+        <target>Lidrollen</target>
+      </trans-unit>
+      <trans-unit id="1128332347664957163" datatype="html">
+        <source>Work Group Roles</source>
+        <target>Werkgroeprollen</target>
+      </trans-unit>
+      <trans-unit id="6297950127540572260" datatype="html">
+        <source>Member</source>
+        <target>Lid</target>
+      </trans-unit>
+      <trans-unit id="6145432860664247927" datatype="html">
+        <source>Orchestra Committee</source>
+        <target>Orkestcommissie</target>
+      </trans-unit>
+      <trans-unit id="1179184907489210406" datatype="html">
+      <source>Operator</source>
+      <target>Beheerder</target>
+    </trans-unit>
+    <trans-unit id="1970854635127677226" datatype="html">
+      <source>Public Access</source>
+      <target>Publieke toegang</target>
+    </trans-unit>
     </body>
   </file>
 </xliff>

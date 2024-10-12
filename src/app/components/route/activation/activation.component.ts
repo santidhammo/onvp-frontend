@@ -57,7 +57,7 @@ export class ActivationComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private requestErrorHandlerService: ErrorHandlerService,
+    private errorHandlerService: ErrorHandlerService,
     private memberRequestService: MemberRequestService,
   ) {}
 
@@ -71,7 +71,7 @@ export class ActivationComponent implements OnInit {
         this.activationBase64PngSource.next(pngData);
       } catch (error) {
         await this.router.navigate(['']);
-        this.requestErrorHandlerService.handle(error as HttpErrorResponse);
+        this.errorHandlerService.handle(error as HttpErrorResponse);
       }
     });
   }
@@ -86,6 +86,8 @@ export class ActivationComponent implements OnInit {
       .then((_) => {
         this.router.navigate(['']).finally(null);
       })
-      .catch(this.requestErrorHandlerService.handle);
+      .catch((e) => {
+        this.errorHandlerService.handle(e);
+      });
   }
 }
