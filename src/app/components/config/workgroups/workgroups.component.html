@@ -54,10 +54,7 @@
   [searchResultProvider]="observeSearchResult"
   (navigateTo)="doSearch($event)"
 />
-<table
-  class="table table-striped"
-  *ngIf="(observeRows() | async)?.length !== 0"
->
+<table class="table table-striped" *ngIf="(observeRows | async)?.length !== 0">
   <thead>
     <tr>
       <th>ID</th>
@@ -65,7 +62,7 @@
       <th i18n>Actions</th>
     </tr>
   </thead>
-  <tbody *ngFor="let row of observeRows() | async">
+  <tbody *ngFor="let row of observeRows | async">
     <tr>
       <td class="align-middle">
         <span>{{ row.id }}</span>
@@ -93,7 +90,7 @@
   </tbody>
 </table>
 
-<div class="alert-info" *ngIf="(observeRows() | async)?.length === 0" i18n>
+<div class="alert-info" *ngIf="(observeRows | async)?.length === 0" i18n>
   No results available
 </div>
 

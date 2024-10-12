@@ -79,7 +79,7 @@ export class WorkgroupsComponent {
     return this.searchResult$.asObservable();
   }
 
-  observeRows(): Observable<WorkgroupResponse[]> {
+  get observeRows(): Observable<WorkgroupResponse[]> {
     return this.rows$.asObservable();
   }
 

@@ -83,7 +83,7 @@ export class MembersComponent implements OnInit {
     return this.searchResult$.asObservable();
   }
 
-  observeRows(): Observable<MemberResponse[]> {
+  get observeRows(): Observable<MemberResponse[]> {
     return this.rows$.asObservable();
   }
 
