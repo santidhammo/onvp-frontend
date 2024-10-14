@@ -17,7 +17,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SubmitComponent } from '../../form/submit/submit.component';
 import { TextEntryComponent } from '../../form/text-entry/text-entry.component';
@@ -34,6 +34,7 @@ import { RegisterWorkgroupComponent } from '../register-workgroup/register-workg
 import { EditWorkgroupComponent } from '../edit-workgroup/edit-workgroup.component';
 import { UnregisterMemberComponent } from '../unregister-member/unregister-member.component';
 import { UnregisterWorkgroupComponent } from '../unregister-workgroup/unregister-workgroup.component';
+import { WorkgroupManagementComponent } from '../workgroup-management/workgroup-management.component';
 
 @Component({
   selector: 'config-workgroups',
@@ -52,16 +53,18 @@ import { UnregisterWorkgroupComponent } from '../unregister-workgroup/unregister
     EditWorkgroupComponent,
     UnregisterMemberComponent,
     UnregisterWorkgroupComponent,
+    WorkgroupManagementComponent,
   ],
   templateUrl: './workgroups.component.html',
 })
-export class WorkgroupsComponent {
+export class WorkgroupsComponent implements OnInit {
   private page$ = new BehaviorSubject<number | null>(null);
   private rows$ = new BehaviorSubject<WorkgroupResponse[]>([]);
   private searchResult$ =
     new BehaviorSubject<SearchResult<WorkgroupResponse> | null>(null);
 
   protected editWorkgroupId$ = new BehaviorSubject<number | null>(null);
+  protected manageWorkgroupId$ = new BehaviorSubject<number | null>(null);
   protected registerEnabled$ = new BehaviorSubject<boolean>(false);
   protected unregisterWorkgroupId$ = new BehaviorSubject<number | null>(null);
 

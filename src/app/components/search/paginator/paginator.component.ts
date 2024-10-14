@@ -1,4 +1,4 @@
-import { Component, input, OnInit, output, Output } from '@angular/core';
+import { Component, Input, input, OnInit, output, Output } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SearchResult } from '../../../model/search/search-result';
 import { NavigatorPage } from '../../../model/search/navigator-page';
@@ -13,6 +13,7 @@ import { AsyncPipe, NgClass, NgForOf, NgIf } from '@angular/common';
 export class PaginatorComponent<T> implements OnInit {
   searchResultProvider = input.required<Observable<SearchResult<T> | null>>();
   navigateTo = output<number>();
+  showTotals = input<boolean>(false);
 
   private totalCount$ = new BehaviorSubject<number | null>(null);
   private page$ = new BehaviorSubject<number | null>(null);

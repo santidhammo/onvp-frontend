@@ -18,11 +18,12 @@
  */
 
 import { Component, Input } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'form-submit',
   standalone: true,
-  imports: [],
+  imports: [NgClass],
   templateUrl: './submit.component.html',
 })
 export class SubmitComponent {

@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, OnInit, output } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ErrorHandlerService } from '../../../services/handlers/error-handler.service';
 import { WorkgroupUpdateCommand } from '../../../model/commands/workgroup-update-command';
@@ -32,7 +32,7 @@ import { TextEntryComponent } from '../../form/text-entry/text-entry.component';
   ],
   templateUrl: './edit-workgroup.component.html',
 })
-export class EditWorkgroupComponent {
+export class EditWorkgroupComponent implements OnInit {
   workgroupIdObservableInput = input.required<Observable<number | null>>();
   onSaved = output();
   onCancelled = output();
@@ -47,7 +47,7 @@ export class EditWorkgroupComponent {
     private errorHandlerService: ErrorHandlerService,
   ) {}
 
-  observeEditResponse(): Observable<WorkgroupResponse | null> {
+  get observeEditResponse(): Observable<WorkgroupResponse | null> {
     return this.editResponse$.asObservable();
   }
 
@@ -57,7 +57,7 @@ export class EditWorkgroupComponent {
   }
 
   private startObservingEditResponse() {
-    this.observeEditResponse().subscribe((response) => {
+    this.observeEditResponse.subscribe((response) => {
       this.model.setup(response);
     });
   }

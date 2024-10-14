@@ -17,12 +17,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { DialogSize } from '../../generic/primitive/dialog-size';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-dialog',
   standalone: true,
-  imports: [],
   templateUrl: './dialog.component.html',
+  imports: [NgClass],
 })
-export class DialogComponent {}
+export class DialogComponent {
+  size = input<DialogSize>(DialogSize.Normal);
+  protected readonly DialogSize = DialogSize;
+}

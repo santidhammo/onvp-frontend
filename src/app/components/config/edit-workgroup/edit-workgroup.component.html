@@ -1,7 +1,7 @@
 <form
   #workgroupForm="ngForm"
   (ngSubmit)="submit($event)"
-  *ngIf="observeEditResponse() | async"
+  *ngIf="observeEditResponse | async"
 >
   <app-dialog>
     <dialog-header title="Edit Work Group" i18n-title />

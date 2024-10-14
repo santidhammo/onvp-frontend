@@ -3,6 +3,7 @@
   *ngIf="observePageCount() | async as pageCount"
 >
   <span
+    *ngIf="showTotals()"
     class="align-content-center text-primary bg-light position-absolute end-0 top-0 bottom-0 rounded ps-3 pe-3"
     i18n
   >

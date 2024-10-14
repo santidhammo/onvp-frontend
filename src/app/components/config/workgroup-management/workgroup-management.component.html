@@ -1,0 +1,144 @@
+<!--
+  ~  ONVP Frontend - Frontend of the ONVP website
+  ~
+  ~ Copyright (c) 2024.  Sjoerd van Leent
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+<app-dialog
+  *ngIf="observeWorkgroupResponse | async as workgroupResponse"
+  [size]="DialogSize.XL"
+>
+  <dialog-header title="Work Group Management" i18n-title />
+  <dialog-explanation [explanation]="createExplanation(workgroupResponse)" />
+  <dialog-body>
+    <div class="row">
+      <div class="col-5">
+        <form #searchForm="ngForm" (ngSubmit)="doAvailableMembersSearch()">
+          <div class="container">
+            <div class="row">
+              <div class="col-8">
+                <form-text-entry
+                  title="Search for available members"
+                  i18n-title
+                  name="query"
+                  [(ngModel)]="nameQuery"
+                  [labelLeft]="false"
+                />
+              </div>
+              <div class="col-2 align-self-end">
+                <form-submit title="Search" i18n-title />
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <hr />
+
+        <app-paginator
+          [searchResultProvider]="observeAvailableMembersSearchResult"
+          (navigateTo)="doAvailableMembersSearch($event)"
+          [showTotals]="false"
+        />
+        <br />
+      </div>
+    </div>
+
+    <div class="row mt-3 mb-3">
+      <div class="col-5">
+        <strong i18n>Available members:</strong>
+      </div>
+      <div class="col-2">&nbsp;</div>
+      <div class="col-5">
+        <strong i18n>Current members:</strong>
+      </div>
+    </div>
+
+    <div class="row" style="height: 11lh">
+      <div class="col-5">
+        <table
+          *ngIf="(observeAvailableMembersRows | async)?.length !== 0"
+          class="w-100"
+        >
+          <tbody>
+            <tr *ngFor="let row of observeAvailableMembersRows | async">
+              <td
+                class="align-middle"
+                style="cursor: pointer"
+                [ngClass]="{
+                  'bg-primary-subtle': (
+                    addMemberIdsObservable | async
+                  )?.includes(row.id),
+                }"
+                (click)="toggleMemberToAdd(row.id)"
+              >
+                <span>{{ row.fullName }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div *ngIf="(observeAvailableMembersRows | async)?.length === 0" i18n>
+          No results available
+        </div>
+      </div>
+
+      <div class="col-2 bg-light">
+        <div class="row" style="height: 11lh">
+          <div class="col align-self-center">
+            <div class="m-2">
+              <button class="btn btn-outline-success w-100" (click)="doAdd()">
+                Add &gt;&gt;
+              </button>
+            </div>
+            <div class="m-2">
+              <button class="btn btn-outline-danger w-100" (click)="doRemove()">
+                &lt;&lt; Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-5">
+        <table
+          *ngIf="(observeWorkgroupMembers | async)?.length !== 0"
+          class="w-100"
+        >
+          <tbody>
+            <tr *ngFor="let row of observeWorkgroupMembers | async">
+              <td
+                class="align-middle"
+                style="cursor: pointer"
+                [ngClass]="{
+                  'bg-danger-subtle': (
+                    removeMemberIdsObservable | async
+                  )?.includes(row.id),
+                }"
+                (click)="toggleMemberToRemove(row.id)"
+              >
+                <span>{{ row.fullName }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div *ngIf="(observeWorkgroupMembers | async)?.length === 0" i18n>
+          No results available
+        </div>
+      </div>
+    </div>
+  </dialog-body>
+  <dialog-footer>
+    <button class="btn btn-danger" (click)="onClose.emit()">Close</button>
+  </dialog-footer>
+</app-dialog>

@@ -22,6 +22,8 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { WorkgroupUpdateCommand } from '../../../model/commands/workgroup-update-command';
 import { WorkgroupRegisterCommand } from '../../../model/commands/workgroup-register-command';
+import { AssociateMemberToWorkgroupCommand } from '../../../model/commands/associate-member-to-workgroup-command';
+import { DissociateMemberFromWorkgroupCommand } from '../../../model/commands/dissociate-member-from-workgroup-command';
 
 @Injectable({
   providedIn: 'root',
@@ -39,5 +41,15 @@ export class WorkgroupCommandService {
 
   async delete(id: number): Promise<void> {
     await firstValueFrom(this.http.delete(`/api/workgroups/${id}`));
+  }
+
+  async associate(command: AssociateMemberToWorkgroupCommand): Promise<void> {
+    await firstValueFrom(this.http.post(`/api/workgroups/associate`, command));
+  }
+
+  async dissociate(
+    command: DissociateMemberFromWorkgroupCommand,
+  ): Promise<void> {
+    await firstValueFrom(this.http.post(`/api/workgroups/dissociate`, command));
   }
 }

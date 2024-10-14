@@ -79,6 +79,12 @@
             >Edit</a
           >
           <a
+            (click)="manageWorkgroupId$.next(row.id)"
+            class="btn btn-outline-primary"
+            i18n
+            >Manage</a
+          >
+          <a
             (click)="unregisterWorkgroupId$.next(row.id)"
             class="btn btn-outline-primary"
             i18n
@@ -123,4 +129,11 @@ When the workgroup is successfully unregistered, the search has to be refreshed
   [workgroupIdObservableInput]="unregisterWorkgroupId$.asObservable()"
   (onSaved)="refreshSearch(); unregisterWorkgroupId$.next(null)"
   (onCancelled)="unregisterWorkgroupId$.next(null)"
+/>
+<!--
+No need to refresh the search on closing the workgroup management dialog
+-->
+<config-workgroup-management
+  [workgroupIdObservableInput]="manageWorkgroupId$.asObservable()"
+  (onClose)="manageWorkgroupId$.next(null)"
 />

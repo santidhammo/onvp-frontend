@@ -283,14 +283,50 @@
       <trans-unit id="1179184907489210406" datatype="html">
       <source>Operator</source>
       <target>Beheerder</target>
-    </trans-unit>
-    <trans-unit id="1970854635127677226" datatype="html">
-      <source>Public Access</source>
-      <target>Publieke toegang</target>
-    </trans-unit>
+      </trans-unit>
+      <trans-unit id="1970854635127677226" datatype="html">
+        <source>Public Access</source>
+        <target>Publieke toegang</target>
+      </trans-unit>
       <trans-unit id="1519646385387360644" datatype="html">
         <source>Member work groups</source>
         <target>Werkgroep lidmaatschap</target>
+      </trans-unit>
+      <trans-unit id="2933373428961906759" datatype="html">
+        <source>Manage workgroup: <x id="PH" equiv-text="workgroupResponse.name"/></source>
+        <target>Werkgroep beheren: <x id="PH" equiv-text="workgroupResponse.name"/></target>
+      </trans-unit>
+      <trans-unit id="6128606774953482155" datatype="html">
+        <source>Work Group Management</source>
+        <target>Werkgroepenbeheer</target>
+      </trans-unit>
+      <trans-unit id="8958598795215427282" datatype="html">
+        <source>Available members:</source>
+        <target>Beschikbare leden:</target>
+      </trans-unit>
+      <trans-unit id="2756580018763042863" datatype="html">
+        <source>Current members:</source>
+        <target>Huidige leden:</target>
+      </trans-unit>
+      <trans-unit id="2930742510712560730" datatype="html">
+        <source> No results available </source>
+        <source> Geen resultaten gevonden </source>
+      </trans-unit>
+      <trans-unit id="2933373428961906759" datatype="html">
+        <source>Manage workgroup: <x id="PH" equiv-text="workgroupResponse.name"/></source>
+        <target>Beheer werkgroep: <x id="PH" equiv-text="workgroupResponse.name"/></target>
+      </trans-unit>
+      <trans-unit id="2642747276604529492" datatype="html">
+        <source> Register new work group </source>
+        <target> Nieuwe werkgroep registreren </target>
+      </trans-unit>
+      <trans-unit id="3897348120591552265" datatype="html">
+        <source>Manage</source>
+        <target>Beheren</target>
+      </trans-unit>
+      <trans-unit id="6069525884370715321" datatype="html">
+        <source>Search for available members</source>
+        <target>Zoek naar beschikbare leden</target>
       </trans-unit>
     </body>
   </file>

@@ -51,4 +51,26 @@ export class WorkgroupRequestService {
       this.http.get<WorkgroupResponse>(`/api/workgroups/${id}`),
     );
   }
+
+  async findMembers(id: number): Promise<MemberResponse[]> {
+    return await firstValueFrom(
+      this.http.get<MemberResponse[]>(`/api/workgroups/${id}/members`),
+    );
+  }
+
+  async availableMembersSearch(
+    id: number,
+    query: string,
+    pageOffset: number,
+  ): Promise<SearchResult<MemberResponse>> {
+    const baseParams = new HttpParams().set('q', query).set('p', pageOffset);
+    return await firstValueFrom(
+      this.http.get<SearchResult<MemberResponse>>(
+        `/api/workgroups/${id}/members/available/search`,
+        {
+          params: baseParams,
+        },
+      ),
+    );
+  }
 }
