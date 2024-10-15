@@ -310,11 +310,7 @@
       </trans-unit>
       <trans-unit id="2930742510712560730" datatype="html">
         <source> No results available </source>
-        <source> Geen resultaten gevonden </source>
-      </trans-unit>
-      <trans-unit id="2933373428961906759" datatype="html">
-        <source>Manage workgroup: <x id="PH" equiv-text="workgroupResponse.name"/></source>
-        <target>Beheer werkgroep: <x id="PH" equiv-text="workgroupResponse.name"/></target>
+        <target> Geen resultaten gevonden </target>
       </trans-unit>
       <trans-unit id="2642747276604529492" datatype="html">
         <source> Register new work group </source>
@@ -327,6 +323,30 @@
       <trans-unit id="6069525884370715321" datatype="html">
         <source>Search for available members</source>
         <target>Zoek naar beschikbare leden</target>
+      </trans-unit>
+      <trans-unit id="4902817035128594900" datatype="html">
+        <source>Description</source>
+        <target>Beschrijving</target>
+      </trans-unit>
+      <trans-unit id="4871344013433324888" datatype="html">
+        <source>Manage workgroup: <x id="PH" equiv-text="workgroupResponse.name"/>. Search for the available members, select the available member(s) and click add to add the member</source>
+        <target>Beheer werkgroep: <x id="PH" equiv-text="workgroupResponse.name"/>. Zoek naar beschikbare leden, selecteer het beschikbare lid en klik toevoegen om het lid toe te voegen</target>
+      </trans-unit>
+      <trans-unit id="8889819112897578789" datatype="html">
+        <source> Add &gt;&gt; </source>
+        <target> Toevoegen &gt;&gt; </target>
+      </trans-unit>
+      <trans-unit id="5630872954519578085" datatype="html">
+        <source> &lt;&lt; Remove </source>
+        <target> &lt;&lt; Verwijderen </target>
+      </trans-unit>
+      <trans-unit id="203759505384493875" datatype="html">
+        <source>Privacy </source>
+        <target>Privacy </target>
+      </trans-unit>
+      <trans-unit id="2935806053149068102" datatype="html">
+        <source>Allow member privacy information sharing</source>
+        <target>Delen van publieke lidinformation toestaan</target>
       </trans-unit>
     </body>
   </file>

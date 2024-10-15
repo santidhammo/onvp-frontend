@@ -20,9 +20,10 @@
 import { Injectable } from '@angular/core';
 import { MemberUpdateCommand } from '../../../model/commands/member-update-command';
 import { firstValueFrom } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { MemberRegisterCommand } from '../../../model/commands/member-register-command';
 import { MemberUpdateAddressCommand } from '../../../model/commands/member-update-address-command';
+import { MemberUpdatePrivacyInfoSharingCommand } from '../../../model/commands/member-update-privacy-info-sharing-command';
 
 @Injectable({
   providedIn: 'root',
@@ -53,5 +54,12 @@ export class MemberCommandService {
 
   async delete(id: number): Promise<void> {
     await firstValueFrom(this.http.delete(`/api/members/${id}`));
+  }
+
+  async updatePrivacyInfoSharing(
+    id: number,
+    command: MemberUpdatePrivacyInfoSharingCommand,
+  ): Promise<void> {
+    await firstValueFrom(this.http.post(`/api/members/${id}/privacy`, command));
   }
 }

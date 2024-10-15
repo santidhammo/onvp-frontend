@@ -40,7 +40,7 @@
         [(ngModel)]="model.houseNumber"
         required
         pattern="^[0-9]+$"
-        inputType="number"
+        [inputType]="InputType.NUMBER"
       />
 
       <form-text-entry

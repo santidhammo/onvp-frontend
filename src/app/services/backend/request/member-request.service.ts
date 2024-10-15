@@ -18,28 +18,21 @@
  */
 
 import { Injectable } from '@angular/core';
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpParams,
-} from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { MemberResponse } from '../../../model/responses/member-response';
 import { SearchResult } from '../../../model/search/search-result';
-import { ErrorHandlerService } from '../../handlers/error-handler.service';
 import { MemberActivationCommand } from '../../../model/commands/member-activation-command';
 import { ImageAssetIdResponse } from '../../../model/responses/image-asset-id-response';
 import { MemberAddressResponse } from '../../../model/responses/member-address-response';
 import { WorkgroupResponse } from '../../../model/responses/workgroup-response';
+import { MemberPrivacyInfoSharingResponse } from '../../../model/request/member-privacy-info-sharing-response';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MemberRequestService {
-  constructor(
-    private http: HttpClient,
-    private errorHandlerService: ErrorHandlerService,
-  ) {}
+  constructor(private http: HttpClient) {}
 
   async search(
     query: string,
@@ -65,6 +58,16 @@ export class MemberRequestService {
     );
   }
 
+  async findPrivacyInfoSharing(
+    id: number,
+  ): Promise<MemberPrivacyInfoSharingResponse> {
+    return await firstValueFrom(
+      this.http.get<MemberPrivacyInfoSharingResponse>(
+        `/api/members/${id}/privacy`,
+      ),
+    );
+  }
+
   async findWorkgroups(id: number): Promise<WorkgroupResponse[]> {
     return await firstValueFrom(
       this.http.get<WorkgroupResponse[]>(`/api/members/${id}/workgroups`),
@@ -72,14 +75,9 @@ export class MemberRequestService {
   }
 
   async picture(id: number): Promise<ImageAssetIdResponse> {
-    try {
-      return await firstValueFrom(
-        this.http.get<ImageAssetIdResponse>(`/api/members/${id}/picture`),
-      );
-    } catch (error) {
-      this.errorHandlerService.handle(error as HttpErrorResponse);
-      throw error;
-    }
+    return await firstValueFrom(
+      this.http.get<ImageAssetIdResponse>(`/api/members/${id}/picture`),
+    );
   }
 
   async activate(command: MemberActivationCommand): Promise<void> {

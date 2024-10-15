@@ -33,6 +33,7 @@ import { FooterComponent } from '../../dialog/footer/footer.component';
 import { SubmitComponent } from '../../form/submit/submit.component';
 import { ErrorHandlerService } from '../../../services/handlers/error-handler.service';
 import { MemberRequestService } from '../../../services/backend/request/member-request.service';
+import { InputType } from '../../../generic/primitive/input-type';
 
 @Component({
   selector: 'route-activation',
@@ -90,4 +91,6 @@ export class ActivationComponent implements OnInit {
         this.errorHandlerService.handle(e);
       });
   }
+
+  protected readonly InputType = InputType;
 }

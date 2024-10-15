@@ -34,6 +34,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SetupRequestService } from '../../services/backend/request/setup-request.service';
 import { SetupCommandService } from '../../services/backend/command/setup-command.service';
 import { ErrorHandlerService } from '../../services/handlers/error-handler.service';
+import { InputType } from '../../generic/primitive/input-type';
 
 @Component({
   selector: 'setup-once',
@@ -81,4 +82,6 @@ export class SetupDetectorComponent {
         this.errorHandlerService.handle(reason);
       });
   }
+
+  protected readonly InputType = InputType;
 }

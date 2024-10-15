@@ -17,15 +17,27 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export interface MemberResponse {
-  id: number;
-  musicalInstrumentId: number | null;
-  pictureAssetId: string | null;
-  firstName: string;
-  lastName: string;
-  fullName: string;
-  emailAddress: string;
-  phoneNumber: string;
-  activated: boolean;
-  description: string | null;
+import { Injectable } from '@angular/core';
+import { SearchResult } from '../../../model/search/search-result';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
+import { FacebookResponse } from '../../../model/request/facebook-response';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class FacebookRequestService {
+  constructor(private http: HttpClient) {}
+
+  async search(
+    query: string,
+    pageOffset: number,
+  ): Promise<SearchResult<FacebookResponse>> {
+    const baseParams = new HttpParams().set('q', query).set('p', pageOffset);
+    return await firstValueFrom(
+      this.http.get<SearchResult<FacebookResponse>>('/api/facebook/search', {
+        params: baseParams,
+      }),
+    );
+  }
 }

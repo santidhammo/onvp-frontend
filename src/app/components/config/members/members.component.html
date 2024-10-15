@@ -113,6 +113,12 @@
             >Profile Picture</a
           >
           <a
+            (click)="editPrivacyInfoSharingMemberId$.next(row.id)"
+            class="btn btn-outline-primary"
+            i18n
+            >Privacy
+          </a>
+          <a
             (click)="unregisterMemberId$.next(row.id)"
             class="btn btn-outline-primary"
             i18n
@@ -169,6 +175,16 @@ thus there is no need to reload.
   (onSaved)="editPictureMemberId$.next(null)"
   (onCancelled)="editPictureMemberId$.next(null)"
 />
+<!--
+When the member's privacy details is successfully saved, no details of the main screen are changed,
+thus there is no need to reload.
+-->
+<config-edit-member-privacy
+  [memberIdObservableInput]="editPrivacyInfoSharingMemberId$.asObservable()"
+  (onSaved)="editPrivacyInfoSharingMemberId$.next(null)"
+  (onCancelled)="editPrivacyInfoSharingMemberId$.next(null)"
+/>
+
 <!--
 When the member is successfully unregistered, the search has to be refreshed
 -->

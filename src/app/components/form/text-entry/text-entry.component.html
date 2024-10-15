@@ -17,12 +17,24 @@
   ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<div class="form-group row">
+<div
+  class="form-group row"
+  [ngClass]="{
+    'form-group': inputType() !== InputType.CHECKBOX,
+    'form-check': inputType() === InputType.CHECKBOX,
+  }"
+>
   <label
     [for]="name"
     class="control-label"
-    *ngIf="title !== null && title.length > 0 && inputType != 'hidden'"
-    [ngClass]="{ 'col-1 align-self-center d-block': labelLeft }"
+    *ngIf="
+      title.length > 0 &&
+      inputType() !== InputType.HIDDEN &&
+      inputType() !== InputType.CHECKBOX
+    "
+    [ngClass]="{
+      'col-1 align-self-center d-block': labelLeft,
+    }"
     >{{ title }}</label
   >
   <div [ngClass]="{ col: labelLeft }">
@@ -36,7 +48,7 @@
       (change)="onChange(value)"
       #model="ngModel"
       (focusout)="displayInvalid = true"
-      *ngIf="inputType == 'text'"
+      *ngIf="inputType() === InputType.TEXT"
     />
 
     <input
@@ -50,7 +62,21 @@
       (change)="onChange(value)"
       #model="ngModel"
       (focusout)="displayInvalid = true"
-      *ngIf="inputType == 'number'"
+      *ngIf="inputType() === InputType.NUMBER"
+    />
+
+    <input
+      type="checkbox"
+      class="form-check-input"
+      [ngClass]="{ 'col col-8': labelLeft }"
+      [id]="name"
+      [name]="name"
+      [(ngModel)]="value"
+      [disabled]="disabled"
+      (change)="onChange(value)"
+      #model="ngModel"
+      (focusout)="displayInvalid = true"
+      *ngIf="inputType() === InputType.CHECKBOX"
     />
 
     <input
@@ -64,8 +90,29 @@
       (change)="onChange(value)"
       #model="ngModel"
       (focusout)="displayInvalid = true"
-      *ngIf="inputType == 'hidden'"
+      *ngIf="inputType() === InputType.HIDDEN"
     />
+
+    <textarea
+      type="hidden"
+      class="form-control"
+      [ngClass]="{ 'col col-8': labelLeft }"
+      [id]="name"
+      [name]="name"
+      [(ngModel)]="value"
+      [disabled]="disabled"
+      (change)="onChange(value)"
+      #model="ngModel"
+      (focusout)="displayInvalid = true"
+      *ngIf="inputType() === InputType.TEXT_AREA"
+    ></textarea>
+
+    <label
+      [for]="name"
+      class="form-check-label"
+      *ngIf="title.length > 0 && inputType() === InputType.CHECKBOX"
+      >{{ title }}</label
+    >
   </div>
 
   <div *ngIf="ngControl.invalid && displayInvalid" class="alert alert-danger">

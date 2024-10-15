@@ -17,40 +17,21 @@
   ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<form #activationForm="ngForm" (ngSubmit)="submit()">
-  <app-dialog>
-    <dialog-header title="Member Activation" i18n-title />
-    <dialog-explanation
-      explanation="Please activate your account. Scan the given QR code in your Authentication application, and send the resulting code back to the system. This will activate your account."
-      i18n-explanation
-    />
-
+<app-dialog *ngIf="observeEditResponse | async">
+  <dialog-header title="Edit Member" i18n-title />
+  <form #memberPrivacyDetailsForm="ngForm" (ngSubmit)="submit($event)">
     <dialog-body>
-      <img
-        src="{{ observeActivationBase64Png() | async }}"
-        alt="Activation QR Code"
-        i18n-alt
-      />
-
       <form-text-entry
-        title="Activation String"
-        name="activationString"
-        [inputType]="InputType.HIDDEN"
-        [(ngModel)]="model.activationString"
-      />
-
-      <form-text-entry
-        title="Activation Code"
+        name="allow"
+        title="Allow member privacy information sharing"
         i18n-title
-        name="token"
-        [(ngModel)]="model.token"
-        required
-        minlength="6"
-        maxlength="6"
+        [(ngModel)]="model.allow"
+        [inputType]="InputType.CHECKBOX"
       />
     </dialog-body>
     <dialog-footer>
-      <form-submit [disabled]="activationForm.invalid" />
+      <form-cancel />
+      <form-submit [disabled]="memberPrivacyDetailsForm.invalid" />
     </dialog-footer>
-  </app-dialog>
-</form>
+  </form>
+</app-dialog>

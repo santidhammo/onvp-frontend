@@ -20,6 +20,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  input,
   Input,
   Optional,
   Self,
@@ -32,6 +33,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { ErrorsService } from '../errors.service';
+import { InputType } from '../../../generic/primitive/input-type';
 
 @Component({
   selector: 'form-text-entry',
@@ -49,7 +51,7 @@ export class TextEntryComponent implements ControlValueAccessor {
 
   protected displayInvalid: boolean = false;
   protected value: any = null;
-  @Input() inputType: string = 'text';
+  inputType = input<InputType>(InputType.TEXT);
 
   onChange = (_: any) => {};
   onTouched = () => {};
@@ -75,4 +77,6 @@ export class TextEntryComponent implements ControlValueAccessor {
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
+
+  protected readonly InputType = InputType;
 }

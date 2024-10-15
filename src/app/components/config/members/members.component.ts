@@ -19,14 +19,13 @@
 
 import { Component, OnInit } from '@angular/core';
 import { MemberRequestService } from '../../../services/backend/request/member-request.service';
-import { BehaviorSubject, last, Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { MemberResponse } from '../../../model/responses/member-response';
 import { TextEntryComponent } from '../../form/text-entry/text-entry.component';
 import { FormsModule } from '@angular/forms';
 import { SubmitComponent } from '../../form/submit/submit.component';
 import { AsyncPipe, NgClass, NgForOf, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { NavigatorPage } from '../../../model/search/navigator-page';
 import { EditMemberComponent } from '../edit-member/edit-member.component';
 import { EditMemberPictureComponent } from '../edit-member-picture/edit-member-picture.component';
 import { RegisterMemberComponent } from '../register-member/register-member.component';
@@ -35,6 +34,7 @@ import { SearchResult } from '../../../model/search/search-result';
 import { PaginatorComponent } from '../../search/paginator/paginator.component';
 import { EditMemberAddressComponent } from '../edit-member-address/edit-member-address.component';
 import { UnregisterMemberComponent } from '../unregister-member/unregister-member.component';
+import { EditMemberPrivacyComponent } from '../edit-member-privacy/edit-member-privacy.component';
 
 @Component({
   selector: 'config-members',
@@ -54,6 +54,7 @@ import { UnregisterMemberComponent } from '../unregister-member/unregister-membe
     PaginatorComponent,
     EditMemberAddressComponent,
     UnregisterMemberComponent,
+    EditMemberPrivacyComponent,
   ],
   templateUrl: './members.component.html',
 })
@@ -68,8 +69,11 @@ export class MembersComponent implements OnInit {
   protected editPictureMemberId$ = new BehaviorSubject<number | null>(null);
   protected registerEnabled$ = new BehaviorSubject<boolean>(false);
   protected unregisterMemberId$ = new BehaviorSubject<number | null>(null);
+  protected editPrivacyInfoSharingMemberId$ = new BehaviorSubject<
+    number | null
+  >(null);
 
-  nameQuery: string = '';
+  protected nameQuery: string = '';
 
   constructor(
     private memberRequestService: MemberRequestService,
