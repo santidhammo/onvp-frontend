@@ -32,6 +32,7 @@ import { ErrorHandlerService } from '../../../services/handlers/error-handler.se
 import { MemberCommandService } from '../../../services/backend/command/member-command.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AsyncPipe, NgIf } from '@angular/common';
+import { InputType } from '../../../generic/primitive/input-type';
 
 @Component({
   selector: 'config-register-member',
@@ -85,4 +86,6 @@ export class RegisterMemberComponent implements OnInit {
   observeEnabled(): Observable<boolean> {
     return this.enabledInput();
   }
+
+  protected readonly InputType = InputType;
 }

@@ -26,6 +26,7 @@ export class MemberUpdateCommand {
     public lastName: string = '',
     public emailAddress: string = '',
     public phoneNumber: string = '',
+    public description: string | null = null,
   ) {}
 
   setup(memberResponse: MemberResponse | null) {
@@ -35,12 +36,14 @@ export class MemberUpdateCommand {
       this.lastName = memberResponse.lastName;
       this.emailAddress = memberResponse.emailAddress;
       this.phoneNumber = memberResponse.phoneNumber;
+      this.description = memberResponse.description;
     } else {
       this.musicalInstrumentId = null;
       this.firstName = '';
       this.lastName = '';
       this.emailAddress = '';
       this.phoneNumber = '';
+      this.description = null;
     }
   }
 }

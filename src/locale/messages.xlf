@@ -196,11 +196,18 @@
           <context context-type="linenumber">55,56</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="4902817035128594900" datatype="html">
+        <source>Description</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member/edit-member.component.html</context>
+          <context context-type="linenumber">59,60</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="1519646385387360644" datatype="html">
         <source>Member work groups</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/edit-member/edit-member.component.html</context>
-          <context context-type="linenumber">64</context>
+          <context context-type="linenumber">72</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5299873419251227126" datatype="html">
@@ -412,29 +419,43 @@
         <source>Available members:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/workgroup-management/workgroup-management.component.html</context>
-          <context context-type="linenumber">60,61</context>
+          <context context-type="linenumber">51,52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2756580018763042863" datatype="html">
         <source>Current members:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/workgroup-management/workgroup-management.component.html</context>
-          <context context-type="linenumber">64,65</context>
+          <context context-type="linenumber">55,56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2930742510712560730" datatype="html">
         <source> No results available </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/workgroup-management/workgroup-management.component.html</context>
-          <context context-type="linenumber">92,93</context>
+          <context context-type="linenumber">85,86</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/workgroup-management/workgroup-management.component.html</context>
-          <context context-type="linenumber">136,137</context>
+          <context context-type="linenumber">143</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2933373428961906759" datatype="html">
-        <source>Manage workgroup: <x id="PH" equiv-text="workgroupResponse.name"/></source>
+      <trans-unit id="8889819112897578789" datatype="html">
+        <source> Add &gt;&gt; </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/workgroup-management/workgroup-management.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5630872954519578085" datatype="html">
+        <source> &lt;&lt; Remove </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/workgroup-management/workgroup-management.component.html</context>
+          <context context-type="linenumber">112</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4871344013433324888" datatype="html">
+        <source>Manage workgroup: <x id="PH" equiv-text="workgroupResponse.name"/>. Search for the available members, select the available member(s) and click add to add the member</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/workgroup-management/workgroup-management.component.ts</context>
           <context context-type="linenumber">119</context>

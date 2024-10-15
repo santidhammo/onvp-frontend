@@ -27,4 +27,5 @@ export interface MemberResponse {
   emailAddress: string;
   phoneNumber: string;
   activated: boolean;
+  description: string | null;
 }

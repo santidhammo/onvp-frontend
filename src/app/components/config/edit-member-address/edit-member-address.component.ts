@@ -34,6 +34,7 @@ import { HeaderComponent } from '../../dialog/header/header.component';
 import { SubmitComponent } from '../../form/submit/submit.component';
 import { TextEntryComponent } from '../../form/text-entry/text-entry.component';
 import { MemberResponse } from '../../../model/responses/member-response';
+import { InputType } from '../../../generic/primitive/input-type';
 
 @Component({
   selector: 'config-edit-member-address',
@@ -111,4 +112,6 @@ export class EditMemberAddressComponent implements OnInit {
       this.onCancelled.emit();
     }
   }
+
+  protected readonly InputType = InputType;
 }

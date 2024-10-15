@@ -36,6 +36,7 @@ import { MemberResponse } from '../../../model/responses/member-response';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { WorkgroupResponse } from '../../../model/responses/workgroup-response';
 import { WorkgroupRequestService } from '../../../services/backend/request/workgroup-request.service';
+import { InputType } from '../../../generic/primitive/input-type';
 
 @Component({
   selector: 'config-edit-member',
@@ -128,4 +129,6 @@ export class EditMemberComponent implements OnInit {
       this.onCancelled.emit();
     }
   }
+
+  protected readonly InputType = InputType;
 }

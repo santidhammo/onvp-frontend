@@ -53,6 +53,14 @@
         [(ngModel)]="model.phoneNumber"
         required
       />
+
+      <form-text-entry
+        name="description"
+        title="Description"
+        i18n-title
+        [(ngModel)]="model.description"
+        [inputType]="InputType.TEXT_AREA"
+      />
     </dialog-body>
     <dialog-footer>
       <form-cancel />

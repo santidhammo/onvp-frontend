@@ -21,7 +21,7 @@
   <label
     [for]="name"
     class="control-label"
-    *ngIf="title !== null && title.length > 0 && inputType != 'hidden'"
+    *ngIf="title.length > 0 && inputType() !== InputType.HIDDEN"
     [ngClass]="{ 'col-1 align-self-center d-block': labelLeft }"
     >{{ title }}</label
   >
@@ -36,7 +36,7 @@
       (change)="onChange(value)"
       #model="ngModel"
       (focusout)="displayInvalid = true"
-      *ngIf="inputType == 'text'"
+      *ngIf="inputType() === InputType.TEXT"
     />
 
     <input
@@ -50,7 +50,7 @@
       (change)="onChange(value)"
       #model="ngModel"
       (focusout)="displayInvalid = true"
-      *ngIf="inputType == 'number'"
+      *ngIf="inputType() === InputType.NUMBER"
     />
 
     <input
@@ -64,8 +64,22 @@
       (change)="onChange(value)"
       #model="ngModel"
       (focusout)="displayInvalid = true"
-      *ngIf="inputType == 'hidden'"
+      *ngIf="inputType() === InputType.HIDDEN"
     />
+
+    <textarea
+      type="hidden"
+      class="form-control"
+      [ngClass]="{ 'col col-8': labelLeft }"
+      [id]="name"
+      [name]="name"
+      [(ngModel)]="value"
+      [disabled]="disabled"
+      (change)="onChange(value)"
+      #model="ngModel"
+      (focusout)="displayInvalid = true"
+      *ngIf="inputType() === InputType.TEXT_AREA"
+    ></textarea>
   </div>
 
   <div *ngIf="ngControl.invalid && displayInvalid" class="alert alert-danger">

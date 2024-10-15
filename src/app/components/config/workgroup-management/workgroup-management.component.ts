@@ -116,7 +116,7 @@ export class WorkgroupManagementComponent implements OnInit {
   }
 
   createExplanation(workgroupResponse: WorkgroupResponse) {
-    return $localize`Manage workgroup: ${workgroupResponse.name}`;
+    return $localize`Manage workgroup: ${workgroupResponse.name}. Search for the available members, select the available member(s) and click add to add the member`;
   }
 
   doAvailableMembersSearch(pageNumber: number = 1) {
