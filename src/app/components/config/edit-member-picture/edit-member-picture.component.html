@@ -20,12 +20,12 @@
 <form
   #memberPictureForm="ngForm"
   (ngSubmit)="submit($event)"
-  *ngIf="observePictureUrl() | async"
+  *ngIf="observeMemberId | async"
 >
   <app-dialog>
     <dialog-header title="Edit Member Picture" i18n-title />
     <dialog-body>
-      <div class="text-center" *ngIf="observePictureUrl() | async as url">
+      <div class="text-center" *ngIf="observePictureUrl | async as url">
         <img
           class="rounded"
           [ngSrc]="url"

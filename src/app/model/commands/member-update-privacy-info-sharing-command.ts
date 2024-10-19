@@ -1,4 +1,4 @@
-import { MemberPrivacyInfoSharingResponse } from '../request/member-privacy-info-sharing-response';
+import { MemberPrivacyInfoSharingResponse } from '../responses/member-privacy-info-sharing-response';
 
 export class MemberUpdatePrivacyInfoSharingCommand {
   constructor(public allow: boolean = false) {}

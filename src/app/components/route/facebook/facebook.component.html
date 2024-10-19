@@ -1,0 +1,73 @@
+<!--
+  ~  ONVP Frontend - Frontend of the ONVP website
+  ~
+  ~ Copyright (c) 2024.  Sjoerd van Leent
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<form #searchForm="ngForm" (ngSubmit)="doSearch()" class="mt-2">
+  <div class="container">
+    <div class="row">
+      <div class="col col-10">
+        <form-text-entry
+          title="Search Faces"
+          i18n-title
+          name="query"
+          [(ngModel)]="nameQuery"
+          [labelLeft]="false"
+        />
+      </div>
+      <div class="col col-2 align-self-end">
+        <form-submit />
+      </div>
+    </div>
+  </div>
+</form>
+
+<hr />
+
+<app-paginator
+  [searchResultProvider]="observeSearchResult"
+  (navigateTo)="doSearch($event)"
+/>
+
+<div class="container">
+  <div class="row">
+    <div class="col col-3 border-3" *ngFor="let row of observeRows | async">
+      <div>
+        <em>{{ row.fullName }}</em>
+      </div>
+      <img
+        *ngIf="row.pictureAssetId !== null"
+        [ngSrc]="getFacebookPictureAsset(row.id, row.pictureAssetId)"
+        [alt]="getFacebookPictureAlt(row.fullName)"
+        [width]="413 / 2.5"
+        [height]="531 / 2.5"
+      />
+
+      <div *ngIf="row.workgroupNames.length > 0">
+        <div>
+          <strong i18n>Work Groups</strong>
+        </div>
+        <!-- TODO: Instrument -->
+        <ul>
+          <li *ngFor="let workgroupName of row.workgroupNames">
+            {{ workgroupName }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

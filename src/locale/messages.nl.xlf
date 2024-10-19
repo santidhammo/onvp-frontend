@@ -348,6 +348,18 @@
         <source>Allow member privacy information sharing</source>
         <target>Delen van publieke lidinformation toestaan</target>
       </trans-unit>
+      <trans-unit id="7696889278942971670" datatype="html">
+        <source>Our Face Book</source>
+        <target>Ons Snoetenboek</target>
+      </trans-unit>
+      <trans-unit id="4177517376681270461" datatype="html">
+        <source>Search Faces</source>
+        <target>Zoek Snoeten</target>
+      </trans-unit>
+      <trans-unit id="5104086281843067778" datatype="html">
+        <source>Picture of <x id="PH" equiv-text="fullName"/></source>
+        <target>Afbeelding van <x id="PH" equiv-text="fullName"/></target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

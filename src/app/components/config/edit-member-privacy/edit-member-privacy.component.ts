@@ -19,7 +19,7 @@
 
 import { Component, input, OnInit, output } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { MemberPrivacyInfoSharingResponse } from '../../../model/request/member-privacy-info-sharing-response';
+import { MemberPrivacyInfoSharingResponse } from '../../../model/responses/member-privacy-info-sharing-response';
 import { MemberRequestService } from '../../../services/backend/request/member-request.service';
 import { MemberCommandService } from '../../../services/backend/command/member-command.service';
 import { ErrorHandlerService } from '../../../services/handlers/error-handler.service';

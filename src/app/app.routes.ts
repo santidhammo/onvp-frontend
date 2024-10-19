@@ -23,6 +23,7 @@ import { SetupDetectorComponent } from './components/setup/setup-detector.compon
 import { LoginComponent } from './components/route/login/login.component';
 import { LogoutComponent } from './components/route/logout/logout.component';
 import { ConfigComponent } from './components/route/config/config.component';
+import { FacebookComponent } from './components/route/facebook/facebook.component';
 
 export const routes: Routes = [
   { path: 'activation/:activationString', component: ActivationComponent },
@@ -30,4 +31,5 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'config', component: ConfigComponent },
+  { path: 'facebook', component: FacebookComponent },
 ];

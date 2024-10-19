@@ -21,22 +21,37 @@
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="" i18n>Nieuwe Veste Plus Orchestra</a>
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a
+          routerLink="facebook"
+          class="nav-link link-primary btn btn-outline-info"
+          i18n
+          >Our Face Book</a
+        >
+      </li>
       <li
         class="nav-item"
         *ngIf="
           authorizationRequestService.observeHasRole(Role.OPERATOR) | async
         "
       >
-        <a routerLink="config" class="nav-link link-primary" i18n
+        <a
+          routerLink="config"
+          class="nav-link link-primary btn btn-outline-info"
+          i18n
           >Edit Configuration</a
         >
       </li>
-      <div class="vr"></div>
       <li
         class="nav-item"
         *ngIf="!(authorizationRequestService.observeAuthorized() | async)"
       >
-        <a routerLink="login" class="nav-link link-primary" i18n>Login</a>
+        <a
+          routerLink="login"
+          class="nav-link link-primary btn btn-outline-info"
+          i18n
+          >Login</a
+        >
       </li>
       <li
         class="nav-item"
@@ -45,7 +60,10 @@
             | async as authorizationResponse
         "
       >
-        <a routerLink="logout" class="nav-link link-primary">
+        <a
+          routerLink="logout"
+          class="nav-link link-primary btn btn-outline-info"
+        >
           <span i18n>Logout</span>&nbsp;
           <small class="text-muted"
             >({{ authorizationResponse.member.fullName }})</small

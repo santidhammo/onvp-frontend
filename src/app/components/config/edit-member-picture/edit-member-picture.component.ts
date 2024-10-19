@@ -65,8 +65,12 @@ export class EditMemberPictureComponent implements OnInit {
     private errorHandlerService: ErrorHandlerService,
   ) {}
 
-  observePictureUrl(): Observable<string | null> {
+  get observePictureUrl(): Observable<string | null> {
     return this.pictureUrl$.asObservable();
+  }
+
+  get observeMemberId(): Observable<number | null> {
+    return this.memberId$.asObservable();
   }
 
   ngOnInit() {
@@ -79,13 +83,12 @@ export class EditMemberPictureComponent implements OnInit {
         this.memberRequestService
           .picture(memberId)
           .then((imageAssetIdResponse) => {
+            this.memberId$.next(memberId);
             if (imageAssetIdResponse.assetId !== null) {
-              this.memberId$.next(memberId);
               this.pictureUrl$.next(
                 `/api/members/${memberId}/picture.png?${imageAssetIdResponse.assetId}`,
               );
             } else {
-              this.memberId$.next(null);
               this.pictureUrl$.next(null);
             }
           })

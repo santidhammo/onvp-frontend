@@ -560,18 +560,25 @@
           <context context-type="linenumber">22,23</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="7696889278942971670" datatype="html">
+        <source>Our Face Book</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/menu-bar/menu-bar.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="9089808677255101366" datatype="html">
         <source>Edit Configuration</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/menu-bar/menu-bar.component.html</context>
-          <context context-type="linenumber">31,32</context>
+          <context context-type="linenumber">42,43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2454050363478003966" datatype="html">
         <source>Login</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/menu-bar/menu-bar.component.html</context>
-          <context context-type="linenumber">39,40</context>
+          <context context-type="linenumber">54</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/route/login/login.component.html</context>
@@ -582,7 +589,7 @@
         <source>Logout</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/menu-bar/menu-bar.component.html</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">67</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5025709138959449988" datatype="html">
@@ -611,6 +618,31 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/route/activation/activation.component.html</context>
           <context context-type="linenumber">43,44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4177517376681270461" datatype="html">
+        <source>Search Faces</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/route/facebook/facebook.component.html</context>
+          <context context-type="linenumber">25,26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1684117475967318394" datatype="html">
+        <source>Work Groups</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/route/facebook/facebook.component.html</context>
+          <context context-type="linenumber">62,63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5104086281843067778" datatype="html">
+        <source>Picture of <x id="PH" equiv-text="fullName"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/route/facebook/facebook.component.ts</context>
+          <context context-type="linenumber">79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1358928551614255659" datatype="html">
@@ -660,13 +692,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
           <context context-type="linenumber">11</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1684117475967318394" datatype="html">
-        <source>Work Groups</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
-          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2997307845619095560" datatype="html">

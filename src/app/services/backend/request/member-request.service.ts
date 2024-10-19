@@ -26,7 +26,7 @@ import { MemberActivationCommand } from '../../../model/commands/member-activati
 import { ImageAssetIdResponse } from '../../../model/responses/image-asset-id-response';
 import { MemberAddressResponse } from '../../../model/responses/member-address-response';
 import { WorkgroupResponse } from '../../../model/responses/workgroup-response';
-import { MemberPrivacyInfoSharingResponse } from '../../../model/request/member-privacy-info-sharing-response';
+import { MemberPrivacyInfoSharingResponse } from '../../../model/responses/member-privacy-info-sharing-response';
 
 @Injectable({
   providedIn: 'root',

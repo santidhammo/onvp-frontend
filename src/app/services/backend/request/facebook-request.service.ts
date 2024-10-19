@@ -21,7 +21,7 @@ import { Injectable } from '@angular/core';
 import { SearchResult } from '../../../model/search/search-result';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { FacebookResponse } from '../../../model/request/facebook-response';
+import { FacebookResponse } from '../../../model/responses/facebook-response';
 
 @Injectable({
   providedIn: 'root',
