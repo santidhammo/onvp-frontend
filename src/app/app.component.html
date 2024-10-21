@@ -18,6 +18,28 @@
   -->
 
 <main class="main">
+  <div *ngIf="!(observeFunctionalCookiesAllowed | async)">
+    <div class="container mt-2 mb-2 bg-danger-subtle">
+      <div class="row border border-3 border-danger">
+        <div class="col-auto me-auto mt-2 mb-2">
+          <span i18n>
+            This website uses functional cookies for internal use only, by using
+            this website, you agree with these cookies being used.
+          </span>
+        </div>
+        <div class="col-auto mt-2 mb-2">
+          <button
+            (click)="allowFunctionalCookies()"
+            class="btn btn-warning"
+            i18n
+          >
+            Accept
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <app-menu-bar></app-menu-bar>
 
   <form

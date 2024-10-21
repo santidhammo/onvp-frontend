@@ -9,6 +9,7 @@ import { SubmitComponent } from '../../form/submit/submit.component';
 import { TextEntryComponent } from '../../form/text-entry/text-entry.component';
 import { PaginatorComponent } from '../../search/paginator/paginator.component';
 import { AsyncPipe, NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
+import { Role } from '../../../generic/primitive/role';
 
 @Component({
   selector: 'config-facebook',
@@ -48,15 +49,6 @@ export class FacebookComponent implements OnInit {
     return this.rows$.asObservable();
   }
 
-  refreshSearch() {
-    const lastPage = this.page$.getValue();
-    if (lastPage !== null) {
-      this.doSearch(lastPage);
-    } else {
-      this.doSearch();
-    }
-  }
-
   doSearch(pageNumber: number = 1) {
     this.facebookRequestService
       .search(this.nameQuery, pageNumber - 1)
@@ -78,4 +70,6 @@ export class FacebookComponent implements OnInit {
   getFacebookPictureAlt(fullName: string): string {
     return $localize`Picture of ${fullName}`;
   }
+
+  protected readonly Role = Role;
 }

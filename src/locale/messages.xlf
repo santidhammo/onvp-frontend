@@ -2,18 +2,32 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="3473666784671767978" datatype="html">
+        <source> This website uses functional cookies for internal use only, by using this website, you agree with these cookies being used. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">26,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="439130533561834924" datatype="html">
+        <source> Accept </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="7065464372847182937" datatype="html">
         <source>An error occurred</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">31,32</context>
+          <context context-type="linenumber">53,54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7934833136974560675" datatype="html">
         <source>Retry</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5605993045193979158" datatype="html">
@@ -120,11 +134,18 @@
           <context context-type="linenumber">32,33</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="1475638026578567849" datatype="html">
+        <source>Beware, in some jurisdictions it is necessary for the member to allow sharing of these details</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-member-privacy/edit-member-privacy.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="2935806053149068102" datatype="html">
         <source>Allow member privacy information sharing</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/edit-member-privacy/edit-member-privacy.component.html</context>
-          <context context-type="linenumber">26,27</context>
+          <context context-type="linenumber">30,31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6028371114637047813" datatype="html">
@@ -372,6 +393,10 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/roles/roles.component.html</context>
           <context context-type="linenumber">51,52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/route/facebook/facebook.component.html</context>
+          <context context-type="linenumber">78,79</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
@@ -631,7 +656,7 @@
         <source>Work Groups</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/route/facebook/facebook.component.html</context>
-          <context context-type="linenumber">62,63</context>
+          <context context-type="linenumber">68,69</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
@@ -642,7 +667,7 @@
         <source>Picture of <x id="PH" equiv-text="fullName"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/route/facebook/facebook.component.ts</context>
-          <context context-type="linenumber">79</context>
+          <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1358928551614255659" datatype="html">

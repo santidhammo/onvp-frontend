@@ -17,7 +17,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   ActivatedRoute,
   NavigationEnd,
@@ -37,6 +37,7 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/dialog/footer/footer.component';
 import { SubmitComponent } from './components/form/submit/submit.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -58,8 +59,9 @@ import { DialogComponent } from './components/dialog/dialog.component';
   templateUrl: './app.component.html',
   providers: [SetupRequestService],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'onvp-frontend';
+  private functionalCookiesAllowed$ = new BehaviorSubject(false);
 
   constructor(
     protected setupDetector: SetupRequestService,
@@ -89,8 +91,23 @@ export class AppComponent {
     });
   }
 
+  ngOnInit(): void {
+    if (window.localStorage.getItem('allow-functional-cookies')) {
+      this.functionalCookiesAllowed$.next(true);
+    }
+  }
+
+  get observeFunctionalCookiesAllowed(): Observable<boolean> {
+    return this.functionalCookiesAllowed$.asObservable();
+  }
+
   clearErrorMaybeRetry() {
     this.errorHandlerService.clearError();
     window.location.reload();
+  }
+
+  allowFunctionalCookies() {
+    window.localStorage.setItem('allow-functional-cookies', 'true');
+    this.functionalCookiesAllowed$.next(true);
   }
 }

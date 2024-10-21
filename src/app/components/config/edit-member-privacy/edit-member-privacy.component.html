@@ -19,6 +19,10 @@
 
 <app-dialog *ngIf="observeEditResponse | async">
   <dialog-header title="Edit Member" i18n-title />
+  <dialog-explanation
+    explanation="Beware, in some jurisdictions it is necessary for the member to allow sharing of these details"
+    i18n-explanation
+  />
   <form #memberPrivacyDetailsForm="ngForm" (ngSubmit)="submit($event)">
     <dialog-body>
       <form-text-entry

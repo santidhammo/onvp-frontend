@@ -346,7 +346,7 @@
       </trans-unit>
       <trans-unit id="2935806053149068102" datatype="html">
         <source>Allow member privacy information sharing</source>
-        <target>Delen van publieke lidinformation toestaan</target>
+        <target>Delen van publieke lidinformatie toestaan</target>
       </trans-unit>
       <trans-unit id="7696889278942971670" datatype="html">
         <source>Our Face Book</source>
@@ -359,6 +359,18 @@
       <trans-unit id="5104086281843067778" datatype="html">
         <source>Picture of <x id="PH" equiv-text="fullName"/></source>
         <target>Afbeelding van <x id="PH" equiv-text="fullName"/></target>
+      </trans-unit>
+      <trans-unit id="1475638026578567849" datatype="html">
+        <source>Beware, in some jurisdictions it is necessary for the member to allow sharing of these details</source>
+        <target>Waarschuwing, in sommige rechtsgebieden is het verplicht om het lid toestemming te laten verlenen voor deze details</target>
+      </trans-unit>
+      <trans-unit id="3473666784671767978" datatype="html">
+        <source> This website uses functional cookies for internal use only, by using this website, you agree with these cookies being used. </source>
+        <target> Deze website gebruikt functionele cookies voor intern gebruik, door deze website te gebruiken stemt u in met het gebruiken van deze coolies. </target>
+      </trans-unit>
+      <trans-unit id="439130533561834924" datatype="html">
+        <source> Accept </source>
+        <target> Accepteren </target>
       </trans-unit>
     </body>
   </file>

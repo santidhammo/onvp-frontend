@@ -1,3 +1,5 @@
+import { Role } from '../../generic/primitive/role';
+
 export interface FacebookResponse {
   id: number;
   musicalInstrumentId: number | null;
@@ -5,4 +7,5 @@ export interface FacebookResponse {
   fullName: string;
   description: string | null;
   workgroupNames: string[];
+  roles: Role[];
 }

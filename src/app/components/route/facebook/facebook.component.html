@@ -53,18 +53,33 @@
         *ngIf="row.pictureAssetId !== null"
         [ngSrc]="getFacebookPictureAsset(row.id, row.pictureAssetId)"
         [alt]="getFacebookPictureAlt(row.fullName)"
-        [width]="413 / 2.5"
-        [height]="531 / 2.5"
+        [width]="165"
+        [height]="212"
+        class="mt-1 mb-1"
       />
-
+      <div
+        *ngIf="row.pictureAssetId === null"
+        style="height: 212px; width: 165px; display: block"
+        class="bg-light mt-1 mb-1"
+      ></div>
+      <!-- TODO: Instrument -->
       <div *ngIf="row.workgroupNames.length > 0">
         <div>
           <strong i18n>Work Groups</strong>
         </div>
-        <!-- TODO: Instrument -->
         <ul>
           <li *ngFor="let workgroupName of row.workgroupNames">
             {{ workgroupName }}
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="row.roles.length > 0">
+        <div>
+          <strong i18n>Roles</strong>
+        </div>
+        <ul>
+          <li *ngFor="let role of row.roles">
+            {{ Role.getTitle(role) }}
           </li>
         </ul>
       </div>
