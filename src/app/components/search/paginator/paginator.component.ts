@@ -16,9 +16,11 @@ export class PaginatorComponent<T> implements OnInit {
   showTotals = input<boolean>(false);
 
   private totalCount$ = new BehaviorSubject<number | null>(null);
-  private page$ = new BehaviorSubject<number | null>(null);
+  protected page$ = new BehaviorSubject<number | null>(null);
   private pageCount$ = new BehaviorSubject<number>(0);
   private navigatorPages$ = new BehaviorSubject<NavigatorPage[]>([]);
+  private start$ = new BehaviorSubject<number>(0);
+  private end$ = new BehaviorSubject<number>(0);
 
   observeTotalCount(): Observable<number | null> {
     return this.totalCount$.asObservable();
@@ -43,6 +45,8 @@ export class PaginatorComponent<T> implements OnInit {
         this.page$.next(page);
         this.pageCount$.next(result.pageCount);
         this.totalCount$.next(result.totalCount);
+        this.start$.next(result.start);
+        this.end$.next(result.end);
 
         const startPage = Math.max(1, page - 5);
         const endPage = Math.min(page + 5, result.pageCount);
@@ -55,5 +59,19 @@ export class PaginatorComponent<T> implements OnInit {
         this.navigatorPages$.next(navigator);
       }
     });
+  }
+
+  isFirstPage(): boolean {
+    return this.start$.getValue() == 0;
+  }
+
+  isLastPage(): boolean {
+    return this.end$.getValue() == this.totalCount$.getValue();
+  }
+
+  doNothing() {}
+
+  calculateLastPage(): number {
+    return this.pageCount$.getValue();
   }
 }

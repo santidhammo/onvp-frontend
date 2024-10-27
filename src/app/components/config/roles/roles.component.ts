@@ -174,6 +174,8 @@ export class RolesComponent implements OnInit {
       totalCount: result.totalCount,
       pageCount: result.pageCount,
       rows: [],
+      start: result.start,
+      end: result.end,
     };
     return composedResult;
   }

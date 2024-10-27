@@ -22,4 +22,6 @@ export interface SearchResult<T> {
   pageOffset: number;
   pageCount: number;
   rows: T[];
+  start: number;
+  end: number;
 }

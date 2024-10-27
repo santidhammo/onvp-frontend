@@ -16,24 +16,52 @@
       </li>
     </ul>
     <ul class="pagination m-0" *ngIf="pageCount > 1">
+      <li [attr.role]="isFirstPage() ? '' : 'button'" class="page-item">
+        <a
+          class="page-link"
+          (click)="isFirstPage() ? doNothing() : navigateTo.emit(1)"
+          aria-label="0"
+          [ngClass]="{
+            active: isFirstPage(),
+          }"
+        >
+          <span>&laquo;</span>
+        </a>
+      </li>
       <li
-        role="button"
+        [attr.role]="
+          (observePage() | async) == navigatorPage.pageNumber ? '' : 'button'
+        "
         class="page-item"
         *ngFor="let navigatorPage of observeNavigatorPages() | async"
       >
         <a
           class="page-link"
-          (click)="navigateTo.emit(navigatorPage.pageNumber)"
+          (click)="
+            page$.getValue() == navigatorPage.pageNumber
+              ? doNothing()
+              : navigateTo.emit(navigatorPage.pageNumber)
+          "
           [attr.aria-label]="navigatorPage.pageNumber.toString()"
           [ngClass]="{
             active: (observePage() | async) == navigatorPage.pageNumber,
           }"
         >
-          <span *ngIf="navigatorPage.isStart">&laquo;</span>
-          <span *ngIf="!(navigatorPage.isStart || navigatorPage.isEnd)">{{
-            navigatorPage.pageNumber
-          }}</span>
-          <span *ngIf="navigatorPage.isEnd">&raquo;</span>
+          {{ navigatorPage.pageNumber }}
+        </a>
+      </li>
+      <li [attr.role]="isLastPage() ? '' : 'button'" class="page-item">
+        <a
+          class="page-link"
+          (click)="
+            isLastPage() ? doNothing() : navigateTo.emit(calculateLastPage())
+          "
+          aria-label="0"
+          [ngClass]="{
+            active: isLastPage(),
+          }"
+        >
+          <span>&raquo;</span>
         </a>
       </li>
     </ul>
