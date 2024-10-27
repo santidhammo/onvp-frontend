@@ -24,6 +24,7 @@ import { LoginComponent } from './components/route/login/login.component';
 import { LogoutComponent } from './components/route/logout/logout.component';
 import { ConfigComponent } from './components/route/config/config.component';
 import { FacebookComponent } from './components/route/facebook/facebook.component';
+import { PageEditorComponent } from './components/route/page-editor/page-editor.component';
 
 export const routes: Routes = [
   { path: 'activation/:activationString', component: ActivationComponent },
@@ -32,4 +33,5 @@ export const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'config', component: ConfigComponent },
   { path: 'facebook', component: FacebookComponent },
+  { path: 'edit-page/:pageId', component: PageEditorComponent },
 ];
