@@ -32,34 +32,38 @@ export class MemberCommandService {
   constructor(private http: HttpClient) {}
 
   async update(id: number, command: MemberUpdateCommand): Promise<void> {
-    await firstValueFrom(this.http.post(`/api/members/${id}`, command));
+    await firstValueFrom(this.http.post(`/api/members/v1/${id}`, command));
   }
 
   async updateAddress(
     id: number,
     command: MemberUpdateAddressCommand,
   ): Promise<void> {
-    await firstValueFrom(this.http.post(`/api/members/${id}/address`, command));
+    await firstValueFrom(
+      this.http.post(`/api/members/v1/${id}/address`, command),
+    );
   }
 
   async register(model: MemberRegisterCommand) {
-    await firstValueFrom(this.http.post('/api/members/', model));
+    await firstValueFrom(this.http.post('/api/members/v1/', model));
   }
 
   async savePictureAsset(file: File, id: number) {
     await firstValueFrom(
-      this.http.post<null>(`/api/members/${id}/picture.png`, file),
+      this.http.post<null>(`/api/members/v1/${id}/picture.png`, file),
     );
   }
 
   async delete(id: number): Promise<void> {
-    await firstValueFrom(this.http.delete(`/api/members/${id}`));
+    await firstValueFrom(this.http.delete(`/api/members/v1/${id}`));
   }
 
   async updatePrivacyInfoSharing(
     id: number,
     command: MemberUpdatePrivacyInfoSharingCommand,
   ): Promise<void> {
-    await firstValueFrom(this.http.post(`/api/members/${id}/privacy`, command));
+    await firstValueFrom(
+      this.http.post(`/api/members/v1/${id}/privacy`, command),
+    );
   }
 }

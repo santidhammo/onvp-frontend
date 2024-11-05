@@ -12,13 +12,13 @@ export class RolesCommandService {
 
   async associate(associateRoleCommand: AssociateRoleCommand) {
     await firstValueFrom(
-      this.http.post('/api/roles/associate', associateRoleCommand),
+      this.http.post('/api/roles/v1/associate', associateRoleCommand),
     );
   }
 
   async dissociate(dissociateRoleCommand: DissociateRoleCommand) {
     await firstValueFrom(
-      this.http.post('/api/roles/dissociate', dissociateRoleCommand),
+      this.http.post('/api/roles/v1/dissociate', dissociateRoleCommand),
     );
   }
 }

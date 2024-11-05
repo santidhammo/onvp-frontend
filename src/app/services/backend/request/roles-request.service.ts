@@ -12,7 +12,7 @@ export class RolesRequestService {
 
   async list(roleClass: RoleClass, id: number): Promise<Role[]> {
     return await firstValueFrom(
-      this.http.get<Role[]>(`/api/roles/${roleClass}/list/${id}`),
+      this.http.get<Role[]>(`/api/roles/v1/${roleClass}/list/${id}`),
     );
   }
 }

@@ -32,24 +32,28 @@ export class WorkgroupCommandService {
   constructor(private http: HttpClient) {}
 
   async update(id: number, command: WorkgroupUpdateCommand): Promise<void> {
-    await firstValueFrom(this.http.post(`/api/workgroups/${id}`, command));
+    await firstValueFrom(this.http.post(`/api/workgroups/v1/${id}`, command));
   }
 
   async register(model: WorkgroupRegisterCommand) {
-    await firstValueFrom(this.http.post('/api/workgroups/', model));
+    await firstValueFrom(this.http.post('/api/workgroups/v1/', model));
   }
 
   async delete(id: number): Promise<void> {
-    await firstValueFrom(this.http.delete(`/api/workgroups/${id}`));
+    await firstValueFrom(this.http.delete(`/api/workgroups/v1/${id}`));
   }
 
   async associate(command: AssociateMemberToWorkgroupCommand): Promise<void> {
-    await firstValueFrom(this.http.post(`/api/workgroups/associate`, command));
+    await firstValueFrom(
+      this.http.post(`/api/workgroups/v1/associate`, command),
+    );
   }
 
   async dissociate(
     command: DissociateMemberFromWorkgroupCommand,
   ): Promise<void> {
-    await firstValueFrom(this.http.post(`/api/workgroups/dissociate`, command));
+    await firstValueFrom(
+      this.http.post(`/api/workgroups/v1/dissociate`, command),
+    );
   }
 }

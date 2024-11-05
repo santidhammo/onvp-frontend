@@ -7,7 +7,7 @@ import {
   AfterViewInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CKEditorComponent, CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import {
   ClassicEditor,
@@ -53,6 +53,8 @@ import {
   Undo,
   type EditorConfig,
 } from 'ckeditor5';
+import { MediaLibrary } from '../../../ckeditor5/plugins/media-library';
+import { MediaLibraryService } from '../../../ckeditor5/services/media-library.service';
 
 @Component({
   selector: 'route-page-editor',
@@ -66,7 +68,12 @@ export class PageEditorComponent implements AfterViewInit {
   @ViewChild('editorMenuBarElement')
   private editorMenuBar!: ElementRef<HTMLDivElement>;
 
-  constructor(private changeDetector: ChangeDetectorRef) {}
+  @ViewChild('editor') editorComponent!: CKEditorComponent;
+
+  constructor(
+    private changeDetector: ChangeDetectorRef,
+    private pictureLibraryService: MediaLibraryService,
+  ) {}
 
   public isLayoutReady = false;
   public Editor = ClassicEditor;
@@ -88,7 +95,7 @@ export class PageEditorComponent implements AfterViewInit {
           'underline',
           '|',
           'link',
-          'insertImage',
+          'mediaLibrary',
           'insertTable',
           'blockQuote',
           '|',
@@ -114,12 +121,9 @@ export class PageEditorComponent implements AfterViewInit {
         ImageBlock,
         ImageCaption,
         ImageInline,
-        ImageInsert,
-        ImageInsertViaUrl,
         ImageResize,
         ImageTextAlternative,
         ImageToolbar,
-        ImageUpload,
         Indent,
         IndentBlock,
         Italic,
@@ -127,6 +131,7 @@ export class PageEditorComponent implements AfterViewInit {
         List,
         ListProperties,
         Paragraph,
+
         SelectAll,
         ShowBlocks,
         SimpleUploadAdapter,
@@ -142,12 +147,13 @@ export class PageEditorComponent implements AfterViewInit {
         Underline,
         Undo,
       ],
+      extraPlugins: [MediaLibrary],
       balloonToolbar: [
         'bold',
         'italic',
         '|',
         'link',
-        'insertImage',
+        'mediaLibrary',
         '|',
         'bulletedList',
         'numberedList',
@@ -157,7 +163,7 @@ export class PageEditorComponent implements AfterViewInit {
         'italic',
         '|',
         'link',
-        'insertImage',
+        'mediaLibrary',
         'insertTable',
         '|',
         'bulletedList',
@@ -217,6 +223,9 @@ export class PageEditorComponent implements AfterViewInit {
           '|',
           'resizeImage',
         ],
+        upload: {
+          types: ['png', 'jpeg'],
+        },
       },
       initialData: 'No initial data set yet, this needs to come from the API',
       link: {
@@ -253,6 +262,11 @@ export class PageEditorComponent implements AfterViewInit {
         ],
       },
     };
+
+    // Force the picture library service, this is not defined by the EditorConfig definition,
+    // but will work nonetheless. Do not remove @ts-ignore.
+    // @ts-ignore
+    this.config['mediaLibrary.service'] = this.pictureLibraryService;
 
     this.isLayoutReady = true;
     this.changeDetector.detectChanges();

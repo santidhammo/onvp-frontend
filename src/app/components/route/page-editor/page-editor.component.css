@@ -40,10 +40,14 @@
 }
 
 .editor-container_classic-editor .editor-container__editor {
-  min-width: 795px;
-  max-width: 795px;
+  min-width: 100%;
+  max-width: 100%;
 }
 
 .editor-container_include-block-toolbar {
-  margin-left: 42px;
+
+}
+
+.editor-container_classic-editor .ck-content {
+  border-bottom: 0;
 }

@@ -86,7 +86,7 @@ export class EditMemberPictureComponent implements OnInit {
             this.memberId$.next(memberId);
             if (imageAssetIdResponse.assetId !== null) {
               this.pictureUrl$.next(
-                `/api/members/${memberId}/picture.png?${imageAssetIdResponse.assetId}`,
+                `/api/members/v1/${memberId}/picture.png?${imageAssetIdResponse.assetId}`,
               );
             } else {
               this.pictureUrl$.next(null);

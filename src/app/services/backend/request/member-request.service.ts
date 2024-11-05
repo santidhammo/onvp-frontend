@@ -40,7 +40,7 @@ export class MemberRequestService {
   ): Promise<SearchResult<MemberResponse>> {
     const baseParams = new HttpParams().set('q', query).set('p', pageOffset);
     return await firstValueFrom(
-      this.http.get<SearchResult<MemberResponse>>('/api/members/search', {
+      this.http.get<SearchResult<MemberResponse>>('/api/members/v1/search', {
         params: baseParams,
       }),
     );
@@ -48,13 +48,13 @@ export class MemberRequestService {
 
   async find(id: number): Promise<MemberResponse> {
     return await firstValueFrom(
-      this.http.get<MemberResponse>(`/api/members/${id}`),
+      this.http.get<MemberResponse>(`/api/members/v1/${id}`),
     );
   }
 
   async findAddress(id: number): Promise<MemberAddressResponse> {
     return await firstValueFrom(
-      this.http.get<MemberAddressResponse>(`/api/members/${id}/address`),
+      this.http.get<MemberAddressResponse>(`/api/members/${id}/v1/address`),
     );
   }
 
@@ -63,32 +63,34 @@ export class MemberRequestService {
   ): Promise<MemberPrivacyInfoSharingResponse> {
     return await firstValueFrom(
       this.http.get<MemberPrivacyInfoSharingResponse>(
-        `/api/members/${id}/privacy`,
+        `/api/members/v1/${id}/privacy`,
       ),
     );
   }
 
   async findWorkgroups(id: number): Promise<WorkgroupResponse[]> {
     return await firstValueFrom(
-      this.http.get<WorkgroupResponse[]>(`/api/members/${id}/workgroups`),
+      this.http.get<WorkgroupResponse[]>(`/api/members/v1/${id}/workgroups`),
     );
   }
 
   async picture(id: number): Promise<ImageAssetIdResponse> {
     return await firstValueFrom(
-      this.http.get<ImageAssetIdResponse>(`/api/members/${id}/picture`),
+      this.http.get<ImageAssetIdResponse>(`/api/members/v1/${id}/picture`),
     );
   }
 
   async activate(command: MemberActivationCommand): Promise<void> {
     await firstValueFrom(
-      this.http.post('/api/members/activation/activate', command),
+      this.http.post('/api/members/v1/activation/activate', command),
     );
   }
 
   async activationCode(activationString: string): Promise<string> {
     const data = await firstValueFrom(
-      this.http.get<string>(`/api/members/activation/code/${activationString}`),
+      this.http.get<string>(
+        `/api/members/v1/activation/code/${activationString}`,
+      ),
     );
 
     return 'data:image/png;base64, ' + data;

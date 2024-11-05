@@ -33,7 +33,7 @@ export class SetupCommandService {
     command: FirstOperatorRegisterCommand,
   ): Promise<string> {
     const data = await firstValueFrom(
-      this.http.post('/api/setup/setup_first_operator', command),
+      this.http.post('/api/setup/v1/setup_first_operator', command),
     );
     return data.toString();
   }

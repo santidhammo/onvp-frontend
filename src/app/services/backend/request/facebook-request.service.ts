@@ -35,7 +35,7 @@ export class FacebookRequestService {
   ): Promise<SearchResult<FacebookResponse>> {
     const baseParams = new HttpParams().set('q', query).set('p', pageOffset);
     return await firstValueFrom(
-      this.http.get<SearchResult<FacebookResponse>>('/api/facebook/search', {
+      this.http.get<SearchResult<FacebookResponse>>('/api/facebook/v1/search', {
         params: baseParams,
       }),
     );

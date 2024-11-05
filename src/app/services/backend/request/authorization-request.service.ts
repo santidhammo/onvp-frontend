@@ -55,7 +55,7 @@ export class AuthorizationRequestService {
   async login(loginData: AuthorizationRequest): Promise<void> {
     const response = await firstValueFrom(
       this.http.post<AuthorizationResponse>(
-        '/api/authorization/login',
+        '/api/authorization/v1/login',
         loginData,
       ),
     );
@@ -65,7 +65,7 @@ export class AuthorizationRequestService {
   async refresh(): Promise<void> {
     try {
       const response = await firstValueFrom(
-        this.http.get<AuthorizationResponse>('/api/authorization/refresh'),
+        this.http.get<AuthorizationResponse>('/api/authorization/v1/refresh'),
       );
       if (this.authorized$.getValue() !== response) {
         this.authorized$.next(response);
@@ -81,7 +81,7 @@ export class AuthorizationRequestService {
   }
 
   async logout() {
-    await firstValueFrom(this.http.get('/api/authorization/logout'));
+    await firstValueFrom(this.http.get('/api/authorization/v1/logout'));
     this.authorized$.next(null);
   }
 }
