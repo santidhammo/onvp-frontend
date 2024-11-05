@@ -25,6 +25,7 @@ import { MembersComponent } from '../../config/members/members.component';
 import { WorkgroupsComponent } from '../../config/workgroups/workgroups.component';
 import { RolesComponent } from '../../config/roles/roles.component';
 import { ConfigMode } from '../../../generic/primitive/config-mode';
+import { PagesComponent } from '../../config/pages/pages.component';
 
 @Component({
   selector: 'route-config',
@@ -38,6 +39,7 @@ import { ConfigMode } from '../../../generic/primitive/config-mode';
     RolesComponent,
     NgForOf,
     NgClass,
+    PagesComponent,
   ],
   templateUrl: './config.component.html',
 })

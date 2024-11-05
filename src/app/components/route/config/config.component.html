@@ -29,6 +29,7 @@
             ConfigMode.MEMBERS,
             ConfigMode.WORKGROUPS,
             ConfigMode.ROLES,
+            ConfigMode.PAGES,
           ]
         "
       >
@@ -50,6 +51,7 @@
             *ngIf="(observe() | async) == ConfigMode.WORKGROUPS"
           />
           <config-roles *ngIf="(observe() | async) == ConfigMode.ROLES" />
+          <config-pages *ngIf="(observe() | async) == ConfigMode.PAGES" />
         </div>
       </div>
     </div>
