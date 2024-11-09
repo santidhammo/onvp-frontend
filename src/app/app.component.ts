@@ -38,6 +38,8 @@ import { FooterComponent } from './components/dialog/footer/footer.component';
 import { SubmitComponent } from './components/form/submit/submit.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { PageRequestService } from './services/backend/request/page-request.service';
+import { PageResponse } from './model/responses/page-response';
 
 @Component({
   selector: 'app-root',
@@ -91,7 +93,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     if (window.localStorage.getItem('allow-functional-cookies')) {
       this.functionalCookiesAllowed$.next(true);
     }

@@ -1,0 +1,31 @@
+<div class="container-fluid d-flex flex-column">
+  <div class="row flex-grow-1">
+    <div class="col-2">
+      <div
+        class="nav flex-column nav-pills"
+        role="tablist"
+        aria-orientation="vertical"
+        *ngFor="let page of observeMainMenu | async"
+      >
+        <button
+          class="nav-link text-start border border-1 border-dark-subtle text-primary"
+          [ngClass]="{
+            'active bg-primary text-light':
+              (observeCurrentPageId | async) == page.id,
+          }"
+          role="tab"
+          (click)="setPage(page.id)"
+        >
+          {{ page.title }}
+        </button>
+      </div>
+    </div>
+    <div class="col-10">
+      <div class="m-3">
+        <div class="tab-content">
+          <div [innerHtml]="observeContent | async"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
