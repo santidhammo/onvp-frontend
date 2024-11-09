@@ -33,5 +33,5 @@ export const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'config', component: ConfigComponent },
   { path: 'facebook', component: FacebookComponent },
-  { path: 'edit-page/:pageId', component: PageEditorComponent },
+  { path: 'edit-page/:id', component: PageEditorComponent },
 ];

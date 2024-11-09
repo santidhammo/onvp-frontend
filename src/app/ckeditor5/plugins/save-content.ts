@@ -17,44 +17,42 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { ButtonView, icons, Plugin } from 'ckeditor5';
-import { MediaLibraryService } from '../services/media-library.service';
+import { ButtonView, Plugin } from 'ckeditor5';
+import { ErrorHandlerService } from '../../services/handlers/error-handler.service';
 
-export class MediaLibrary extends Plugin {
+export type saveCallback = (data: String) => Promise<void>;
+
+export class SaveContentConfig {
+  constructor(
+    public callBack: saveCallback,
+    public errorHandlerService: ErrorHandlerService,
+  ) {}
+}
+
+export class SaveContent extends Plugin {
   init() {
-    console.log('Media Library Plugin Initializing');
+    console.log('Save Content Plugin Initializing');
     const editor = this.editor;
 
-    editor.config.define('mediaLibrary', {
-      service: null,
-    });
+    editor.config.define('saveContent', SaveContentConfig);
 
-    editor.ui.componentFactory.add('mediaLibrary', () => {
+    editor.ui.componentFactory.add('saveContent', () => {
       const button = new ButtonView();
       button.set({
-        label: $localize`Media Library`,
-        icon: icons.image,
+        label: $localize`Save`,
+        withText: true,
       });
 
       button.on('execute', () => {
         const now = Date.now();
         console.log(`Executing: ${now}`);
-        const service = editor.config.get('mediaLibrary.service');
-        if (service instanceof MediaLibraryService) {
-          service.requestPictureUrl().then((url) =>
-            editor.model.change((writer) => {
-              const imageElement = writer.createElement('imageBlock', {
-                src: url,
-              });
+        const saveContent: SaveContentConfig = editor.config.get(
+          'saveContent',
+        ) as SaveContentConfig;
 
-              // Insert the image in the current selection location.
-              editor.model.insertContent(
-                imageElement,
-                editor.model.document.selection,
-              );
-            }),
-          );
-        }
+        saveContent.callBack(editor.data.get()).catch((e) => {
+          saveContent.errorHandlerService.handle(e);
+        });
       });
 
       return button;

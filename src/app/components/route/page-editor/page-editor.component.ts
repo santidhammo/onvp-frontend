@@ -1,3 +1,22 @@
+/*
+ *  ONVP Frontend - Frontend of the ONVP website
+ *
+ * Copyright (c) 2024.  Sjoerd van Leent
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 import {
   ChangeDetectorRef,
   Component,
@@ -5,6 +24,7 @@ import {
   ElementRef,
   ViewChild,
   AfterViewInit,
+  OnInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CKEditorComponent, CKEditorModule } from '@ckeditor/ckeditor5-angular';
@@ -24,12 +44,9 @@ import {
   ImageBlock,
   ImageCaption,
   ImageInline,
-  ImageInsert,
-  ImageInsertViaUrl,
   ImageResize,
   ImageTextAlternative,
   ImageToolbar,
-  ImageUpload,
   Indent,
   IndentBlock,
   Italic,
@@ -55,33 +72,71 @@ import {
 } from 'ckeditor5';
 import { MediaLibrary } from '../../../ckeditor5/plugins/media-library';
 import { MediaLibraryService } from '../../../ckeditor5/services/media-library.service';
+import { firstValueFrom } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ErrorHandlerService } from '../../../services/handlers/error-handler.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PageRequestService } from '../../../services/backend/request/page-request.service';
+import {
+  SaveContent,
+  SaveContentConfig,
+} from '../../../ckeditor5/plugins/save-content';
+import { FormsModule } from '@angular/forms';
+import { SaveContentService } from '../../../ckeditor5/services/save-content.service';
+import { ContentModel } from '../../../ckeditor5/model/content.model';
 
 @Component({
   selector: 'route-page-editor',
   standalone: true,
-  imports: [CommonModule, CKEditorModule],
+  imports: [CommonModule, CKEditorModule, FormsModule],
   styleUrl: './page-editor.component.css',
   templateUrl: './page-editor.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class PageEditorComponent implements AfterViewInit {
+export class PageEditorComponent implements AfterViewInit, OnInit {
   @ViewChild('editorMenuBarElement')
   private editorMenuBar!: ElementRef<HTMLDivElement>;
 
   @ViewChild('editor') editorComponent!: CKEditorComponent;
 
-  constructor(
-    private changeDetector: ChangeDetectorRef,
-    private pictureLibraryService: MediaLibraryService,
-  ) {}
-
   public isLayoutReady = false;
   public Editor = ClassicEditor;
   public config: EditorConfig = {}; // CKEditor needs the DOM tree before calculating the configuration.
-  public ngAfterViewInit(): void {
+
+  public model = new ContentModel();
+
+  constructor(
+    private route: ActivatedRoute,
+    private changeDetector: ChangeDetectorRef,
+    private pictureLibraryService: MediaLibraryService,
+    private pageRequestService: PageRequestService,
+    private saveContentService: SaveContentService,
+    private errorHandlerService: ErrorHandlerService,
+  ) {}
+
+  async ngOnInit(): Promise<void> {
+    try {
+      let params = await firstValueFrom(this.route.paramMap);
+      const pageId = parseInt(String(params.get('id')));
+      const page = await this.pageRequestService.find(pageId);
+      const content = await this.pageRequestService.content(pageId);
+
+      this.model.content = content;
+      this.model.pageId = pageId;
+      this.model.title = page.title;
+
+      console.log(this.model);
+    } catch (error) {
+      this.errorHandlerService.handle(error as HttpErrorResponse);
+    }
+  }
+
+  ngAfterViewInit(): void {
     this.config = {
       toolbar: {
         items: [
+          'saveContent',
+          '|',
           'undo',
           'redo',
           '|',
@@ -131,7 +186,6 @@ export class PageEditorComponent implements AfterViewInit {
         List,
         ListProperties,
         Paragraph,
-
         SelectAll,
         ShowBlocks,
         SimpleUploadAdapter,
@@ -147,7 +201,7 @@ export class PageEditorComponent implements AfterViewInit {
         Underline,
         Undo,
       ],
-      extraPlugins: [MediaLibrary],
+      extraPlugins: [MediaLibrary, SaveContent],
       balloonToolbar: [
         'bold',
         'italic',
@@ -227,7 +281,6 @@ export class PageEditorComponent implements AfterViewInit {
           types: ['png', 'jpeg'],
         },
       },
-      initialData: 'No initial data set yet, this needs to come from the API',
       link: {
         addTargetToExternalLinks: true,
         defaultProtocol: 'https://',
@@ -267,6 +320,18 @@ export class PageEditorComponent implements AfterViewInit {
     // but will work nonetheless. Do not remove @ts-ignore.
     // @ts-ignore
     this.config['mediaLibrary.service'] = this.pictureLibraryService;
+
+    // Force the save content service, this is not defined by the EditorConfig definition,
+    // but will work nonetheless. Do not remove @ts-ignore.
+
+    // @ts-ignore
+    this.config['saveContent'] = new SaveContentConfig(
+      async (data): Promise<void> => {
+        this.model.content = String(data);
+        await this.saveContentService.save(this.model);
+      },
+      this.errorHandlerService,
+    );
 
     this.isLayoutReady = true;
     this.changeDetector.detectChanges();
