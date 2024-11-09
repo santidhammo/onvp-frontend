@@ -104,3 +104,12 @@ The following component is used to create new pages
   (onSaved)="refreshSearch(); createEnabled$.next(false)"
   (onCancelled)="createEnabled$.next(false)"
 />
+
+<!--
+The following component is used to publish pages
+-->
+<config-page-publication
+  [pageIdObservableInput]="publicationPageId$.asObservable()"
+  (onSaved)="publicationPageId$.next(null)"
+  (onCancelled)="publicationPageId$.next(null)"
+/>

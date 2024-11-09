@@ -12,6 +12,7 @@ import { PageResponse } from '../../../model/responses/page-response';
 import { TextEntryComponent } from '../../form/text-entry/text-entry.component';
 import { SubmitComponent } from '../../form/submit/submit.component';
 import { CreatePageComponent } from '../create-page/create-page.component';
+import { PagePublicationComponent } from '../page-publication/page-publication.component';
 
 @Component({
   selector: 'config-pages',
@@ -28,6 +29,7 @@ import { CreatePageComponent } from '../create-page/create-page.component';
     TextEntryComponent,
     SubmitComponent,
     CreatePageComponent,
+    PagePublicationComponent,
   ],
   templateUrl: './pages.component.html',
 })

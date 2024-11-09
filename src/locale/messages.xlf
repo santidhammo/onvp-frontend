@@ -30,6 +30,38 @@
           <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="993987051529277706" datatype="html">
+        <source>Media Library</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ckeditor5/plugins/media-library.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8257661007652110878" datatype="html">
+        <source>Create Page</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/create-page/create-page.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5456450042123347344" datatype="html">
+        <source>This is the dialog to create a new page</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/create-page/create-page.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2808034552284896025" datatype="html">
+        <source>Page Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/create-page/create-page.component.html</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
+          <context context-type="linenumber">62,63</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="5605993045193979158" datatype="html">
         <source>Edit Member</source>
         <context-group purpose="location">
@@ -275,6 +307,10 @@
           <context context-type="linenumber">26</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/roles/roles.component.html</context>
           <context context-type="linenumber">26</context>
         </context-group>
@@ -301,6 +337,10 @@
           <context context-type="linenumber">66,67</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
+          <context context-type="linenumber">63,64</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
           <context context-type="linenumber">62,63</context>
         </context-group>
@@ -310,6 +350,10 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
           <context context-type="linenumber">102</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
+          <context context-type="linenumber">82</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
@@ -356,8 +400,69 @@
           <context context-type="linenumber">134,137</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
+          <context context-type="linenumber">96,99</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
           <context context-type="linenumber">100,103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="94365429022082050" datatype="html">
+        <source>Page Publication</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/page-publication/page-publication.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7219158049997493647" datatype="html">
+        <source>Publishes a page to several roles</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/page-publication/page-publication.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6145432860664247927" datatype="html">
+        <source>Orchestra Committee</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/page-publication/page-publication.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/generic/primitive/role.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6297950127540572260" datatype="html">
+        <source>Member</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/page-publication/page-publication.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/generic/primitive/role.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8928816882866356838" datatype="html">
+        <source>Public</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/page-publication/page-publication.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6699493563538389559" datatype="html">
+        <source> Create new page </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
+          <context context-type="linenumber">47,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1819652562485333830" datatype="html">
+        <source>Publication</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
+          <context context-type="linenumber">87,88</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4145388993288653422" datatype="html">
@@ -400,7 +505,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2267951994342176288" datatype="html">
@@ -660,7 +765,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5104086281843067778" datatype="html">
@@ -716,7 +821,14 @@
         <source>Members</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3817498941817715969" datatype="html">
+        <source>Pages</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2997307845619095560" datatype="html">
@@ -731,20 +843,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/generic/primitive/role-class.ts</context>
           <context context-type="linenumber">33</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6297950127540572260" datatype="html">
-        <source>Member</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/generic/primitive/role.ts</context>
-          <context context-type="linenumber">33</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6145432860664247927" datatype="html">
-        <source>Orchestra Committee</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/generic/primitive/role.ts</context>
-          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1179184907489210406" datatype="html">
