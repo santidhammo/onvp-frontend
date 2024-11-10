@@ -26,10 +26,11 @@
         aria-orientation="vertical"
         *ngFor="
           let configMode of [
+            ConfigMode.PAGES,
+            ConfigMode.IMAGES,
             ConfigMode.MEMBERS,
             ConfigMode.WORKGROUPS,
             ConfigMode.ROLES,
-            ConfigMode.PAGES,
           ]
         "
       >
@@ -46,12 +47,13 @@
     <div class="col-9">
       <div class="m-3">
         <div class="tab-content">
+          <config-pages *ngIf="(observe() | async) == ConfigMode.PAGES" />
+          <config-images *ngIf="(observe() | async) == ConfigMode.IMAGES" />
           <config-members *ngIf="(observe() | async) == ConfigMode.MEMBERS" />
           <config-workgroups
             *ngIf="(observe() | async) == ConfigMode.WORKGROUPS"
           />
           <config-roles *ngIf="(observe() | async) == ConfigMode.ROLES" />
-          <config-pages *ngIf="(observe() | async) == ConfigMode.PAGES" />
         </div>
       </div>
     </div>

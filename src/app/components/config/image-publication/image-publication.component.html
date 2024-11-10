@@ -1,0 +1,60 @@
+<!--
+  ~  ONVP Frontend - Frontend of the ONVP website
+  ~
+  ~ Copyright (c) 2024.  Sjoerd van Leent
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<app-dialog *ngIf="observeResponse | async">
+  <dialog-header title="Image Publication" i18n-title />
+  <dialog-explanation
+    explanation="Publishes an image to several roles"
+    i18n-explanation
+  />
+  <form #imagePublicationForm="ngForm" (ngSubmit)="submit($event)">
+    <dialog-body>
+      <form-text-entry
+        name="orchestraCommitteeRole"
+        title="Orchestra Committee"
+        i18n-title
+        [(ngModel)]="model.orchestraCommitteeRole"
+        required
+        [inputType]="InputType.CHECKBOX"
+      />
+
+      <form-text-entry
+        name="memberRole"
+        title="Member"
+        i18n-title
+        [(ngModel)]="model.memberRole"
+        required
+        [inputType]="InputType.CHECKBOX"
+      />
+
+      <form-text-entry
+        name="publicRole"
+        title="Public"
+        i18n-title
+        [(ngModel)]="model.publicRole"
+        required
+        [inputType]="InputType.CHECKBOX"
+      />
+    </dialog-body>
+    <dialog-footer>
+      <form-cancel />
+      <form-submit [disabled]="imagePublicationForm.invalid" />
+    </dialog-footer>
+  </form>
+</app-dialog>

@@ -416,6 +416,26 @@
         <source>Save</source>
         <target>Opslaan</target>
       </trans-unit>
+      <trans-unit id="414887388288176527" datatype="html">
+        <source>Images</source>
+        <target>Afbeeldingen</target>
+      </trans-unit>
+      <trans-unit id="4974984286368079591" datatype="html">
+        <source>Image Publication</source>
+        <target>Afbeeldingpublicatie</target>
+      </trans-unit>
+      <trans-unit id="2270036227672512706" datatype="html">
+        <source>Publishes an image to several roles</source>
+        <target>Publiceert een afbeelding aan enkele rollen</target>
+      </trans-unit>
+      <trans-unit id="1555557432518442584" datatype="html">
+        <source> Upload Image </source>
+        <target> Afbeelding Overzetten </target>
+      </trans-unit>
+      <trans-unit id="5094609127521418347" datatype="html">
+        <source>Image Title</source>
+        <target>Afbeeldingstitle</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

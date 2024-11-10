@@ -26,6 +26,7 @@ import { WorkgroupsComponent } from '../../config/workgroups/workgroups.componen
 import { RolesComponent } from '../../config/roles/roles.component';
 import { ConfigMode } from '../../../generic/primitive/config-mode';
 import { PagesComponent } from '../../config/pages/pages.component';
+import { ImagesComponent } from '../../config/images/images.component';
 
 @Component({
   selector: 'route-config',
@@ -40,13 +41,14 @@ import { PagesComponent } from '../../config/pages/pages.component';
     NgForOf,
     NgClass,
     PagesComponent,
+    ImagesComponent,
   ],
   templateUrl: './config.component.html',
 })
 export class ConfigComponent {
   protected readonly ConfigMode = ConfigMode;
 
-  private mode$ = new BehaviorSubject<ConfigMode>(ConfigMode.MEMBERS);
+  private mode$ = new BehaviorSubject<ConfigMode>(ConfigMode.PAGES);
 
   observe(): Observable<ConfigMode> {
     return this.mode$.asObservable();

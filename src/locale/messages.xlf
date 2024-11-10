@@ -165,6 +165,10 @@
           <context context-type="sourcefile">src/app/components/config/edit-member-picture/edit-member-picture.component.html</context>
           <context context-type="linenumber">26</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/image-upload/image-upload.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8399469779273227421" datatype="html">
         <source>Picture of the member</source>
@@ -307,8 +311,67 @@
           <context context-type="linenumber">61,62</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="4974984286368079591" datatype="html">
+        <source>Image Publication</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/image-publication/image-publication.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2270036227672512706" datatype="html">
+        <source>Publishes an image to several roles</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/image-publication/image-publication.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6145432860664247927" datatype="html">
+        <source>Orchestra Committee</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/image-publication/image-publication.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/page-publication/page-publication.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/generic/primitive/role.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6297950127540572260" datatype="html">
+        <source>Member</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/image-publication/image-publication.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/page-publication/page-publication.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/generic/primitive/role.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8928816882866356838" datatype="html">
+        <source>Public</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/image-publication/image-publication.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/page-publication/page-publication.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="4580988005648117665" datatype="html">
         <source>Search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/images/images.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
           <context context-type="linenumber">26</context>
@@ -330,15 +393,26 @@
           <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1207234198432054218" datatype="html">
-        <source> Register new member </source>
+      <trans-unit id="1555557432518442584" datatype="html">
+        <source> Upload Image </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
+          <context context-type="sourcefile">src/app/components/config/images/images.component.html</context>
           <context context-type="linenumber">47,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5094609127521418347" datatype="html">
+        <source>Image Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/images/images.component.html</context>
+          <context context-type="linenumber">62,63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3193976279273491157" datatype="html">
         <source>Actions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/images/images.component.html</context>
+          <context context-type="linenumber">63,64</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
           <context context-type="linenumber">66,67</context>
@@ -350,6 +424,44 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
           <context context-type="linenumber">62,63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1819652562485333830" datatype="html">
+        <source>Publication</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/images/images.component.html</context>
+          <context context-type="linenumber">81,82</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
+          <context context-type="linenumber">87,88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4116296290237874686" datatype="html">
+        <source> No results available
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/images/images.component.html</context>
+          <context context-type="linenumber">90,93</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
+          <context context-type="linenumber">134,137</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
+          <context context-type="linenumber">96,99</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
+          <context context-type="linenumber">100,103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1207234198432054218" datatype="html">
+        <source> Register new member </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
+          <context context-type="linenumber">47,48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7585826646011739428" datatype="html">
@@ -399,22 +511,6 @@
           <context context-type="linenumber">91,92</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4116296290237874686" datatype="html">
-        <source> No results available
-</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
-          <context context-type="linenumber">134,137</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
-          <context context-type="linenumber">96,99</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
-          <context context-type="linenumber">100,103</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="94365429022082050" datatype="html">
         <source>Page Publication</source>
         <context-group purpose="location">
@@ -429,47 +525,11 @@
           <context context-type="linenumber">23,24</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="6145432860664247927" datatype="html">
-        <source>Orchestra Committee</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/page-publication/page-publication.component.html</context>
-          <context context-type="linenumber">30,31</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/generic/primitive/role.ts</context>
-          <context context-type="linenumber">35</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6297950127540572260" datatype="html">
-        <source>Member</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/page-publication/page-publication.component.html</context>
-          <context context-type="linenumber">40</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/generic/primitive/role.ts</context>
-          <context context-type="linenumber">33</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8928816882866356838" datatype="html">
-        <source>Public</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/page-publication/page-publication.component.html</context>
-          <context context-type="linenumber">49</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="6699493563538389559" datatype="html">
         <source> Create new page </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
           <context context-type="linenumber">47,48</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1819652562485333830" datatype="html">
-        <source>Publication</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
-          <context context-type="linenumber">87,88</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4145388993288653422" datatype="html">
@@ -512,7 +572,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2267951994342176288" datatype="html">
@@ -772,7 +832,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5104086281843067778" datatype="html">
@@ -828,14 +888,21 @@
         <source>Members</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3817498941817715969" datatype="html">
         <source>Pages</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="414887388288176527" datatype="html">
+        <source>Images</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2997307845619095560" datatype="html">

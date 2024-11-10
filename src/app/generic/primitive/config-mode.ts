@@ -2,7 +2,8 @@ export enum ConfigMode {
   MEMBERS,
   WORKGROUPS,
   ROLES,
-  PAGES = 3,
+  PAGES,
+  IMAGES,
 }
 
 export namespace ConfigMode {
@@ -16,6 +17,8 @@ export namespace ConfigMode {
         return $localize`Roles`;
       case ConfigMode.PAGES:
         return $localize`Pages`;
+      case ConfigMode.IMAGES:
+        return $localize`Images`;
     }
   }
 }

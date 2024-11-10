@@ -1,0 +1,42 @@
+<!--
+  ~  ONVP Frontend - Frontend of the ONVP website
+  ~
+  ~ Copyright (c) 2024.  Sjoerd van Leent
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<form
+  #memberPictureForm="ngForm"
+  (ngSubmit)="submit($event)"
+  *ngIf="observeEnabledInput | async"
+>
+  <app-dialog>
+    <dialog-header title="Edit Member Picture" i18n-title />
+    <dialog-body>
+      <form-text-entry
+        name="imageTitle"
+        title="Image Title"
+        i18n-title
+        [(ngModel)]="model.title"
+        required
+      />
+      <input type="file" (change)="onPictureSelected($event)" />
+    </dialog-body>
+    <dialog-footer>
+      <form-cancel />
+      <form-submit [disabled]="selectedFile === null" />
+    </dialog-footer>
+  </app-dialog>
+</form>
