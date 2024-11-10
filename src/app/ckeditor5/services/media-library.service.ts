@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+let resolveMedia: MediaResolve | null = null;
+let rejectMedia: MediaReject | null = null;
+
 @Injectable({
   providedIn: 'root',
 })
 export class MediaLibraryService {
   constructor() {}
 
-  private resolve$ = new BehaviorSubject<MediaResolve | null>(null);
-  private reject$ = new BehaviorSubject<MediaReject | null>(null);
   private mediaRequested$ = new BehaviorSubject<boolean>(false);
 
   requestPictureUrl(): Promise<string> {
     let promise = new Promise<string>((resolve, reject) => {
-      this.resolve$.next(resolve);
-      this.reject$.next(reject);
+      resolveMedia = resolve;
+      rejectMedia = reject;
+      console.log('Resolve:', resolveMedia);
+      console.log('Reject:', rejectMedia);
       this.mediaRequested$.next(true);
     });
     return promise;
@@ -25,25 +28,25 @@ export class MediaLibraryService {
   }
 
   setMediaUrl(url: string): void {
-    let resolve = this.resolve$.getValue();
-    if (resolve) {
-      this.stopRequest();
-      resolve(url);
+    console.log('Resolve: ', resolveMedia);
+    if (resolveMedia) {
+      resolveMedia(url);
     }
+    this.stopRequest();
   }
 
   cancelMediaUrl(): void {
-    let reject = this.reject$.getValue();
-    if (reject) {
-      this.stopRequest();
-      reject($localize`Cancelled by user`);
+    console.log('Reject: ', rejectMedia);
+    if (rejectMedia) {
+      rejectMedia($localize`Cancelled by user`);
     }
+    this.stopRequest();
   }
 
   private stopRequest() {
     this.mediaRequested$.next(false);
-    this.resolve$.next(null);
-    this.reject$.next(null);
+    resolveMedia = null;
+    rejectMedia = null;
   }
 }
 

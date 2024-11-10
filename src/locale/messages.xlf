@@ -33,8 +33,110 @@
       <trans-unit id="993987051529277706" datatype="html">
         <source>Media Library</source>
         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ckeditor5/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">src/app/ckeditor5/plugins/media-library.ts</context>
           <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2473364037423607850" datatype="html">
+        <source>Select an image to insert</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ckeditor5/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">23,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4580988005648117665" datatype="html">
+        <source>Search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ckeditor5/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/images/images.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/roles/roles.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/workgroup-management/workgroup-management.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5094609127521418347" datatype="html">
+        <source>Image Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ckeditor5/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">60,61</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/image-upload/image-upload.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/images/images.component.html</context>
+          <context context-type="linenumber">62,63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3193976279273491157" datatype="html">
+        <source>Actions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ckeditor5/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">61,62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/images/images.component.html</context>
+          <context context-type="linenumber">63,64</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
+          <context context-type="linenumber">66,67</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
+          <context context-type="linenumber">63,64</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
+          <context context-type="linenumber">62,63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7849586290759725660" datatype="html">
+        <source>Insert Media</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ckeditor5/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">83,84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2930742510712560730" datatype="html">
+        <source> No results available </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ckeditor5/components/media-library/media-library.component.html</context>
+          <context context-type="linenumber">92,93</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/workgroup-management/workgroup-management.component.html</context>
+          <context context-type="linenumber">85,86</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/workgroup-management/workgroup-management.component.html</context>
+          <context context-type="linenumber">143</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3768927257183755959" datatype="html">
@@ -42,6 +144,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/ckeditor5/plugins/save-content.ts</context>
           <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4412273700992011794" datatype="html">
+        <source>Cancelled by user</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ckeditor5/services/media-library.service.ts</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8257661007652110878" datatype="html">
@@ -366,64 +475,11 @@
           <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4580988005648117665" datatype="html">
-        <source>Search</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/images/images.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/roles/roles.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/workgroup-management/workgroup-management.component.html</context>
-          <context context-type="linenumber">41</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="1555557432518442584" datatype="html">
         <source> Upload Image </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/images/images.component.html</context>
           <context context-type="linenumber">47,48</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5094609127521418347" datatype="html">
-        <source>Image Title</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/images/images.component.html</context>
-          <context context-type="linenumber">62,63</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3193976279273491157" datatype="html">
-        <source>Actions</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/images/images.component.html</context>
-          <context context-type="linenumber">63,64</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
-          <context context-type="linenumber">66,67</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
-          <context context-type="linenumber">63,64</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
-          <context context-type="linenumber">62,63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1819652562485333830" datatype="html">
@@ -642,17 +698,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/workgroup-management/workgroup-management.component.html</context>
           <context context-type="linenumber">55,56</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2930742510712560730" datatype="html">
-        <source> No results available </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/workgroup-management/workgroup-management.component.html</context>
-          <context context-type="linenumber">85,86</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/config/workgroup-management/workgroup-management.component.html</context>
-          <context context-type="linenumber">143</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8889819112897578789" datatype="html">

@@ -434,7 +434,19 @@
       </trans-unit>
       <trans-unit id="5094609127521418347" datatype="html">
         <source>Image Title</source>
-        <target>Afbeeldingstitle</target>
+        <target>Afbeeldingstitel</target>
+      </trans-unit>
+      <trans-unit id="4412273700992011794" datatype="html">
+        <source>Cancelled by user</source>
+        <target>Geannuleerd door gebruiker</target>
+      </trans-unit>
+      <trans-unit id="7849586290759725660" datatype="html">
+        <source>Insert Media</source>
+        <target>Media invoegen</target>
+      </trans-unit>
+      <trans-unit id="2473364037423607850" datatype="html">
+        <source>Select an image to insert</source>
+        <target>Selecteer een afbeelding om in te voegen</target>
       </trans-unit>
     </body>
   </file>

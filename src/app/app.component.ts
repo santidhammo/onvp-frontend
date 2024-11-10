@@ -40,6 +40,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { PageRequestService } from './services/backend/request/page-request.service';
 import { PageResponse } from './model/responses/page-response';
+import { MediaLibraryComponent } from './ckeditor5/components/media-library/media-library.component';
 
 @Component({
   selector: 'app-root',
@@ -57,6 +58,7 @@ import { PageResponse } from './model/responses/page-response';
     FooterComponent,
     SubmitComponent,
     DialogComponent,
+    MediaLibraryComponent,
   ],
   templateUrl: './app.component.html',
   providers: [SetupRequestService],

@@ -43,6 +43,7 @@ export class MediaLibrary extends Plugin {
         if (service instanceof MediaLibraryService) {
           service.requestPictureUrl().then((url) =>
             editor.model.change((writer) => {
+              console.log('URL:', url);
               const imageElement = writer.createElement('imageBlock', {
                 src: url,
               });

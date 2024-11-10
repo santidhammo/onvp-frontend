@@ -53,7 +53,7 @@ import { ImageUploadComponent } from '../image-upload/image-upload.component';
   templateUrl: './images.component.html',
 })
 export class ImagesComponent implements OnInit {
-  private image$ = new BehaviorSubject<number | null>(null);
+  private page$ = new BehaviorSubject<number | null>(null);
   private rows$ = new BehaviorSubject<ImageMetaDataResponse[]>([]);
   private searchResult$ =
     new BehaviorSubject<SearchResult<ImageMetaDataResponse> | null>(null);
@@ -81,7 +81,7 @@ export class ImagesComponent implements OnInit {
   }
 
   refreshSearch() {
-    const lastPage = this.image$.getValue();
+    const lastPage = this.page$.getValue();
     if (lastPage !== null) {
       this.doSearch(lastPage);
     } else {
@@ -94,7 +94,7 @@ export class ImagesComponent implements OnInit {
       .search(this.titleQuery, pageNumber - 1)
       .then((result) => {
         let page = result.pageOffset + 1;
-        this.image$.next(page);
+        this.page$.next(page);
         this.rows$.next(result.rows);
         this.searchResult$.next(result);
       })

@@ -51,6 +51,6 @@ export class ImageRequestService {
   }
 
   imageUrl(id: number): string {
-    return `/api/images/v1/image/${id}.png`;
+    return `/api/images/v1/asset/${id}.png`;
   }
 }

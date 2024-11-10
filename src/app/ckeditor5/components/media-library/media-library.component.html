@@ -1,0 +1,98 @@
+<!--
+  ~  ONVP Frontend - Frontend of the ONVP website
+  ~
+  ~ Copyright (c) 2024.  Sjoerd van Leent
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<app-dialog *ngIf="observeEnabled | async" [size]="DialogSize.XL">
+  <dialog-header title="Media Library" i18n-title />
+  <dialog-explanation
+    explanation="Select an image to insert"
+    i18n-explanation
+  />
+  <dialog-body>
+    <form #searchForm="ngForm" (ngSubmit)="doSearch()">
+      <div class="container">
+        <div class="row">
+          <div class="col col-8">
+            <form-text-entry
+              title="Search"
+              i18n-title
+              name="query"
+              [(ngModel)]="titleQuery"
+              [labelLeft]="true"
+            />
+          </div>
+          <div class="col col-2">
+            <form-submit />
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <hr />
+
+    <app-paginator
+      [searchResultProvider]="observeSearchResult"
+      (navigateTo)="doSearch($event)"
+    />
+
+    <table
+      class="table table-striped"
+      *ngIf="(observeRows | async)?.length !== 0"
+    >
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th i18n>Image Title</th>
+          <th i18n>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody *ngFor="let row of observeRows | async">
+        <tr>
+          <td class="align-middle">
+            <span>{{ row.id }}</span>
+          </td>
+          <td class="align-middle">
+            <span>{{ row.title }}</span>
+          </td>
+          <td>
+            <div class="btn-group">
+              <a
+                (click)="
+                  mediaLibraryService.setMediaUrl(
+                    imageRequestService.imageUrl(row.id)
+                  )
+                "
+                class="btn btn-outline-primary"
+                i18n
+                >Insert Media</a
+              >
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert-info" *ngIf="(observeRows | async)?.length === 0" i18n>
+      No results available
+    </div>
+  </dialog-body>
+  <dialog-footer>
+    <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+  </dialog-footer>
+</app-dialog>
