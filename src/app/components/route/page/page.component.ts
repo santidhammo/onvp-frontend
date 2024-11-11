@@ -35,14 +35,19 @@ export class PageComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.mainMenu$.next(await this.pageRequestService.mainMenu());
-    this.currentPageId$.subscribe((pageId: number | null) => {
+    this.currentPageId$.subscribe(async (pageId: number | null) => {
       if (pageId) {
         this.pageRequestService
           .content(pageId)
           .then((content) => this.content$.next(content))
           .catch((e) => this.errorHandlerService.handle(e));
       } else {
-        this.content$.next('');
+        const defaultPage = await this.pageRequestService.getDefault();
+        if (defaultPage) {
+          this.currentPageId$.next(defaultPage.id);
+        } else {
+          this.content$.next('');
+        }
       }
     });
   }

@@ -448,6 +448,10 @@
         <source>Select an image to insert</source>
         <target>Selecteer een afbeelding om in te voegen</target>
       </trans-unit>
+      <trans-unit id="5607669932062416162" datatype="html">
+        <source>Default</source>
+        <target>Thuispagina</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

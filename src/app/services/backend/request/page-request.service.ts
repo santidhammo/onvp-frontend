@@ -11,6 +11,12 @@ import { ExtendedPageResponse } from '../../../model/responses/extended-page-res
 export class PageRequestService {
   constructor(private http: HttpClient) {}
 
+  async getDefault(): Promise<ExtendedPageResponse | null> {
+    return await firstValueFrom(
+      this.http.get<ExtendedPageResponse | null>(`/api/pages/v1/default`),
+    );
+  }
+
   async search(
     query: string,
     pageOffset: number,

@@ -86,6 +86,13 @@
             i18n
             >Publication</a
           >
+          <a
+            class="btn btn-outline-primary"
+            (click)="setDefaultPage(row.id)"
+            [ngClass]="{ active: (observeDefaultPage | async) === row.id }"
+            i18n
+            >Default</a
+          >
         </div>
       </td>
     </tr>

@@ -13,6 +13,7 @@ import { TextEntryComponent } from '../../form/text-entry/text-entry.component';
 import { SubmitComponent } from '../../form/submit/submit.component';
 import { CreatePageComponent } from '../create-page/create-page.component';
 import { PagePublicationComponent } from '../page-publication/page-publication.component';
+import { PageCommandService } from '../../../services/backend/command/page-command.service';
 
 @Component({
   selector: 'config-pages',
@@ -34,6 +35,7 @@ import { PagePublicationComponent } from '../page-publication/page-publication.c
   templateUrl: './pages.component.html',
 })
 export class PagesComponent implements OnInit {
+  private defaultPage$ = new BehaviorSubject<number | null>(null);
   private page$ = new BehaviorSubject<number | null>(null);
   private rows$ = new BehaviorSubject<PageResponse[]>([]);
   private searchResult$ =
@@ -47,6 +49,7 @@ export class PagesComponent implements OnInit {
 
   constructor(
     private pageRequestService: PageRequestService,
+    private pageCommandService: PageCommandService,
     private errorHandlerService: ErrorHandlerService,
   ) {}
   ngOnInit() {
@@ -61,6 +64,10 @@ export class PagesComponent implements OnInit {
     return this.rows$.asObservable();
   }
 
+  get observeDefaultPage(): Observable<number | null> {
+    return this.defaultPage$.asObservable();
+  }
+
   refreshSearch() {
     const lastPage = this.page$.getValue();
     if (lastPage !== null) {
@@ -72,6 +79,19 @@ export class PagesComponent implements OnInit {
 
   doSearch(pageNumber: number = 1) {
     this.pageRequestService
+      .getDefault()
+      .then((value) => {
+        if (value) {
+          this.defaultPage$.next(value.id);
+        } else {
+          this.defaultPage$.next(null);
+        }
+      })
+      .catch((e) => {
+        this.errorHandlerService.handle(e);
+      });
+
+    this.pageRequestService
       .search(this.titleQuery, pageNumber - 1)
       .then((result) => {
         let page = result.pageOffset + 1;
@@ -82,5 +102,12 @@ export class PagesComponent implements OnInit {
       .catch((e) => {
         this.errorHandlerService.handle(e);
       });
+  }
+
+  setDefaultPage(id: number) {
+    this.pageCommandService
+      .putDefault(id)
+      .then(() => this.defaultPage$.next(id))
+      .catch((e) => this.errorHandlerService.handle(e));
   }
 }

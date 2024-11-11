@@ -44,4 +44,8 @@ export class PageCommandService {
   async delete(id: number): Promise<void> {
     await firstValueFrom(this.http.delete(`/api/pages/v1/page/${id}`));
   }
+
+  async putDefault(id: number): Promise<void> {
+    await firstValueFrom(this.http.put(`/api/pages/v1/default/${id}`, null));
+  }
 }
