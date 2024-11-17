@@ -35,10 +35,7 @@
           authorizationRequestService.observeHasRole(Role.OPERATOR) | async
         "
       >
-        <a
-          routerLink="config"
-          class="nav-link link-primary btn btn-outline-info"
-          i18n
+        <a routerLink="config" class="nav-link link-primary btn btn-info" i18n
           >Edit Configuration</a
         >
       </li>
@@ -46,10 +43,7 @@
         class="nav-item"
         *ngIf="!(authorizationRequestService.observeAuthorized() | async)"
       >
-        <a
-          routerLink="login"
-          class="nav-link link-primary btn btn-outline-info"
-          i18n
+        <a routerLink="login" class="nav-link link-primary btn btn-info" i18n
           >Login</a
         >
       </li>
@@ -69,6 +63,33 @@
             >({{ authorizationResponse.member.fullName }})</small
           >
         </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<nav
+  id="footer-menu-bar"
+  class="navbar navbar-expand-sm navbar-light bg-light fixed-bottom"
+>
+  <div class="container-fluid">
+    <span></span>
+    <ul class="navbar-nav">
+      <li class="nav-item m-1">
+        <a
+          class="btn btn-sm btn-info"
+          [href]="observeFrontendSourceCodeUrl | async"
+          target="_blank"
+          ><span i18n>Frontend sources</span></a
+        >
+      </li>
+      <li class="nav-item m-1">
+        <a
+          class="btn btn-sm btn-info"
+          [href]="observeBackendSourceCodeUrl | async"
+          target="_blank"
+          ><span i18n>Backend sources</span></a
+        >
       </li>
     </ul>
   </div>

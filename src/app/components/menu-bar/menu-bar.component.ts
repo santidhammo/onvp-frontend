@@ -17,11 +17,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthorizationRequestService } from '../../services/backend/request/authorization-request.service';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { Role } from '../../generic/primitive/role';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { SourceCodeService } from '../../services/backend/request/source-code.service';
+import { SourceCodeDetails } from '../../model/responses/source-code-details';
 
 @Component({
   selector: 'app-menu-bar',
@@ -29,10 +32,28 @@ import { Role } from '../../generic/primitive/role';
   imports: [RouterLink, AsyncPipe, NgIf],
   templateUrl: './menu-bar.component.html',
 })
-export class MenuBarComponent {
+export class MenuBarComponent implements OnInit {
+  frontendSourceCodeUrl$ = new BehaviorSubject<string>('');
+  backendSourceCodeUrl$ = new BehaviorSubject<string>('');
+
   constructor(
-    public authorizationRequestService: AuthorizationRequestService,
+    protected authorizationRequestService: AuthorizationRequestService,
+    private sourceCodeService: SourceCodeService,
   ) {}
+
+  ngOnInit(): void {
+    this.sourceCodeService.sourceCodeDetails().then((sourceCode) => {
+      this.frontendSourceCodeUrl$.next(sourceCode.frontendUrl);
+      this.backendSourceCodeUrl$.next(sourceCode.backendUrl);
+    });
+  }
+
+  get observeFrontendSourceCodeUrl(): Observable<string> {
+    return this.frontendSourceCodeUrl$.asObservable();
+  }
+  get observeBackendSourceCodeUrl(): Observable<string> {
+    return this.backendSourceCodeUrl$.asObservable();
+  }
 
   protected readonly Role = Role;
 }

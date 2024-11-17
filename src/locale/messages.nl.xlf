@@ -452,6 +452,14 @@
         <source>Default</source>
         <target>Thuispagina</target>
       </trans-unit>
+      <trans-unit id="7558511321383883860" datatype="html">
+        <source>Frontend sources</source>
+        <target>Frontend broncode</target>
+      </trans-unit>
+      <trans-unit id="7756705071040724024" datatype="html">
+        <source>Backend sources</source>
+        <target>Backend broncode</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -820,14 +820,14 @@
         <source>Edit Configuration</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/menu-bar/menu-bar.component.html</context>
-          <context context-type="linenumber">42,43</context>
+          <context context-type="linenumber">39,40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2454050363478003966" datatype="html">
         <source>Login</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/menu-bar/menu-bar.component.html</context>
-          <context context-type="linenumber">54</context>
+          <context context-type="linenumber">48</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/route/login/login.component.html</context>
@@ -838,7 +838,21 @@
         <source>Logout</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/menu-bar/menu-bar.component.html</context>
-          <context context-type="linenumber">67</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7558511321383883860" datatype="html">
+        <source>Frontend sources</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/menu-bar/menu-bar.component.html</context>
+          <context context-type="linenumber">83,84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7756705071040724024" datatype="html">
+        <source>Backend sources</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/menu-bar/menu-bar.component.html</context>
+          <context context-type="linenumber">91,92</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5025709138959449988" datatype="html">
