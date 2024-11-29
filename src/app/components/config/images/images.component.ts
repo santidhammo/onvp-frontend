@@ -38,11 +38,9 @@ import { ImageUploadComponent } from '../image-upload/image-upload.component';
   standalone: true,
   imports: [
     AsyncPipe,
-    CreatePageComponent,
     FormsModule,
     NgForOf,
     NgIf,
-    PagePublicationComponent,
     PaginatorComponent,
     ReactiveFormsModule,
     SubmitComponent,

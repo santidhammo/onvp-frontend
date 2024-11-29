@@ -4,6 +4,7 @@ export enum ConfigMode {
   ROLES,
   PAGES,
   IMAGES,
+  MUSICAL_INSTRUMENTS,
 }
 
 export namespace ConfigMode {
@@ -19,6 +20,8 @@ export namespace ConfigMode {
         return $localize`Pages`;
       case ConfigMode.IMAGES:
         return $localize`Images`;
+      case ConfigMode.MUSICAL_INSTRUMENTS:
+        return $localize`Musical Instruments`;
     }
   }
 }

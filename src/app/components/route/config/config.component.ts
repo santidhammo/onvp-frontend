@@ -27,6 +27,7 @@ import { RolesComponent } from '../../config/roles/roles.component';
 import { ConfigMode } from '../../../generic/primitive/config-mode';
 import { PagesComponent } from '../../config/pages/pages.component';
 import { ImagesComponent } from '../../config/images/images.component';
+import { MusicalInstrumentsComponent } from '../../config/musical-instruments/musical-instruments.component';
 
 @Component({
   selector: 'route-config',
@@ -42,6 +43,7 @@ import { ImagesComponent } from '../../config/images/images.component';
     NgClass,
     PagesComponent,
     ImagesComponent,
+    MusicalInstrumentsComponent,
   ],
   templateUrl: './config.component.html',
 })

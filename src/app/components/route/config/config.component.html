@@ -31,6 +31,7 @@
             ConfigMode.MEMBERS,
             ConfigMode.WORKGROUPS,
             ConfigMode.ROLES,
+            ConfigMode.MUSICAL_INSTRUMENTS,
           ]
         "
       >
@@ -54,6 +55,9 @@
             *ngIf="(observe() | async) == ConfigMode.WORKGROUPS"
           />
           <config-roles *ngIf="(observe() | async) == ConfigMode.ROLES" />
+          <config-musical-instruments
+            *ngIf="(observe() | async) == ConfigMode.MUSICAL_INSTRUMENTS"
+          />
         </div>
       </div>
     </div>
