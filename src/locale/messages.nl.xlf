@@ -460,6 +460,42 @@
         <source>Backend sources</source>
         <target>Backend broncode</target>
       </trans-unit>
+      <trans-unit id="3282710494298535771" datatype="html">
+        <source>Musical Instrument Selection</source>
+        <target>Muziekinstrument selectie</target>
+      </trans-unit>
+      <trans-unit id="4814285799071780083" datatype="html">
+        <source>Remove</source>
+        <target>Verwijderen</target>
+      </trans-unit>
+      <trans-unit id="6252070156626006029" datatype="html">
+        <source>None</source>
+        <target>Geen</target>
+      </trans-unit>
+      <trans-unit id="5564469577698940489" datatype="html">
+        <source>Select a musical instrument</source>
+        <target>Selecteer een muziekinstrument</target>
+      </trans-unit>
+      <trans-unit id="9098246709009468750" datatype="html">
+        <source>Musical Instruments</source>
+        <target>Muziekinstrumenten</target>
+      </trans-unit>
+      <trans-unit id="7062674551039537705" datatype="html">
+        <source>Register Musical Instrument</source>
+        <target>Registreer muziekinstrument</target>
+      </trans-unit>
+      <trans-unit id="5829096045118509265" datatype="html">
+        <source>Musical Instrument</source>
+        <target>Muziekinstrument</target>
+      </trans-unit>
+      <trans-unit id="4413546146963614932" datatype="html">
+        <source>Wikipedia URL</source>
+        <target>Wikipedia URL</target>
+      </trans-unit>
+      <trans-unit id="1281157888890819403" datatype="html">
+        <source> Register new instrument </source>
+        <target> Registreer nieuw instrument </target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
