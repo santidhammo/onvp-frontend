@@ -10,6 +10,7 @@ import { TextEntryComponent } from '../../form/text-entry/text-entry.component';
 import { PaginatorComponent } from '../../search/paginator/paginator.component';
 import { AsyncPipe, NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
 import { Role } from '../../../generic/primitive/role';
+import { MusicalInstrumentRequestService } from '../../../services/backend/request/musical-instrument-request.service';
 
 @Component({
   selector: 'config-facebook',
@@ -64,7 +65,7 @@ export class FacebookComponent implements OnInit {
   }
 
   getFacebookPictureAsset(memberId: number, pictureAssetId: string): string {
-    return `/api/facebook/${memberId}/picture.png?${pictureAssetId}`;
+    return `/api/facebook/v1/${memberId}/picture.png?${pictureAssetId}`;
   }
 
   getFacebookPictureAlt(fullName: string): string {

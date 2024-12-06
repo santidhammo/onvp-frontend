@@ -62,18 +62,77 @@
         [inputType]="InputType.TEXT_AREA"
       />
     </dialog-body>
+    <dialog-explanation
+      explanation="Musical Instrument Selection"
+      i18n-explanation
+    />
+    <dialog-body>
+      <div class="border border-1 border-secondary rounded-3 p-2">
+        <span>Selected Musical Instrument:</span>
+        <ul>
+          <li *ngIf="model.musicalInstrumentId">
+            {{ this.musicalInstrumentName }}
+          </li>
+          <li *ngIf="model.musicalInstrumentId === null" i18n>None</li>
+        </ul>
+        <div>
+          <a
+            (click)="this.deleteMusicalInstrument()"
+            class="btn btn-outline-danger"
+            [ngClass]="{ disabled: model.musicalInstrumentId === null }"
+            i18n
+            >Remove</a
+          >
+        </div>
+
+        <form
+          #musicalInstrumentSearchForm="ngForm"
+          (ngSubmit)="doMusicalInstrumentSearch()"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col-9">
+                <form-text-entry
+                  title="Search"
+                  i18n-title
+                  name="query"
+                  [(ngModel)]="musicalInstrumentNameQuery"
+                  [labelLeft]="false"
+                />
+              </div>
+              <div class="col-2 align-self-end">
+                <form-submit title="Search" i18n-title />
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <span i18n *ngIf="observeMusicalInstrumentSearchResult | async"
+          >Select a musical instrument</span
+        >
+        <ul *ngFor="let row of observeMusicalInstrumentRows | async">
+          <li
+            (click)="setMusicalInstrument(row.id, row.name)"
+            role="button"
+            class="text-decoration-underline text-primary"
+            i18n
+          >
+            {{ row.name }}
+          </li>
+        </ul>
+      </div>
+    </dialog-body>
+    <ng-container *ngIf="(observeWorkgroupResponses | async)?.length !== 0">
+      <dialog-explanation explanation="Member work groups" i18n-explanation />
+      <ul>
+        <li *ngFor="let workgroup of observeWorkgroupResponses | async">
+          {{ workgroup.name }}
+        </li>
+      </ul>
+    </ng-container>
     <dialog-footer>
       <form-cancel />
       <form-submit [disabled]="memberDetailForm.invalid" />
     </dialog-footer>
   </form>
-
-  <ng-container *ngIf="(observeWorkgroupResponses | async)?.length !== 0">
-    <dialog-explanation explanation="Member work groups" i18n-explanation />
-    <ul>
-      <li *ngFor="let workgroup of observeWorkgroupResponses | async">
-        {{ workgroup.name }}
-      </li>
-    </ul>
-  </ng-container>
 </app-dialog>

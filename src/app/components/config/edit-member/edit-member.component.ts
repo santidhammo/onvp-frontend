@@ -18,7 +18,7 @@
  */
 
 import { Component, input, Input, OnInit, output } from '@angular/core';
-import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
+import { AsyncPipe, NgClass, NgForOf, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TextEntryComponent } from '../../form/text-entry/text-entry.component';
 import { BodyComponent } from '../../dialog/body/body.component';
@@ -37,6 +37,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { WorkgroupResponse } from '../../../model/responses/workgroup-response';
 import { WorkgroupRequestService } from '../../../services/backend/request/workgroup-request.service';
 import { InputType } from '../../../generic/primitive/input-type';
+import { MusicalInstrumentResponse } from '../../../model/responses/musical-instrument-response';
+import { SearchResult } from '../../../model/search/search-result';
+import { MusicalInstrumentRequestService } from '../../../services/backend/request/musical-instrument-request.service';
 
 @Component({
   selector: 'config-edit-member',
@@ -54,6 +57,7 @@ import { InputType } from '../../../generic/primitive/input-type';
     SubmitComponent,
     CancelComponent,
     NgForOf,
+    NgClass,
   ],
   templateUrl: './edit-member.component.html',
 })
@@ -62,16 +66,27 @@ export class EditMemberComponent implements OnInit {
   onSaved = output();
   onCancelled = output();
 
-  model = new MemberUpdateCommand();
+  protected model = new MemberUpdateCommand();
 
   private editResponse$ = new BehaviorSubject<MemberResponse | null>(null);
   private editWorkgroupResponses$ = new BehaviorSubject<WorkgroupResponse[]>(
     [],
   );
 
+  protected musicalInstrumentNameQuery: string = '';
+
+  private musicalInstrumentPage$ = new BehaviorSubject<number | null>(null);
+  private musicalInstrumentRows$ = new BehaviorSubject<
+    MusicalInstrumentResponse[]
+  >([]);
+  private musicalInstrumentSearchResult$ =
+    new BehaviorSubject<SearchResult<MusicalInstrumentResponse> | null>(null);
+  protected musicalInstrumentName: string | null = null;
+
   constructor(
     private memberRequestService: MemberRequestService,
     private memberCommandService: MemberCommandService,
+    private musicalInstrumentRequestService: MusicalInstrumentRequestService,
     private errorHandlerService: ErrorHandlerService,
   ) {}
 
@@ -81,6 +96,14 @@ export class EditMemberComponent implements OnInit {
 
   get observeWorkgroupResponses(): Observable<WorkgroupResponse[]> {
     return this.editWorkgroupResponses$.asObservable();
+  }
+
+  get observeMusicalInstrumentSearchResult(): Observable<SearchResult<MusicalInstrumentResponse> | null> {
+    return this.musicalInstrumentSearchResult$.asObservable();
+  }
+
+  get observeMusicalInstrumentRows(): Observable<MusicalInstrumentResponse[]> {
+    return this.musicalInstrumentRows$.asObservable();
   }
 
   ngOnInit() {
@@ -103,8 +126,19 @@ export class EditMemberComponent implements OnInit {
             this.memberRequestService
               .findWorkgroups(memberId)
               .then((workgroupResponses) => {
+                this.musicalInstrumentName = null;
                 this.editResponse$.next(response);
                 this.editWorkgroupResponses$.next(workgroupResponses);
+
+                if (response.musicalInstrumentId) {
+                  this.musicalInstrumentRequestService
+                    .find(response.musicalInstrumentId)
+                    .then((musicalInstrumentResponse) => {
+                      this.musicalInstrumentName =
+                        musicalInstrumentResponse.name;
+                    })
+                    .catch((error) => this.errorHandlerService.handle(error));
+                }
               })
               .catch((error) => this.errorHandlerService.handle(error));
           })
@@ -130,5 +164,35 @@ export class EditMemberComponent implements OnInit {
     }
   }
 
+  doMusicalInstrumentSearch(pageNumber: number = 1) {
+    this.musicalInstrumentRequestService
+      .search(this.musicalInstrumentNameQuery, pageNumber - 1)
+      .then((result) => {
+        let page = result.pageOffset + 1;
+        this.musicalInstrumentPage$.next(page);
+        this.musicalInstrumentRows$.next(result.rows);
+        this.musicalInstrumentSearchResult$.next(result);
+      })
+      .catch((e) => {
+        this.errorHandlerService.handle(e);
+      });
+  }
+
   protected readonly InputType = InputType;
+
+  setMusicalInstrument(
+    musicalInstrumentId: number,
+    musicalInstrumentName: string,
+  ) {
+    this.model.musicalInstrumentId = musicalInstrumentId;
+    this.musicalInstrumentName = musicalInstrumentName;
+    this.musicalInstrumentPage$.next(null);
+    this.musicalInstrumentRows$.next([]);
+    this.musicalInstrumentSearchResult$.next(null);
+  }
+
+  deleteMusicalInstrument() {
+    this.model.musicalInstrumentId = null;
+    this.musicalInstrumentName = null;
+  }
 }

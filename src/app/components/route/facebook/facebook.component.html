@@ -62,7 +62,23 @@
         style="height: 212px; width: 165px; display: block"
         class="bg-light mt-1 mb-1"
       ></div>
-      <!-- TODO: Instrument -->
+
+      <div *ngIf="row.musicalInstrumentName">
+        <div>
+          <strong i18n>Musical Instrument</strong>
+        </div>
+        <ul>
+          <li *ngIf="row.musicalInstrumentUrl">
+            <a href="{{ row.musicalInstrumentUrl }}">{{
+              row.musicalInstrumentName
+            }}</a>
+          </li>
+          <li *ngIf="row.musicalInstrumentUrl === null">
+            {{ row.musicalInstrumentName }}
+          </li>
+        </ul>
+      </div>
+
       <div *ngIf="row.workgroupNames.length > 0">
         <div>
           <strong i18n>Work Groups</strong>
