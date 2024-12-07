@@ -496,6 +496,12 @@
         <source> Register new instrument </source>
         <target> Registreer nieuw instrument </target>
       </trans-unit>
+      <trans-unit id="4496758371425496523" datatype="html">
+        <source> Are you sure to remove the page with title: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeTitle() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
+      &gt;"/>? </source>
+        <target> Weet u zeker dat u de pagina met title: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeTitle() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
+      &gt;"/> wilt verwijderen? </target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

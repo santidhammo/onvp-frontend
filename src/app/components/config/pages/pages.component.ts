@@ -14,6 +14,8 @@ import { SubmitComponent } from '../../form/submit/submit.component';
 import { CreatePageComponent } from '../create-page/create-page.component';
 import { PagePublicationComponent } from '../page-publication/page-publication.component';
 import { PageCommandService } from '../../../services/backend/command/page-command.service';
+import { UnregisterMemberComponent } from '../unregister-member/unregister-member.component';
+import { RemovePageComponent } from '../remove-page/remove-page.component';
 
 @Component({
   selector: 'config-pages',
@@ -31,6 +33,8 @@ import { PageCommandService } from '../../../services/backend/command/page-comma
     SubmitComponent,
     CreatePageComponent,
     PagePublicationComponent,
+    UnregisterMemberComponent,
+    RemovePageComponent,
   ],
   templateUrl: './pages.component.html',
 })
@@ -46,6 +50,8 @@ export class PagesComponent implements OnInit {
   protected publicationPageId$ = new BehaviorSubject<number | null>(null);
 
   protected titleQuery: string = '';
+
+  protected removePageId$ = new BehaviorSubject<number | null>(null);
 
   constructor(
     private pageRequestService: PageRequestService,
@@ -109,5 +115,9 @@ export class PagesComponent implements OnInit {
       .putDefault(id)
       .then(() => this.defaultPage$.next(id))
       .catch((e) => this.errorHandlerService.handle(e));
+  }
+
+  setRemovePage(id: number) {
+    this.removePageId$.next(id);
   }
 }

@@ -93,6 +93,12 @@
             i18n
             >Default</a
           >
+          <a
+            class="btn btn-outline-primary"
+            (click)="this.setRemovePage(row.id)"
+            i18n
+            >Remove</a
+          >
         </div>
       </td>
     </tr>
@@ -119,4 +125,13 @@ The following component is used to publish pages
   [pageIdObservableInput]="publicationPageId$.asObservable()"
   (onSaved)="publicationPageId$.next(null)"
   (onCancelled)="publicationPageId$.next(null)"
+/>
+
+<!--
+When a page is successfully removed, the search has to be refreshed
+-->
+<config-remove-page
+  [pageIdObservableInput]="removePageId$.asObservable()"
+  (onSaved)="refreshSearch(); removePageId$.next(null)"
+  (onCancelled)="removePageId$.next(null)"
 />
