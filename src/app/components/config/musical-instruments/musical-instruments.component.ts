@@ -13,6 +13,8 @@ import { ImageUploadComponent } from '../image-upload/image-upload.component';
 import { PaginatorComponent } from '../../search/paginator/paginator.component';
 import { MusicalInstrumentRegisterComponent } from '../musical-instrument-register/musical-instrument-register.component';
 import { MusicalInstrumentEditComponent } from '../musical-instrument-edit/musical-instrument-edit.component';
+import { RemovePageComponent } from '../remove-page/remove-page.component';
+import { UnregisterMusicalInstrumentComponent } from '../unregister-musical-instrument/unregister-musical-instrument.component';
 
 @Component({
   selector: 'config-musical-instruments',
@@ -29,6 +31,8 @@ import { MusicalInstrumentEditComponent } from '../musical-instrument-edit/music
     PaginatorComponent,
     MusicalInstrumentRegisterComponent,
     MusicalInstrumentEditComponent,
+    RemovePageComponent,
+    UnregisterMusicalInstrumentComponent,
   ],
   templateUrl: './musical-instruments.component.html',
   styles: ``,
@@ -42,6 +46,8 @@ export class MusicalInstrumentsComponent implements OnInit {
   protected registerEnabled$ = new BehaviorSubject<boolean>(false);
 
   protected editMusicalInstrumentId$ = new BehaviorSubject<number | null>(null);
+
+  unregisterMusicalInstrumentId$ = new BehaviorSubject<number | null>(null);
 
   protected nameQuery: string = '';
 

@@ -502,6 +502,12 @@
         <target> Weet u zeker dat u de pagina met title: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeTitle() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
       &gt;"/> wilt verwijderen? </target>
       </trans-unit>
+      <trans-unit id="5085088753122461160" datatype="html">
+        <source> Are you sure to unregister the musical instrument with name: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeName() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
+      &gt;"/>? </source>
+        <target> Weet u zeker dat u het muziekinstrument: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeName() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
+      &gt;"/> wilt afmelden? </target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -90,6 +90,12 @@
             i18n
             >Edit</a
           >
+          <a
+            (click)="unregisterMusicalInstrumentId$.next(row.id)"
+            class="btn btn-outline-primary"
+            i18n
+            >Unregister</a
+          >
         </div>
       </td>
     </tr>
@@ -116,4 +122,15 @@ The following component is used to edit existing musical instruments
   [musicalInstrumentIdObservableInput]="editMusicalInstrumentId$.asObservable()"
   (onSaved)="editMusicalInstrumentId$.next(null)"
   (onCancelled)="editMusicalInstrumentId$.next(null)"
+/>
+
+<!--
+When a page is successfully removed, the search has to be refreshed
+-->
+<config-unregister-musical-instrument
+  [musicalInstrumentIdObservableInput]="
+    unregisterMusicalInstrumentId$.asObservable()
+  "
+  (onSaved)="refreshSearch(); unregisterMusicalInstrumentId$.next(null)"
+  (onCancelled)="unregisterMusicalInstrumentId$.next(null)"
 />

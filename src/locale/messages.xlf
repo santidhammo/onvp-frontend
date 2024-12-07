@@ -558,7 +558,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/musical-instruments/musical-instruments.component.html</context>
-          <context context-type="linenumber">100,103</context>
+          <context context-type="linenumber">106,109</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
@@ -621,6 +621,10 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/members/members.component.html</context>
           <context context-type="linenumber">125,126</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/musical-instruments/musical-instruments.component.html</context>
+          <context context-type="linenumber">97,98</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
@@ -737,6 +741,10 @@
           <context context-type="sourcefile">src/app/components/config/unregister-member/unregister-member.component.html</context>
           <context context-type="linenumber">26</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/unregister-musical-instrument/unregister-musical-instrument.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4496758371425496523" datatype="html">
         <source> Are you sure to remove the page with title: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeTitle() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
@@ -754,6 +762,10 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/unregister-member/unregister-member.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/unregister-musical-instrument/unregister-musical-instrument.component.html</context>
           <context context-type="linenumber">34</context>
         </context-group>
         <context-group purpose="location">
@@ -781,6 +793,14 @@
       &gt;"/>? </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/unregister-member/unregister-member.component.html</context>
+          <context context-type="linenumber">28,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5085088753122461160" datatype="html">
+        <source> Are you sure to unregister the musical instrument with name: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeName() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
+      &gt;"/>? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/unregister-musical-instrument/unregister-musical-instrument.component.html</context>
           <context context-type="linenumber">28,32</context>
         </context-group>
       </trans-unit>
