@@ -17,12 +17,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { RoleClass } from './role-class';
-
 export enum Role {
   PUBLIC = 'PUBLIC',
   MEMBER = 'MEMBER',
   ORCHESTRA_COMMITTEE = 'ORCHESTRA_COMMITTEE',
+  DIRECTOR = 'DIRECTOR',
   OPERATOR = 'OPERATOR',
 }
 
@@ -33,6 +32,8 @@ export namespace Role {
         return $localize`Member`;
       case Role.ORCHESTRA_COMMITTEE:
         return $localize`Orchestra Committee`;
+      case Role.DIRECTOR:
+        return $localize`Director`;
       case Role.OPERATOR:
         return $localize`Operator`;
       case Role.PUBLIC:

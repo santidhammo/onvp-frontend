@@ -508,6 +508,10 @@
         <target> Weet u zeker dat u het muziekinstrument: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeName() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
       &gt;"/> wilt afmelden? </target>
       </trans-unit>
+      <trans-unit id="6983326487281744620" datatype="html">
+        <source>Director</source>
+        <target>Dirigent</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

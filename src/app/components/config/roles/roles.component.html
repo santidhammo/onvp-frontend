@@ -65,7 +65,9 @@
         </button>
 
         <ng-container
-          *ngFor="let role of [Role.ORCHESTRA_COMMITTEE, Role.OPERATOR]"
+          *ngFor="
+            let role of [Role.ORCHESTRA_COMMITTEE, Role.DIRECTOR, Role.OPERATOR]
+          "
         >
           <button
             class="btn btn-group"
