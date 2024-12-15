@@ -32,6 +32,17 @@
       <li
         class="nav-item"
         *ngIf="
+          (authorizationRequestService.observeHasRole(Role.OPERATOR) | async) ||
+          (authorizationRequestService.observeHasRole(Role.DIRECTOR) | async)
+        "
+      >
+        <a routerLink="mailing" class="nav-link link-primary btn btn-info" i18n
+          >Mailing</a
+        >
+      </li>
+      <li
+        class="nav-item"
+        *ngIf="
           authorizationRequestService.observeHasRole(Role.OPERATOR) | async
         "
       >

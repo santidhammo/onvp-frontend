@@ -26,6 +26,9 @@ import { ConfigComponent } from './components/route/config/config.component';
 import { FacebookComponent } from './components/route/facebook/facebook.component';
 import { PageEditorComponent } from './components/route/page-editor/page-editor.component';
 import { PageComponent } from './components/route/page/page.component';
+import { StartComponent as MailTemplateWizardStartComponent } from './components/route/mailing/template-wizard/start/start.component';
+import { StartComponent as MailWizardStartComponent } from './components/route/mailing/wizard/start/start.component';
+import { MainComponent as MailingMainComponent } from './components/route/mailing/main/main.component';
 
 export const routes: Routes = [
   { path: 'activation/:activationString', component: ActivationComponent },
@@ -35,5 +38,14 @@ export const routes: Routes = [
   { path: 'config', component: ConfigComponent },
   { path: 'facebook', component: FacebookComponent },
   { path: 'edit-page/:id', component: PageEditorComponent },
+  { path: 'mailing', component: MailingMainComponent },
+  {
+    path: 'mail/template-wizard/start',
+    component: MailTemplateWizardStartComponent,
+  },
+  {
+    path: 'mail/wizard/start',
+    component: MailWizardStartComponent,
+  },
   { path: '', component: PageComponent },
 ];

@@ -512,6 +512,10 @@
         <source>Director</source>
         <target>Dirigent</target>
       </trans-unit>
+      <trans-unit id="5870895709322113685" datatype="html">
+        <source>Mailinglist Management</source>
+        <target>Emaillijstbeheer</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -1,0 +1,111 @@
+<!--
+  ~  ONVP Frontend - Frontend of the ONVP website
+  ~
+  ~ Copyright (c) 2024.  Sjoerd van Leent
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<wizard-pane
+  title="Template Management Wizard"
+  subTitle="Edit an existing template or create a new template"
+  i18n-title
+  i18n-subTitle
+  (onNext)="next()"
+  (onCancel)="cancel()"
+>
+  <form [formGroup]="form">
+    <div i18n>Please select any of the actions to perform for a template</div>
+    <div class="border rounded p-2">
+      <div>
+        <input
+          type="radio"
+          id="create"
+          [value]="Actions.CREATE"
+          formControlName="action"
+          checked
+        />
+        <label for="create"><span i18n>Create new template</span></label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          id="update"
+          [value]="Actions.UPDATE"
+          formControlName="action"
+          [attr.disabled]="(noItems | async) ? 'disabled' : null"
+        />
+        <label for="update">
+          <span i18n [ngClass]="{ 'text-black-50': noItems | async }"
+            >Update selected template</span
+          ></label
+        >
+
+        <div class="container border rounded-3">
+          <div class="row p-2">
+            <div class="col col-3 d-flex" i18n>
+              <span class="flex-fill"></span>
+              <label for="update-template-selector"
+                >Select the template to update:</label
+              >
+            </div>
+            <select
+              class="col col-9"
+              id="update-template-selector"
+              formControlName="updateSelection"
+            >
+              <option *ngFor="let item of items | async" [value]="item.id">
+                {{ item.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <input
+          type="radio"
+          id="delete"
+          [value]="Actions.DELETE"
+          formControlName="action"
+          [attr.disabled]="(noItems | async) ? 'disabled' : null"
+        />
+        <label for="delete">
+          <span i18n [ngClass]="{ 'text-black-50': noItems | async }"
+            >Delete selected template</span
+          ></label
+        >
+        <div class="container border rounded-3">
+          <div class="row p-2">
+            <div class="col col-3 d-flex" i18n>
+              <span class="flex-fill"></span>
+              <label for="delete-template-selector"
+                >Select the template to delete:</label
+              >
+            </div>
+            <select
+              class="col col-9"
+              id="delete-template-selector"
+              formControlName="deleteSelection"
+            >
+              <option *ngFor="let item of items | async" [value]="item.id">
+                {{ item.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</wizard-pane>
