@@ -103,6 +103,12 @@ export class StartComponent implements OnInit {
             }
             break;
           case Actions.DELETE:
+            const deleteSelection = this.form.controls.deleteSelection.value;
+            if (deleteSelection) {
+              await this.router.navigateByUrl(
+                '/mail/template-wizard/delete/' + deleteSelection,
+              );
+            }
             break;
         }
       } catch (error: any) {

@@ -21,4 +21,10 @@ export class MailTemplateCommandService {
       this.http.put(`/api/mail-templates/v1/template/${id}`, command),
     );
   }
+
+  async delete(id: number): Promise<void> {
+    await firstValueFrom(
+      this.http.delete(`/api/mail-templates/v1/template/${id}`),
+    );
+  }
 }

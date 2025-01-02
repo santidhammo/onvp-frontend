@@ -17,44 +17,32 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { BehaviorSubject, firstValueFrom, Observable } from 'rxjs';
-import { HttpErrorResponse } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ErrorHandlerService } from '../../../../../services/handlers/error-handler.service';
 import { MailTemplateRequestService } from '../../../../../services/backend/request/mail-template-request.service';
 import { MailTemplateCommandService } from '../../../../../services/backend/command/mail-template-command.service';
-import {
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import { CreateMailTemplateCommand } from '../../../../../model/commands/create-mail-template-command';
-import { UpdateMailTemplateCommand } from '../../../../../model/commands/update-mail-template-command';
-import { WizardPaneComponent } from '../../../../wizard/wizard-pane.component';
+import { HttpErrorResponse } from '@angular/common/http';
 import { AsyncPipe, NgIf } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { WizardPaneComponent } from '../../../../wizard/wizard-pane.component';
 
 @Component({
   standalone: true,
   imports: [
-    FormsModule,
-    WizardPaneComponent,
-    ReactiveFormsModule,
     AsyncPipe,
+    FormsModule,
     NgIf,
+    ReactiveFormsModule,
+    WizardPaneComponent,
   ],
-  templateUrl: './update.component.html',
+  templateUrl: './delete.component.html',
   styles: ``,
 })
-export class UpdateComponent implements OnInit {
+export class DeleteComponent {
   private id$ = new BehaviorSubject<number>(0);
   private name$ = new BehaviorSubject<string>('');
-  private body$ = new BehaviorSubject<string>('');
-
-  form = new FormGroup({
-    body: new FormControl<string>({ value: '', disabled: false }),
-  });
 
   constructor(
     private route: ActivatedRoute,
@@ -72,7 +60,6 @@ export class UpdateComponent implements OnInit {
         const template = await this.mailTemplateRequestService.find(id);
         this.id$.next(id);
         this.name$.next(template.name);
-        this.form.patchValue({ body: template.body });
       } catch (error) {
         this.errorHandlerService.handle(error as HttpErrorResponse);
       }
@@ -83,20 +70,12 @@ export class UpdateComponent implements OnInit {
     return this.name$.asObservable();
   }
 
-  protected get observeBody(): Observable<string> {
-    return this.body$.asObservable();
-  }
-
   async finish() {
-    const body = this.form.controls.body.value;
-    if (body) {
-      const command = new UpdateMailTemplateCommand(body);
-      try {
-        await this.mailTemplateCommandService.update(this.id$.value, command);
-        await this.router.navigateByUrl('/mailing');
-      } catch (error: any) {
-        this.errorHandlerService.handle(error);
-      }
+    try {
+      await this.mailTemplateCommandService.delete(this.id$.value);
+      await this.router.navigateByUrl('/mailing');
+    } catch (error: any) {
+      this.errorHandlerService.handle(error);
     }
   }
 
