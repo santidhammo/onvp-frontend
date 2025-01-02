@@ -27,6 +27,7 @@ import { FacebookComponent } from './components/route/facebook/facebook.componen
 import { PageEditorComponent } from './components/route/page-editor/page-editor.component';
 import { PageComponent } from './components/route/page/page.component';
 import { StartComponent as MailTemplateWizardStartComponent } from './components/route/mailing/template-wizard/start/start.component';
+import { CreateComponent as MailTemplateWizardCreateComponent } from './components/route/mailing/template-wizard/create/create.component';
 import { StartComponent as MailWizardStartComponent } from './components/route/mailing/wizard/start/start.component';
 import { MainComponent as MailingMainComponent } from './components/route/mailing/main/main.component';
 
@@ -42,6 +43,10 @@ export const routes: Routes = [
   {
     path: 'mail/template-wizard/start',
     component: MailTemplateWizardStartComponent,
+  },
+  {
+    path: 'mail/template-wizard/create',
+    component: MailTemplateWizardCreateComponent,
   },
   {
     path: 'mail/wizard/start',

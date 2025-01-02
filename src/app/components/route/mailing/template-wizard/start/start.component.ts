@@ -16,7 +16,6 @@ import { WizardPaneComponent } from '../../../../wizard/wizard-pane.component';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'mailing-template-wizard',
   standalone: true,
   imports: [
     FormsModule,
@@ -81,8 +80,12 @@ export class StartComponent implements OnInit {
     );
   }
 
-  next() {
-    console.log(this.form.value);
+  async next() {
+    try {
+      await this.router.navigateByUrl('/mail/template-wizard/create');
+    } catch (error: any) {
+      this.errorHandlerService.handle(error);
+    }
   }
 
   async cancel() {
