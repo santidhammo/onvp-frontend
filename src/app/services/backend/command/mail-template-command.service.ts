@@ -18,7 +18,7 @@ export class MailTemplateCommandService {
 
   async update(id: number, command: UpdateMailTemplateCommand): Promise<void> {
     await firstValueFrom(
-      this.http.put(`/api/mail-templates/v1/template/{id}`, command),
+      this.http.put(`/api/mail-templates/v1/template/${id}`, command),
     );
   }
 }

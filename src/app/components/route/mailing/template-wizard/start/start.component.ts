@@ -29,17 +29,19 @@ import { Router } from '@angular/router';
   styles: ``,
 })
 export class StartComponent implements OnInit {
-  private mail_template_names$ = new BehaviorSubject<
-    MailTemplateNameResponse[]
-  >([]);
+  private mailTemplateNames = new BehaviorSubject<MailTemplateNameResponse[]>(
+    [],
+  );
+
+  private nextEnabled$ = new BehaviorSubject<boolean>(true);
 
   form = new FormGroup({
     action: new FormControl<Actions>(Actions.CREATE),
-    updateSelection: new FormControl<string | null>({
+    updateSelection: new FormControl<number | null>({
       value: null,
       disabled: true,
     }),
-    deleteSelection: new FormControl<string | null>({
+    deleteSelection: new FormControl<number | null>({
       value: null,
       disabled: true,
     }),
@@ -54,7 +56,7 @@ export class StartComponent implements OnInit {
   async ngOnInit() {
     try {
       let listing = await this.mailTemplateRequestService.list();
-      this.mail_template_names$.next(listing);
+      this.mailTemplateNames.next(listing);
     } catch (error: any) {
       this.errorHandlerService.handle(error);
     }
@@ -71,20 +73,41 @@ export class StartComponent implements OnInit {
   }
 
   protected get items(): Observable<MailTemplateNameResponse[]> {
-    return this.mail_template_names$.asObservable();
+    return this.mailTemplateNames.asObservable();
   }
 
   protected get noItems(): Observable<boolean> {
-    return this.mail_template_names$.pipe(
+    return this.mailTemplateNames.pipe(
       map((listing: MailTemplateNameResponse[]) => listing.length == 0),
     );
   }
 
+  protected get nextEnabled(): Observable<boolean> {
+    return this.nextEnabled$.asObservable();
+  }
+
   async next() {
-    try {
-      await this.router.navigateByUrl('/mail/template-wizard/create');
-    } catch (error: any) {
-      this.errorHandlerService.handle(error);
+    const action = this.form.controls.action.value;
+    if (action !== null) {
+      try {
+        switch (action) {
+          case Actions.CREATE:
+            await this.router.navigateByUrl('/mail/template-wizard/create');
+            break;
+          case Actions.UPDATE:
+            const updateSelection = this.form.controls.updateSelection.value;
+            if (updateSelection) {
+              await this.router.navigateByUrl(
+                '/mail/template-wizard/update/' + updateSelection,
+              );
+            }
+            break;
+          case Actions.DELETE:
+            break;
+        }
+      } catch (error: any) {
+        this.errorHandlerService.handle(error);
+      }
     }
   }
 
@@ -97,6 +120,16 @@ export class StartComponent implements OnInit {
   }
 
   protected Actions = Actions;
+
+  evaluateNextButton() {
+    const enableNext =
+      this.form.controls.action.value === Actions.CREATE ||
+      (this.form.controls.action.value === Actions.UPDATE &&
+        this.form.controls.updateSelection.value !== null) ||
+      (this.form.controls.action.value === Actions.DELETE &&
+        this.form.controls.deleteSelection.value !== null);
+    this.nextEnabled$.next(enableNext);
+  }
 }
 
 enum Actions {

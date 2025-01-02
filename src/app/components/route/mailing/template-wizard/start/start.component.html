@@ -24,6 +24,7 @@
   i18n-subTitle
   (onNext)="next()"
   (onCancel)="cancel()"
+  [nextEnabler]="nextEnabled"
 >
   <form [formGroup]="form">
     <div i18n>Please select any of the actions to perform for a template</div>
@@ -35,6 +36,7 @@
           [value]="Actions.CREATE"
           formControlName="action"
           checked
+          (change)="evaluateNextButton()"
         />
         <label for="create"><span i18n>Create new template</span></label>
       </div>
@@ -45,6 +47,7 @@
           [value]="Actions.UPDATE"
           formControlName="action"
           [attr.disabled]="(noItems | async) ? 'disabled' : null"
+          (change)="evaluateNextButton()"
         />
         <label for="update">
           <span i18n [ngClass]="{ 'text-black-50': noItems | async }"
@@ -64,6 +67,7 @@
               class="col col-9"
               id="update-template-selector"
               formControlName="updateSelection"
+              (change)="evaluateNextButton()"
             >
               <option *ngFor="let item of items | async" [value]="item.id">
                 {{ item.name }}
@@ -80,6 +84,7 @@
           [value]="Actions.DELETE"
           formControlName="action"
           [attr.disabled]="(noItems | async) ? 'disabled' : null"
+          (change)="evaluateNextButton()"
         />
         <label for="delete">
           <span i18n [ngClass]="{ 'text-black-50': noItems | async }"
@@ -98,6 +103,7 @@
               class="col col-9"
               id="delete-template-selector"
               formControlName="deleteSelection"
+              (change)="evaluateNextButton()"
             >
               <option *ngFor="let item of items | async" [value]="item.id">
                 {{ item.name }}

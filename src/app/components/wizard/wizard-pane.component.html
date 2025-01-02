@@ -45,7 +45,9 @@
         <div class="btn-group">
           <button
             class="btn btn-outline-warning btn-wizard"
-            [ngClass]="{ disabled: !onCancelObserved }"
+            [ngClass]="{
+              disabled: !onCancelObserved || !(cancelEnabler() | async),
+            }"
             (click)="cancel()"
           >
             <span i18n>Cancel</span>
@@ -55,7 +57,9 @@
         <div class="btn-group">
           <button
             class="btn btn-outline-secondary btn-wizard"
-            [ngClass]="{ disabled: !onPreviousObserved }"
+            [ngClass]="{
+              disabled: !onPreviousObserved || !(previousEnabler() | async),
+            }"
             (click)="previous()"
           >
             <span i18n>&lt;&lt; Previous</span>
@@ -65,7 +69,7 @@
             [ngClass]="{
               'btn-outline-primary': !onFinishObserved,
               'btn-outline-secondary': onFinishObserved,
-              disabled: !onNextObserved,
+              disabled: !onNextObserved || !(nextEnabler() | async),
             }"
             (click)="next()"
           >
@@ -78,7 +82,7 @@
             class="btn btn-wizard"
             [ngClass]="{
               'btn-outline-primary': onFinishObserved,
-              disabled: !onFinishObserved,
+              disabled: !onFinishObserved || !(finishEnabler() | async),
             }"
             (click)="finish()"
           >

@@ -28,6 +28,7 @@ import { PageEditorComponent } from './components/route/page-editor/page-editor.
 import { PageComponent } from './components/route/page/page.component';
 import { StartComponent as MailTemplateWizardStartComponent } from './components/route/mailing/template-wizard/start/start.component';
 import { CreateComponent as MailTemplateWizardCreateComponent } from './components/route/mailing/template-wizard/create/create.component';
+import { UpdateComponent as MailTemplateWizardUpdateComponent } from './components/route/mailing/template-wizard/update/update.component';
 import { StartComponent as MailWizardStartComponent } from './components/route/mailing/wizard/start/start.component';
 import { MainComponent as MailingMainComponent } from './components/route/mailing/main/main.component';
 
@@ -47,6 +48,10 @@ export const routes: Routes = [
   {
     path: 'mail/template-wizard/create',
     component: MailTemplateWizardCreateComponent,
+  },
+  {
+    path: 'mail/template-wizard/update/:id',
+    component: MailTemplateWizardUpdateComponent,
   },
   {
     path: 'mail/wizard/start',
