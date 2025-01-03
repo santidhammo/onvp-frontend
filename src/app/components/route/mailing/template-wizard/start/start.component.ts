@@ -61,7 +61,7 @@ export class StartComponent implements OnInit {
       this.errorHandlerService.handle(error);
     }
 
-    this.noItems.subscribe((noItems) => {
+    this.observeHasNoItems.subscribe((noItems) => {
       if (!noItems) {
         this.form.controls.updateSelection.enable();
         this.form.controls.deleteSelection.enable();
@@ -72,17 +72,17 @@ export class StartComponent implements OnInit {
     });
   }
 
-  protected get items(): Observable<MailTemplateNameResponse[]> {
+  protected get observeItems(): Observable<MailTemplateNameResponse[]> {
     return this.mailTemplateNames.asObservable();
   }
 
-  protected get noItems(): Observable<boolean> {
+  protected get observeHasNoItems(): Observable<boolean> {
     return this.mailTemplateNames.pipe(
       map((listing: MailTemplateNameResponse[]) => listing.length == 0),
     );
   }
 
-  protected get nextEnabled(): Observable<boolean> {
+  protected get observeNextEnabled(): Observable<boolean> {
     return this.nextEnabled$.asObservable();
   }
 

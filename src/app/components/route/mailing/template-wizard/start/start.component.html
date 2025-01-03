@@ -24,7 +24,7 @@
   i18n-subTitle
   (onNext)="next()"
   (onCancel)="cancel()"
-  [nextEnabler]="nextEnabled"
+  [nextEnabler]="observeNextEnabled"
 >
   <form [formGroup]="form">
     <div i18n>Please select any of the actions to perform for a template</div>
@@ -46,20 +46,20 @@
           id="update"
           [value]="Actions.UPDATE"
           formControlName="action"
-          [attr.disabled]="(noItems | async) ? 'disabled' : null"
+          [attr.disabled]="(observeHasNoItems | async) ? 'disabled' : null"
           (change)="evaluateNextButton()"
         />
         <label for="update">
-          <span i18n [ngClass]="{ 'text-black-50': noItems | async }"
+          <span i18n [ngClass]="{ 'text-black-50': observeHasNoItems | async }"
             >Update selected template</span
           ></label
         >
 
         <div class="container border rounded-3">
           <div class="row p-2">
-            <div class="col col-3 d-flex" i18n>
+            <div class="col col-3 d-flex">
               <span class="flex-fill"></span>
-              <label for="update-template-selector"
+              <label for="update-template-selector" i18n
                 >Select the template to update:</label
               >
             </div>
@@ -69,7 +69,10 @@
               formControlName="updateSelection"
               (change)="evaluateNextButton()"
             >
-              <option *ngFor="let item of items | async" [value]="item.id">
+              <option
+                *ngFor="let item of observeItems | async"
+                [value]="item.id"
+              >
                 {{ item.name }}
               </option>
             </select>
@@ -83,11 +86,11 @@
           id="delete"
           [value]="Actions.DELETE"
           formControlName="action"
-          [attr.disabled]="(noItems | async) ? 'disabled' : null"
+          [attr.disabled]="(observeHasNoItems | async) ? 'disabled' : null"
           (change)="evaluateNextButton()"
         />
         <label for="delete">
-          <span i18n [ngClass]="{ 'text-black-50': noItems | async }"
+          <span i18n [ngClass]="{ 'text-black-50': observeHasNoItems | async }"
             >Delete selected template</span
           ></label
         >
@@ -105,7 +108,10 @@
               formControlName="deleteSelection"
               (change)="evaluateNextButton()"
             >
-              <option *ngFor="let item of items | async" [value]="item.id">
+              <option
+                *ngFor="let item of observeItems | async"
+                [value]="item.id"
+              >
                 {{ item.name }}
               </option>
             </select>
