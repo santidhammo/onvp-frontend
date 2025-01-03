@@ -1,1 +1,79 @@
-<p>workgroup-recipient works!</p>
+<!--
+  ~  ONVP Frontend - Frontend of the ONVP website
+  ~
+  ~ Copyright (c) 2025.  Sjoerd van Leent
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<wizard-pane
+  title="Mail Wizard"
+  subTitle="Select the work group to send the email to"
+  i18n-title
+  i18n-subTitle
+  (onFinish)="finish()"
+  (onCancel)="cancel()"
+  [finishEnabler]="observeEnableFinish"
+>
+  <div class="border rounded p-2 mt-2">
+    <div class="container">
+      <form class="row" #searchForm="ngForm" (ngSubmit)="doSearch()">
+        <div class="col-10">
+          <form-text-entry
+            title="Search for work groups"
+            i18n-title
+            name="query"
+            [(ngModel)]="nameQuery"
+            [labelLeft]="false"
+          />
+        </div>
+        <div class="col-2 align-self-end">
+          <form-submit title="Search" i18n-title />
+        </div>
+      </form>
+
+      <div class="row mt-2" style="height: 15lh">
+        <div class="col-12 border border-dark-subtle">
+          <div style="height: 13lh" *ngIf="(observeRows | async)?.length !== 0">
+            <table class="w-100">
+              <tbody>
+                <tr *ngFor="let row of observeRows | async">
+                  <td
+                    class="align-middle border-bottom"
+                    style="cursor: pointer"
+                    [ngClass]="{
+                      'bg-primary-subtle':
+                        (observeSelectedWorkgroup | async) === row.id,
+                    }"
+                    (click)="toggleSelectedWorkgroup(row.id)"
+                  >
+                    <span>{{ row.name }}</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div *ngIf="(observeRows | async)?.length === 0" i18n>
+            No results available
+          </div>
+          <app-paginator
+            [searchResultProvider]="observeSearchResult"
+            (navigateTo)="doSearch($event)"
+            [showTotals]="false"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</wizard-pane>

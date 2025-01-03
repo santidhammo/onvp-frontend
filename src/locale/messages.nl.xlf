@@ -516,6 +516,142 @@
         <source>Mailinglist Management</source>
         <target>Emaillijstbeheer</target>
       </trans-unit>
+      <trans-unit id="4254657933968128109" datatype="html">
+        <source>&lt;&lt; Previous</source>
+        <target>&lt;&lt; Vorige</target>
+      </trans-unit>
+      <trans-unit id="4975914375691758147" datatype="html">
+        <source>Next &gt;&gt;</source>
+        <target>Volgende &gt;&gt;</target>
+      </trans-unit>
+      <trans-unit id="65984904390749158" datatype="html">
+        <source>Finish</source>
+        <source>Gereed</source>
+      </trans-unit>
+      <trans-unit id="8312866774195166822" datatype="html">
+        <source>Template Management Wizard</source>
+        <target>Sjabloonbeheer Wijzer</target>
+      </trans-unit>
+      <trans-unit id="9202644321340254893" datatype="html">
+        <source>Edit an existing template or create a new template</source>
+        <target>Bewerk een bestaand sjabloon of maak een nieuw sjabloon</target>
+      </trans-unit>
+      <trans-unit id="3032952989860936780" datatype="html">
+        <source>Please select any of the actions to perform for a template</source>
+        <target>Selecteer een van de acties om voor een sjabloon uit te voeren</target>
+      </trans-unit>
+      <trans-unit id="6303198440296408811" datatype="html">
+        <source>Create new template</source>
+        <target>Nieuw sjabloon maken</target>
+      </trans-unit>
+      <trans-unit id="5726761984572829096" datatype="html">
+        <source>Update selected template</source>
+        <target>Geselecteerd sjabloon bijwerken</target>
+      </trans-unit>
+      <trans-unit id="5493757754994090201" datatype="html">
+        <source>Select the template to update:</source>
+        <target>Selecteer het sjabloon om bij te werken:</target>
+      </trans-unit>
+      <trans-unit id="1716436191989857262" datatype="html">
+        <source>Delete selected template</source>
+        <target>Verwijder geselecteerd sjabloon</target>
+      </trans-unit>
+      <trans-unit id="6890645279121933834" datatype="html">
+        <source>Mail Wizard</source>
+        <target>Mail Wijzer</target>
+      </trans-unit>
+      <trans-unit id="2684075216481601833" datatype="html">
+        <source>Create a new template</source>
+        <target>Maak een nieuw sjabloon</target>
+      </trans-unit>
+      <trans-unit id="3381549470030060599" datatype="html">
+        <source>Name of the template:</source>
+        <target>Naam van het sjabloon:</target>
+      </trans-unit>
+      <trans-unit id="7337024193071528277" datatype="html">
+        <source>Enter the body of the template. The following template strings can be used and will be replaced with the value in the database:</source>
+        <target>Voer de inhoud van het sjabloon in. De volgende sjabloonteksten worden vervangen met waardein in de database:</target>
+      </trans-unit>
+      <trans-unit id="2431319038391694228" datatype="html">
+        <source>Will be replaced with the first name of the member</source>
+        <target>Wordt vervangen met de roepnaam van het lid</target>
+      </trans-unit>
+      <trans-unit id="7026309873358070578" datatype="html">
+        <source>Will be replaced with the last name of the member</source>
+        <target>Wordt vervangen met de achternaam van het lid</target>
+      </trans-unit>
+      <trans-unit id="1026966765150230679" datatype="html">
+        <source>Press finish to delete the template: </source>
+        <target>Klik op gereed om het sjabloon te verwijderen: </target>
+      </trans-unit>
+      <trans-unit id="9202644321340254893" datatype="html">
+        <source>Edit an existing template or create a new template</source>
+        <target>Bewerk een bestaand sjabloon of maak een nieuw sjabloon</target>
+      </trans-unit>
+      <trans-unit id="2602371829022344876" datatype="html">
+        <source>Work group</source>
+        <target>Werkgroep</target>
+      </trans-unit>
+      <trans-unit id="1387423461537043359" datatype="html">
+        <source>Musical instrument</source>
+        <target>Muziekinstrument</target>
+      </trans-unit>
+      <trans-unit id="2593267219338176552" datatype="html">
+        <source>Select the mail template to use and the recipient type</source>
+        <target>Selecteer jet e-mailsjabloon om te gebruiken en de ontvangstmethode</target>
+      </trans-unit>
+      <trans-unit id="5834353669068517885" datatype="html">
+        <source>Select the template:</source>
+        <target>Selecteer sjabloon:</target>
+      </trans-unit>
+      <trans-unit id="7666940531701278212" datatype="html">
+        <source>Enter the subject:</source>
+        <target>Voer het onderwerp in:</target>
+      </trans-unit>
+      <trans-unit id="2855685776769758963" datatype="html">
+        <source>Select the recipient type:</source>
+        <target>Selecteer ontvangstmethode:</target>
+      </trans-unit>
+      <trans-unit id="6362783034057725094" datatype="html">
+        <source>Select the member to send the email to</source>
+        <target>Selecteer het lid om de e-mail naartoe te sturen</target>
+      </trans-unit>
+      <trans-unit id="945557527687428006" datatype="html">
+        <source>Search for members</source>
+        <target>Zoek naar leden</target>
+      </trans-unit>
+      <trans-unit id="6138944151940208334" datatype="html">
+        <source>Select the work group to send the email to</source>
+        <target>Selecteer de werkgroep om de e-mail naartoe te sturen</target>
+      </trans-unit>
+      <trans-unit id="5382666786822192898" datatype="html">
+        <source>Search for work groups</source>
+        <target>Zoek voor werkgroepen</target>
+      </trans-unit>
+      <trans-unit id="5980919517397428444" datatype="html">
+        <source>Mailing</source>
+        <target>E-mailbezorging</target>
+      </trans-unit>
     </body>
+    <trans-unit id="2664440151613207191" datatype="html">
+      <source>Select the template to delete:</source>
+      <target>Selecteer het sjabloon om te verwijderen:</target>
+    </trans-unit>
+    <trans-unit id="7603580469063055084" datatype="html">
+      <source> To manage email templates, start the email template wizard. </source>
+      <target> Om e-mailsjablonen te beheren, start de e-mailsjabloon-wijzer. </target>
+    </trans-unit>
+    <trans-unit id="7043578476388367358" datatype="html">
+      <source>Template Wizard</source>
+      <target>Sjabloon Wijzer</target>
+    </trans-unit>
+    <trans-unit id="6692300903410092038" datatype="html">
+      <source> To send emails, start the email wizard. </source>
+      <target> Om e-mails te versturen, start de e-mail-wijzer. </target>
+    </trans-unit>
+    <trans-unit id="8679968422683467567" datatype="html">
+      <source>Email Wizard</source>
+      <target>E-mail Wijzer</target>
+    </trans-unit>
   </file>
 </xliff>
