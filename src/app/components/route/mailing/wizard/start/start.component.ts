@@ -51,6 +51,10 @@ export class StartComponent implements OnInit {
       value: MailRecipientType.MEMBER,
       disabled: false,
     }),
+    subject: new FormControl<string>({
+      value: '',
+      disabled: false,
+    }),
   });
 
   constructor(
@@ -77,7 +81,10 @@ export class StartComponent implements OnInit {
   }
 
   evaluateNextButton() {
-    const enableNext = this.form.controls.templateSelection.value !== null;
+    const enableNext =
+      this.form.controls.templateSelection.value !== null &&
+      this.form.controls.subject.value !== null &&
+      this.form.controls.subject.value !== '';
     this.nextEnabled$.next(enableNext);
   }
 
@@ -85,22 +92,28 @@ export class StartComponent implements OnInit {
     try {
       const templateSelection = this.form.controls.templateSelection.value;
       const recipientType = this.form.controls.recipientType.value;
-      if (templateSelection && recipientType) {
+      const subject = this.form.controls.subject.value;
+      if (templateSelection && recipientType && subject) {
         switch (recipientType) {
           case MailRecipientType.MEMBER:
-            await this.router.navigateByUrl(
-              '/mail/template-wizard/member-recipient/' + templateSelection,
+            await this.router.navigate(
+              ['/mail/wizard/member-recipient/' + templateSelection],
+              { queryParams: { subject: subject } },
             );
             break;
           case MailRecipientType.WORKGROUP:
-            await this.router.navigateByUrl(
-              '/mail/template-wizard/workgroup-recipient/' + templateSelection,
+            await this.router.navigate(
+              ['/mail/wizard/workgroup-recipient/' + templateSelection],
+              { queryParams: { subject: subject } },
             );
             break;
           case MailRecipientType.MUSICAL_INSTRUMENT:
-            await this.router.navigateByUrl(
-              '/mail/template-wizard/musical-instrument-recipient/' +
-                templateSelection,
+            await this.router.navigate(
+              [
+                '/mail/wizard/musical-instrument-recipient/' +
+                  templateSelection,
+              ],
+              { queryParams: { subject: subject } },
             );
             break;
         }

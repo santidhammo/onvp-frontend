@@ -50,6 +50,20 @@
     <div class="border rounded p-2 mt-2">
       <div class="container">
         <div class="row">
+          <label class="col col-3" for="subject" i18n>Enter the subject:</label>
+          <input
+            class="col col-9"
+            id="subject"
+            formControlName="subject"
+            (change)="evaluateNextButton()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="border rounded p-2 mt-2">
+      <div class="container">
+        <div class="row">
           <span class="col col-3" i18n>Select the recipient type:</span>
           <div class="col col-9">
             <div

@@ -64,6 +64,7 @@ export class AuthorizationRequestService {
 
   async refresh(): Promise<void> {
     try {
+      console.log('Refreshing authorisation');
       const response = await firstValueFrom(
         this.http.get<AuthorizationResponse>('/api/authorization/v1/refresh'),
       );
