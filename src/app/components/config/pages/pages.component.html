@@ -60,6 +60,7 @@
     <tr>
       <th>ID</th>
       <th i18n>Page Title</th>
+      <th i18n>Order</th>
       <th i18n>Actions</th>
     </tr>
   </thead>
@@ -71,6 +72,27 @@
       </td>
       <td class="align-middle">
         <span>{{ row.title }}</span>
+      </td>
+      <td class="align-middle">
+        <div class="btn-group">
+          <a
+            class="btn btn-outline-primary"
+            i18n
+            (click)="reOrder(row.id, row.orderNumber - 1)"
+            >Up</a
+          >
+          <span
+            class="btn border border-start-0 border-end-0 border-top-1 border-bottom-1 border-dark-subtle"
+          >
+            {{ row.orderNumber }}
+          </span>
+          <a
+            class="btn btn-outline-primary"
+            i18n
+            (click)="reOrder(row.id, row.orderNumber + 1)"
+            >Down</a
+          >
+        </div>
       </td>
       <td>
         <div class="btn-group">

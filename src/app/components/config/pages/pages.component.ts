@@ -28,12 +28,10 @@ import { RemovePageComponent } from '../remove-page/remove-page.component';
     NgIf,
     NgClass,
     RouterLink,
-    RegisterMemberComponent,
     TextEntryComponent,
     SubmitComponent,
     CreatePageComponent,
     PagePublicationComponent,
-    UnregisterMemberComponent,
     RemovePageComponent,
   ],
   templateUrl: './pages.component.html',
@@ -119,5 +117,14 @@ export class PagesComponent implements OnInit {
 
   setRemovePage(id: number) {
     this.removePageId$.next(id);
+  }
+
+  async reOrder(id: number, orderNumber: number) {
+    try {
+      await this.pageCommandService.setOrder(id, orderNumber);
+      this.refreshSearch();
+    } catch (error) {
+      this.errorHandlerService.handle(error);
+    }
   }
 }

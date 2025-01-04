@@ -4,4 +4,5 @@ export interface PageResponse {
   id: number;
   title: string;
   eventDate: EventDate | null | undefined;
+  orderNumber: number;
 }

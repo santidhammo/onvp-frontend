@@ -653,5 +653,17 @@
       <source>Email Wizard</source>
       <target>E-mail Wijzer</target>
     </trans-unit>
+    <trans-unit id="220550782947016929" datatype="html">
+      <source>Order</source>
+      <target>Volgorde</target>
+    </trans-unit>
+    <trans-unit id="5573486145935722913" datatype="html">
+      <source>Up</source>
+      <target>Op</target>
+    </trans-unit>
+    <trans-unit id="375247309021166846" datatype="html">
+      <source>Down</source>
+      <target>Neer</target>
+    </trans-unit>
   </file>
 </xliff>

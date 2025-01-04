@@ -25,6 +25,12 @@ export class PageCommandService {
     );
   }
 
+  async setOrder(id: number, orderId: number): Promise<void> {
+    await firstValueFrom(
+      this.http.put(`/api/pages/v1/page/${id}/order`, orderId),
+    );
+  }
+
   async update(id: number, command: UpdatePageCommand): Promise<void> {
     await firstValueFrom(this.http.put(`/api/pages/v1/page/${id}`, command));
   }
