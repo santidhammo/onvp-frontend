@@ -78,4 +78,5 @@ export const routes: Routes = [
     component: MailWizardMusicalInstrumentRecipientComponent,
   },
   { path: '', component: PageComponent },
+  { path: ':id', component: PageComponent },
 ];

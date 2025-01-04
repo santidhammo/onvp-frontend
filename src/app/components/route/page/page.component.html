@@ -10,8 +10,7 @@
         <button
           class="nav-link text-start border border-1 border-dark-subtle text-primary"
           [ngClass]="{
-            'active bg-primary text-light':
-              (observeCurrentPageId | async) == page.id,
+            'active bg-primary text-light': (observePageId | async) == page.id,
           }"
           role="tab"
           (click)="setPage(page.id)"
