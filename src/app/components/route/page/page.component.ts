@@ -1,55 +1,92 @@
 import { Component, OnInit } from '@angular/core';
 import { PageRequestService } from '../../../services/backend/request/page-request.service';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, firstValueFrom, Observable } from 'rxjs';
 import { PageResponse } from '../../../model/responses/page-response';
 import { AsyncPipe, NgClass, NgForOf, NgIf } from '@angular/common';
-import { MembersComponent } from '../../config/members/members.component';
-import { PagesComponent } from '../../config/pages/pages.component';
-import { RolesComponent } from '../../config/roles/roles.component';
-import { WorkgroupsComponent } from '../../config/workgroups/workgroups.component';
 import { ErrorHandlerService } from '../../../services/handlers/error-handler.service';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({
   selector: 'route-page',
   standalone: true,
-  imports: [
-    AsyncPipe,
-    MembersComponent,
-    NgForOf,
-    NgIf,
-    PagesComponent,
-    RolesComponent,
-    WorkgroupsComponent,
-    NgClass,
-  ],
+  imports: [AsyncPipe, NgForOf, NgClass, NgIf],
   templateUrl: './page.component.html',
 })
 export class PageComponent implements OnInit {
+  private mainMenuPageIds$ = new BehaviorSubject<Set<number>>(new Set());
   private mainMenu$ = new BehaviorSubject<PageResponse[]>([]);
-  private currentPageId$ = new BehaviorSubject<number | null>(null);
+  private subMenu$ = new BehaviorSubject<SubMenu>(SubMenu.empty);
   private content$ = new BehaviorSubject<String>('');
+  private pageId$ = new BehaviorSubject<number>(0);
   constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     private pageRequestService: PageRequestService,
     private errorHandlerService: ErrorHandlerService,
   ) {}
 
   async ngOnInit(): Promise<void> {
-    this.mainMenu$.next(await this.pageRequestService.mainMenu());
-    this.currentPageId$.subscribe(async (pageId: number | null) => {
+    try {
+      this.mainMenu$.next(await this.pageRequestService.mainMenu());
+      this.mainMenuPageIds$.next(
+        new Set(
+          this.mainMenu$.value.map((page: PageResponse) => {
+            return page.id;
+          }),
+        ),
+      );
+      this.startObservingParamMap();
+    } catch (error) {
+      this.errorHandlerService.handle(error);
+    }
+  }
+
+  private startObservingParamMap() {
+    this.route.paramMap.subscribe(async (params) => {
+      await this.handleParamMapChange(params);
+    });
+  }
+
+  private async handleParamMapChange(params: ParamMap) {
+    try {
+      const pageId = params.get('id');
       if (pageId) {
-        this.pageRequestService
-          .content(pageId)
-          .then((content) => this.content$.next(content))
-          .catch((e) => this.errorHandlerService.handle(e));
+        const numericId = parseInt(pageId);
+        const subMenu = await this.subMenu(numericId);
+        console.log(subMenu);
+        this.subMenu$.next(subMenu);
+        this.pageId$.next(numericId);
+        let content = await this.pageRequestService.content(numericId);
+        this.content$.next(content);
       } else {
         const defaultPage = await this.pageRequestService.getDefault();
         if (defaultPage) {
-          this.currentPageId$.next(defaultPage.id);
-        } else {
-          this.content$.next('');
+          await this.setPage(defaultPage.id);
         }
       }
-    });
+    } catch (error) {
+      this.errorHandlerService.handle(error);
+    }
+  }
+
+  private async subMenu(numericId: number) {
+    if (this.mainMenuPageIds$.value.has(numericId)) {
+      // If the page is part of the main menu, then acquire the associated sub-menu
+      const subMenuPages = await this.pageRequestService.subMenu(numericId);
+      return new SubMenu(numericId, subMenuPages);
+    } else {
+      // If it's not, then the page is a child page with a parent
+      const childPage = await this.pageRequestService.find(numericId);
+
+      if (childPage.parentId) {
+        const subMenuPages = await this.pageRequestService.subMenu(
+          childPage.parentId,
+        );
+        return new SubMenu(childPage.parentId, subMenuPages);
+      } else {
+        return SubMenu.empty;
+      }
+    }
   }
 
   get observeMainMenu(): Observable<PageResponse[]> {
@@ -60,11 +97,30 @@ export class PageComponent implements OnInit {
     return this.content$.asObservable();
   }
 
-  get observeCurrentPageId(): Observable<number | null> {
-    return this.currentPageId$.asObservable();
+  get observePageId(): Observable<number> {
+    return this.pageId$.asObservable();
   }
 
-  setPage(pageId: number) {
-    this.currentPageId$.next(pageId);
+  get observeSubMenu(): Observable<SubMenu> {
+    return this.subMenu$.asObservable();
+  }
+
+  async setPage(pageId: number) {
+    try {
+      await this.router.navigate([`/`, pageId], {});
+    } catch (error) {
+      this.errorHandlerService.handle(error);
+    }
+  }
+}
+
+class SubMenu {
+  constructor(
+    readonly parentId: number | null,
+    readonly pages: PageResponse[],
+  ) {}
+
+  static get empty() {
+    return new SubMenu(null, []);
   }
 }

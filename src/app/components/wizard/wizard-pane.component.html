@@ -1,0 +1,95 @@
+<!--
+  ~  ONVP Frontend - Frontend of the ONVP website
+  ~
+  ~ Copyright (c) 2024.  Sjoerd van Leent
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<div class="container mt-3 md-3">
+  <div
+    class="row border rounded rounded-top-3 rounded-bottom-0 bg-body-tertiary"
+  >
+    <div class="col">
+      <div class="mt-3 mb-3">
+        <div style="height: 1.5em; min-height: 1.5em; max-height: 1.5em">
+          <strong>{{ title() }}</strong>
+        </div>
+        <div style="height: 1.5em; min-height: 1.5em; max-height: 1.5em">
+          <em>{{ subTitle() }}</em>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row border border-1" style="height: 500pt">
+    <div class="col">
+      <ng-content></ng-content>
+    </div>
+  </div>
+  <div
+    class="row border rounded rounded-bottom-3 rounded-top-0 bg-body-tertiary"
+  >
+    <div class="col">
+      <div class="mt-3 mb-3 d-flex">
+        <div class="btn-group">
+          <button
+            class="btn btn-outline-warning btn-wizard"
+            [ngClass]="{
+              disabled: !onCancelObserved || !(cancelEnabler() | async),
+            }"
+            (click)="cancel()"
+          >
+            <span i18n>Cancel</span>
+          </button>
+        </div>
+        <span class="flex-fill"></span>
+        <div class="btn-group">
+          <button
+            class="btn btn-outline-secondary btn-wizard"
+            [ngClass]="{
+              disabled: !onPreviousObserved || !(previousEnabler() | async),
+            }"
+            (click)="previous()"
+          >
+            <span i18n>&lt;&lt; Previous</span>
+          </button>
+          <button
+            class="btn btn-wizard"
+            [ngClass]="{
+              'btn-outline-primary': !onFinishObserved,
+              'btn-outline-secondary': onFinishObserved,
+              disabled: !onNextObserved || !(nextEnabler() | async),
+            }"
+            (click)="next()"
+          >
+            <span i18n>Next &gt;&gt;</span>
+          </button>
+        </div>
+        <span class="p-2"></span>
+        <div class="btn-group">
+          <button
+            class="btn btn-wizard"
+            [ngClass]="{
+              'btn-outline-primary': onFinishObserved,
+              disabled: !onFinishObserved || !(finishEnabler() | async),
+            }"
+            (click)="finish()"
+          >
+            <span i18n>Finish</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

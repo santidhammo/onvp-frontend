@@ -26,6 +26,15 @@ import { ConfigComponent } from './components/route/config/config.component';
 import { FacebookComponent } from './components/route/facebook/facebook.component';
 import { PageEditorComponent } from './components/route/page-editor/page-editor.component';
 import { PageComponent } from './components/route/page/page.component';
+import { StartComponent as MailTemplateWizardStartComponent } from './components/route/mailing/template-wizard/start/start.component';
+import { CreateComponent as MailTemplateWizardCreateComponent } from './components/route/mailing/template-wizard/create/create.component';
+import { UpdateComponent as MailTemplateWizardUpdateComponent } from './components/route/mailing/template-wizard/update/update.component';
+import { DeleteComponent as MailTemplateWizardDeleteComponent } from './components/route/mailing/template-wizard/delete/delete.component';
+import { StartComponent as MailWizardStartComponent } from './components/route/mailing/wizard/start/start.component';
+import { MemberRecipientComponent as MailWizardMemberRecipientComponent } from './components/route/mailing/wizard/member-recipient/member-recipient.component';
+import { WorkgroupRecipientComponent as MailWizardWorkgroupRecipientComponent } from './components/route/mailing/wizard/workgroup-recipient/workgroup-recipient.component';
+import { MusicalInstrumentRecipientComponent as MailWizardMusicalInstrumentRecipientComponent } from './components/route/mailing/wizard/musical-instrument-recipient/musical-instrument-recipient.component';
+import { MainComponent as MailingMainComponent } from './components/route/mailing/main/main.component';
 
 export const routes: Routes = [
   { path: 'activation/:activationString', component: ActivationComponent },
@@ -35,5 +44,39 @@ export const routes: Routes = [
   { path: 'config', component: ConfigComponent },
   { path: 'facebook', component: FacebookComponent },
   { path: 'edit-page/:id', component: PageEditorComponent },
+  { path: 'mailing', component: MailingMainComponent },
+  {
+    path: 'mail/template-wizard/start',
+    component: MailTemplateWizardStartComponent,
+  },
+  {
+    path: 'mail/template-wizard/create',
+    component: MailTemplateWizardCreateComponent,
+  },
+  {
+    path: 'mail/template-wizard/update/:id',
+    component: MailTemplateWizardUpdateComponent,
+  },
+  {
+    path: 'mail/template-wizard/delete/:id',
+    component: MailTemplateWizardDeleteComponent,
+  },
+  {
+    path: 'mail/wizard/start',
+    component: MailWizardStartComponent,
+  },
+  {
+    path: 'mail/wizard/member-recipient/:templateId',
+    component: MailWizardMemberRecipientComponent,
+  },
+  {
+    path: 'mail/wizard/workgroup-recipient/:templateId',
+    component: MailWizardWorkgroupRecipientComponent,
+  },
+  {
+    path: 'mail/wizard/musical-instrument-recipient/:templateId',
+    component: MailWizardMusicalInstrumentRecipientComponent,
+  },
   { path: '', component: PageComponent },
+  { path: ':id', component: PageComponent },
 ];

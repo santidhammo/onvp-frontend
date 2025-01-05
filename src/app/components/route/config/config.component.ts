@@ -33,7 +33,6 @@ import { MusicalInstrumentsComponent } from '../../config/musical-instruments/mu
   selector: 'route-config',
   standalone: true,
   imports: [
-    RouterLink,
     AsyncPipe,
     NgIf,
     MembersComponent,

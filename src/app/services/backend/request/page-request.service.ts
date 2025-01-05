@@ -35,6 +35,12 @@ export class PageRequestService {
     );
   }
 
+  async subMenu(id: number): Promise<PageResponse[]> {
+    return await firstValueFrom(
+      this.http.get<PageResponse[]>(`/api/pages/v1/sub-menu/${id}`),
+    );
+  }
+
   async find(id: number): Promise<ExtendedPageResponse> {
     return await firstValueFrom(
       this.http.get<ExtendedPageResponse>(`/api/pages/v1/page/${id}`),

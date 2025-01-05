@@ -1,0 +1,47 @@
+<!--
+  ~  ONVP Frontend - Frontend of the ONVP website
+  ~
+  ~ Copyright (c) 2024.  Sjoerd van Leent
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<div class="container">
+  <div class="row mt-3 md-3">
+    <div class="col col-12 col-md-12 col-lg-6">
+      <div class="border rounded rounded-3 m-1 p-2 bg-body-tertiary">
+        <div class="mt-2 mb-2" i18n>
+          To manage email templates, start the email template wizard.
+        </div>
+        <a
+          routerLink="/mail/template-wizard/start"
+          class="btn btn-outline-primary"
+          i18n
+          >Template Wizard</a
+        >
+      </div>
+    </div>
+
+    <div class="col col-12 col-md-12 col-lg-6">
+      <div class="border rounded rounded-3 m-1 p-2 bg-body-tertiary">
+        <div class="mt-2 mb-2" i18n>
+          To send emails, start the email wizard.
+        </div>
+        <a routerLink="/mail/wizard/start" class="btn btn-outline-primary" i18n
+          >Email Wizard</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

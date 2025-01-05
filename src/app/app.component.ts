@@ -49,15 +49,12 @@ import { MediaLibraryComponent } from './ckeditor5/components/media-library/medi
     RouterOutlet,
     NgIf,
     AsyncPipe,
-    SetupDetectorComponent,
     MenuBarComponent,
-    NgForOf,
     HeaderComponent,
     ExplanationComponent,
     FormsModule,
     FooterComponent,
     SubmitComponent,
-    DialogComponent,
     MediaLibraryComponent,
   ],
   templateUrl: './app.component.html',
@@ -81,8 +78,9 @@ export class AppComponent implements OnInit {
         }
       });
     }
-
+    console.log('Starting authorisation refresh');
     this.authorizationRequestService.refresh().finally(null);
+    console.log('Set interval for refresh routine');
     setInterval(
       () => this.authorizationRequestService.refresh().finally(null),
       60000,

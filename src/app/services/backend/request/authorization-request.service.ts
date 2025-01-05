@@ -24,6 +24,7 @@ import { AuthorizationRequest } from '../../../model/requests/authorization-requ
 import { AuthorizationResponse } from '../../../model/responses/authorization-response';
 import { Role } from '../../../generic/primitive/role';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -31,7 +32,10 @@ import { map } from 'rxjs/operators';
 export class AuthorizationRequestService {
   private authorized$ = new BehaviorSubject<AuthorizationResponse | null>(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) {}
 
   /// Returns an observable to determine if a user is logged in, of true, the observable will emit true, otherwise
   /// it will emit false.
@@ -64,6 +68,7 @@ export class AuthorizationRequestService {
 
   async refresh(): Promise<void> {
     try {
+      console.log('Refreshing authorisation');
       const response = await firstValueFrom(
         this.http.get<AuthorizationResponse>('/api/authorization/v1/refresh'),
       );
@@ -74,6 +79,7 @@ export class AuthorizationRequestService {
       if (error instanceof HttpErrorResponse && error.status === 401) {
         // Remove authorization as a precaution for the user, something went severely wrong
         this.authorized$.next(null);
+        this.router.navigate(['/']);
       } else {
         throw error;
       }

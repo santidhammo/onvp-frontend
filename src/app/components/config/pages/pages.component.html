@@ -60,6 +60,8 @@
     <tr>
       <th>ID</th>
       <th i18n>Page Title</th>
+      <th i18n>Order</th>
+      <th i18n>Parent Page</th>
       <th i18n>Actions</th>
     </tr>
   </thead>
@@ -71,6 +73,31 @@
       </td>
       <td class="align-middle">
         <span>{{ row.title }}</span>
+      </td>
+      <td class="align-middle">
+        <div class="btn-group">
+          <a
+            class="btn btn-outline-primary"
+            i18n
+            (click)="reOrder(row.id, row.orderNumber - 1)"
+            >Up</a
+          >
+          <span
+            class="btn border border-start-0 border-end-0 border-top-1 border-bottom-1 border-dark-subtle"
+          >
+            {{ row.orderNumber }}
+          </span>
+          <a
+            class="btn btn-outline-primary"
+            i18n
+            (click)="reOrder(row.id, row.orderNumber + 1)"
+            >Down</a
+          >
+        </div>
+      </td>
+      <td class="align-middle">
+        <span *ngIf="!row.parentId">-</span>
+        <span *ngIf="row.parentId">{{ row.parentId }}</span>
       </td>
       <td>
         <div class="btn-group">
@@ -92,6 +119,19 @@
             [ngClass]="{ active: (observeDefaultPage | async) === row.id }"
             i18n
             >Default</a
+          >
+          <a
+            class="btn btn-outline-primary"
+            (click)="this.setAddParentPageId(row.id)"
+            i18n
+            >Set Parent</a
+          >
+          <a
+            class="btn btn-outline-primary"
+            (click)="this.setRemoveParentPageId(row.id)"
+            [ngClass]="{ disabled: !row.parentId }"
+            i18n
+            >Remove Parent</a
           >
           <a
             class="btn btn-outline-primary"
@@ -125,6 +165,25 @@ The following component is used to publish pages
   [pageIdObservableInput]="publicationPageId$.asObservable()"
   (onSaved)="publicationPageId$.next(null)"
   (onCancelled)="publicationPageId$.next(null)"
+/>
+
+<!--
+The following component is used to set parent pages. When a parent page is successfully set,
+the search has to be refreshed
+-->
+<config-set-parent-page
+  [pageIdObservableInput]="addParentPageId$.asObservable()"
+  (onSaved)="refreshSearch(); addParentPageId$.next(null)"
+  (onCancelled)="addParentPageId$.next(null)"
+/>
+
+<!--
+When a page is successfully removed, the search has to be refreshed
+-->
+<config-remove-parent-page
+  [pageIdObservableInput]="removeParentPageId$.asObservable()"
+  (onSaved)="refreshSearch(); removeParentPageId$.next(null)"
+  (onCancelled)="removeParentPageId$.next(null)"
 />
 
 <!--
