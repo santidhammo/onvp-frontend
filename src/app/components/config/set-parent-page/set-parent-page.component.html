@@ -18,20 +18,28 @@
   -->
 
 <form
-  #unregisterForm="ngForm"
+  #parentPageForm="ngForm"
   (ngSubmit)="submit($event)"
-  *ngIf="observeTitle() | async"
+  *ngIf="observeTitle | async"
 >
   <app-dialog>
-    <dialog-header title="Remove Page" i18n-title />
+    <dialog-header title="Remove Parent Page" i18n-title />
     <dialog-body i18n>
-      Are you sure to remove the page with title:
-      <strong>{{ observeTitle() | async }}</strong
-      >?
+      <select
+        [(ngModel)]="model.selectedParentPageId"
+        name="selected-page"
+        required
+      >
+        <ng-container *ngFor="let page of observeMainPages | async">
+          <option *ngIf="page.id !== id$.value" [value]="page.id">
+            {{ page.title }}
+          </option>
+        </ng-container>
+      </select>
     </dialog-body>
     <dialog-footer>
       <form-cancel />
-      <form-submit title="Continue" i18n-title />
+      <form-submit [disabled]="parentPageForm.invalid" />
     </dialog-footer>
   </app-dialog>
 </form>

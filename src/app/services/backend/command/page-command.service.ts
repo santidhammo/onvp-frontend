@@ -31,6 +31,24 @@ export class PageCommandService {
     );
   }
 
+  async setOrUnsetParentPage(
+    id: number,
+    parentPageId: number | null,
+  ): Promise<void> {
+    console.log('Setting parent page');
+    if (parentPageId) {
+      await firstValueFrom(
+        this.http.put(`/api/pages/v1/page/${id}/parent`, parentPageId, {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+          }),
+        }),
+      );
+    } else {
+      await firstValueFrom(this.http.delete(`/api/pages/v1/page/${id}/parent`));
+    }
+  }
+
   async update(id: number, command: UpdatePageCommand): Promise<void> {
     await firstValueFrom(this.http.put(`/api/pages/v1/page/${id}`, command));
   }

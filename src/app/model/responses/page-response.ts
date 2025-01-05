@@ -5,4 +5,5 @@ export interface PageResponse {
   title: string;
   eventDate: EventDate | null | undefined;
   orderNumber: number;
+  parentId: number | null | undefined;
 }

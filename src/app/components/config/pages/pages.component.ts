@@ -16,6 +16,8 @@ import { PagePublicationComponent } from '../page-publication/page-publication.c
 import { PageCommandService } from '../../../services/backend/command/page-command.service';
 import { UnregisterMemberComponent } from '../unregister-member/unregister-member.component';
 import { RemovePageComponent } from '../remove-page/remove-page.component';
+import { RemoveParentPageComponent } from '../remove-parent-page/remove-parent-page.component';
+import { SetParentPageComponent } from '../set-parent-page/set-parent-page.component';
 
 @Component({
   selector: 'config-pages',
@@ -33,6 +35,8 @@ import { RemovePageComponent } from '../remove-page/remove-page.component';
     CreatePageComponent,
     PagePublicationComponent,
     RemovePageComponent,
+    RemoveParentPageComponent,
+    SetParentPageComponent,
   ],
   templateUrl: './pages.component.html',
 })
@@ -49,13 +53,21 @@ export class PagesComponent implements OnInit {
 
   protected titleQuery: string = '';
 
+  // This subject is set whenever the remove action is to be performed for a page
   protected removePageId$ = new BehaviorSubject<number | null>(null);
+
+  // This subject is set whenever the set parent page action is to be started for page
+  protected addParentPageId$ = new BehaviorSubject<number | null>(null);
+
+  // This subject is set whenever the remove parent page action is to be started for page
+  protected removeParentPageId$ = new BehaviorSubject<number | null>(null);
 
   constructor(
     private pageRequestService: PageRequestService,
     private pageCommandService: PageCommandService,
     private errorHandlerService: ErrorHandlerService,
   ) {}
+
   ngOnInit() {
     this.doSearch();
   }
@@ -117,6 +129,14 @@ export class PagesComponent implements OnInit {
 
   setRemovePage(id: number) {
     this.removePageId$.next(id);
+  }
+
+  setAddParentPageId(id: number) {
+    this.addParentPageId$.next(id);
+  }
+
+  setRemoveParentPageId(id: number) {
+    this.removeParentPageId$.next(id);
   }
 
   async reOrder(id: number, orderNumber: number) {
