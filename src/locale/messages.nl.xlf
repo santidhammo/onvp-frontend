@@ -665,5 +665,31 @@
       <source>Down</source>
       <target>Neer</target>
     </trans-unit>
+    <trans-unit id="2580412475539681027" datatype="html">
+      <source>Remove Page</source>
+      <target>Verwijder Pagina</target>
+    </trans-unit>
+    <trans-unit id="8218245269184468150" datatype="html">
+      <source>Remove Parent Page</source>
+      <target>Verwijder Ouderpagina</target>
+    </trans-unit>
+    <trans-unit id="3287911962265929749" datatype="html">
+    <source> Are you sure to remove the parent from page with title: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeTitle() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
+      &gt;"/>? </source>
+      <target>`Weet u zeker dat u de ouderpagina wilt verwijderen van pagina met titel: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeTitle() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
+      &gt;"/>? </target>
+    </trans-unit>
+    <trans-unit id="1464035834243065887" datatype="html">
+      <source>Parent Page</source>
+      <target>Ouderpagina</target>
+    </trans-unit>
+    <trans-unit id="7782604929945181148" datatype="html">
+      <source>Set Parent</source>
+      <target>Stel Ouder In</target>
+    </trans-unit>
+    <trans-unit id="2584198196512700941" datatype="html">
+      <source>Remove Parent</source>
+      <target>Verwijder Ouder</target>
+    </trans-unit>
   </file>
 </xliff>
