@@ -66,22 +66,26 @@ export class AuthorizationRequestService {
     this.authorized$.next(response);
   }
 
-  async refresh(): Promise<void> {
-    try {
-      console.log('Refreshing authorisation');
-      const response = await firstValueFrom(
-        this.http.get<AuthorizationResponse>('/api/authorization/v1/refresh'),
-      );
-      if (this.authorized$.getValue() !== response) {
-        this.authorized$.next(response);
-      }
-    } catch (error: any) {
-      if (error instanceof HttpErrorResponse && error.status === 401) {
-        // Remove authorization as a precaution for the user, something went severely wrong
-        this.authorized$.next(null);
-        this.router.navigate(['/']);
-      } else {
-        throw error;
+  async refresh(force = false): Promise<void> {
+    if (force || this.authorized$.value) {
+      try {
+        console.log('Refreshing authorisation');
+        const response = await firstValueFrom(
+          this.http.get<AuthorizationResponse>('/api/authorization/v1/refresh'),
+        );
+        if (this.authorized$.getValue() !== response) {
+          this.authorized$.next(response);
+        }
+      } catch (error: any) {
+        if (error instanceof HttpErrorResponse && error.status === 401) {
+          if (this.authorized$.getValue()) {
+            // Remove authorization as a precaution for the user, something went severely wrong
+            this.authorized$.next(null);
+            await this.router.navigate(['/']);
+          }
+        } else {
+          throw error;
+        }
       }
     }
   }
@@ -89,5 +93,10 @@ export class AuthorizationRequestService {
   async logout() {
     await firstValueFrom(this.http.get('/api/authorization/v1/logout'));
     this.authorized$.next(null);
+  }
+
+  async startRefresh() {
+    this.refresh(true).finally(null);
+    setInterval(() => this.refresh().finally(null), 60000);
   }
 }

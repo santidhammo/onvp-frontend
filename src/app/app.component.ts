@@ -78,13 +78,6 @@ export class AppComponent implements OnInit {
         }
       });
     }
-    console.log('Starting authorisation refresh');
-    this.authorizationRequestService.refresh().finally(null);
-    console.log('Set interval for refresh routine');
-    setInterval(
-      () => this.authorizationRequestService.refresh().finally(null),
-      60000,
-    );
 
     router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
@@ -94,6 +87,7 @@ export class AppComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    await this.authorizationRequestService.startRefresh();
     if (window.localStorage.getItem('allow-functional-cookies')) {
       this.functionalCookiesAllowed$.next(true);
     }
