@@ -124,8 +124,6 @@ export class PageEditorComponent implements AfterViewInit, OnInit {
       this.model.content = content;
       this.model.pageId = pageId;
       this.model.title = page.title;
-
-      console.log(this.model);
     } catch (error) {
       this.errorHandlerService.handle(error as HttpErrorResponse);
     }

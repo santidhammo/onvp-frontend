@@ -37,13 +37,10 @@ export class MediaLibrary extends Plugin {
       });
 
       button.on('execute', () => {
-        const now = Date.now();
-        console.log(`Executing: ${now}`);
         const service = editor.config.get('mediaLibrary.service');
         if (service instanceof MediaLibraryService) {
           service.requestPictureUrl().then((url) =>
             editor.model.change((writer) => {
-              console.log('URL:', url);
               const imageElement = writer.createElement('imageBlock', {
                 src: url,
               });

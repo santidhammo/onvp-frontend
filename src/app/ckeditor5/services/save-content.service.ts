@@ -9,7 +9,6 @@ export class SaveContentService {
   constructor(private pageCommandService: PageCommandService) {}
 
   save(model: ContentModel): Promise<void> {
-    console.log(model);
     return this.pageCommandService.setContent(model.pageId, model.content);
   }
 }

@@ -48,8 +48,6 @@ export class PageRequestService {
   }
 
   async content(id: number): Promise<string> {
-    console.log(`Acquiring content for page: ${id}`);
-
     const content = await firstValueFrom(
       this.http.get(`/api/pages/v1/page/${id}/content`, {
         responseType: 'text',

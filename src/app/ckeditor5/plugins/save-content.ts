@@ -44,8 +44,6 @@ export class SaveContent extends Plugin {
       });
 
       button.on('execute', () => {
-        const now = Date.now();
-        console.log(`Executing: ${now}`);
         const saveContent: SaveContentConfig = editor.config.get(
           'saveContent',
         ) as SaveContentConfig;

@@ -53,7 +53,6 @@ export class PageComponent implements OnInit {
       if (pageId) {
         const numericId = parseInt(pageId);
         const subMenu = await this.subMenu(numericId);
-        console.log(subMenu);
         this.subMenu$.next(subMenu);
         this.pageId$.next(numericId);
         let content = await this.pageRequestService.content(numericId);

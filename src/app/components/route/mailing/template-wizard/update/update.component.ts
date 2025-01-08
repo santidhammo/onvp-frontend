@@ -68,7 +68,6 @@ export class UpdateComponent implements OnInit {
     firstValueFrom(this.route.paramMap).then(async (params) => {
       try {
         const id = parseInt(String(params.get('id')));
-        console.log(id);
         const template = await this.mailTemplateRequestService.find(id);
         this.id$.next(id);
         this.name$.next(template.name);

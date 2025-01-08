@@ -22,11 +22,13 @@
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 
-$primary:       $green-600;
-$secondary:     $green-400;
-$success:       $green;
-$info:          $green-200;
-$warning:       $yellow;
+$font-family-base: "Red Hat Display";
+
+$primary:       #e8427d;
+$secondary:     #823f91;
+$success:       #00a7a7;
+$info:          #79c6c0;
+$warning:       #e2c449;
 $danger:        $red;
 $light:         $gray-200;
 $dark:          $gray-900;
@@ -59,4 +61,13 @@ $theme-colors: (
   width: 8em;
   min-width: 8em;
   max-width: 8em;
+}
+
+.nav-pills  .nav-link {
+  color: $primary;
+}
+
+.nav-pills .nav-link.active {
+  color: $white;
+  background-color: $primary;
 }

@@ -35,7 +35,6 @@ export class PageCommandService {
     id: number,
     parentPageId: number | null,
   ): Promise<void> {
-    console.log('Setting parent page');
     if (parentPageId) {
       await firstValueFrom(
         this.http.put(`/api/pages/v1/page/${id}/parent`, parentPageId, {

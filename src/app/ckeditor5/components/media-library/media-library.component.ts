@@ -72,7 +72,6 @@ export class MediaLibraryComponent implements OnInit {
 
   ngOnInit() {
     this.mediaLibraryService.observeMediaRequested.subscribe((value) => {
-      console.log('Should display', value);
       if (value) {
         this.doSearch();
       }

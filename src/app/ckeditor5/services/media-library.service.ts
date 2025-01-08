@@ -14,10 +14,6 @@ export class MediaLibraryService {
 
   requestPictureUrl(): Promise<string> {
     let promise = new Promise<string>((resolve, reject) => {
-      resolveMedia = resolve;
-      rejectMedia = reject;
-      console.log('Resolve:', resolveMedia);
-      console.log('Reject:', rejectMedia);
       this.mediaRequested$.next(true);
     });
     return promise;
