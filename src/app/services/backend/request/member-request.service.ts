@@ -54,7 +54,7 @@ export class MemberRequestService {
 
   async findAddress(id: number): Promise<MemberAddressResponse> {
     return await firstValueFrom(
-      this.http.get<MemberAddressResponse>(`/api/members/${id}/v1/address`),
+      this.http.get<MemberAddressResponse>(`/api/members/v1/${id}/address`),
     );
   }
 
