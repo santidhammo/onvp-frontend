@@ -190,7 +190,7 @@
         <source>Cancelled by user</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/ckeditor5/services/media-library.service.ts</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8257661007652110878" datatype="html">
@@ -453,7 +453,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
-          <context context-type="linenumber">140,141</context>
+          <context context-type="linenumber">146,147</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5564469577698940489" datatype="html">
@@ -468,6 +468,34 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/edit-member/edit-member.component.html</context>
           <context context-type="linenumber">125</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6103545303908378803" datatype="html">
+        <source>Edit Page Details</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-page-details/edit-page-details.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5701618810648052610" datatype="html">
+        <source>Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-page-details/edit-page-details.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8853562655417273701" datatype="html">
+        <source>Start Event</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-page-details/edit-page-details.component.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1484969694484664107" datatype="html">
+        <source>End Event</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/edit-page-details/edit-page-details.component.html</context>
+          <context context-type="linenumber">41,42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5299873419251227126" datatype="html">
@@ -590,7 +618,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
-          <context context-type="linenumber">149,152</context>
+          <context context-type="linenumber">155,158</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/workgroups/workgroups.component.html</context>
@@ -752,25 +780,32 @@
           <context context-type="linenumber">95</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="184187784006110577" datatype="html">
+        <source>Page Details</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
+          <context context-type="linenumber">120,121</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="5607669932062416162" datatype="html">
         <source>Default</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
-          <context context-type="linenumber">121,122</context>
+          <context context-type="linenumber">127,128</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7782604929945181148" datatype="html">
         <source>Set Parent</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
-          <context context-type="linenumber">127,128</context>
+          <context context-type="linenumber">133,134</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2584198196512700941" datatype="html">
         <source>Remove Parent</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/config/pages/pages.component.html</context>
-          <context context-type="linenumber">134,135</context>
+          <context context-type="linenumber">140,141</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4145388993288653422" datatype="html">
@@ -1033,6 +1068,27 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/errors.service.ts</context>
           <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6320319413541466015" datatype="html">
+        <source>day</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/form/event-date-entry/event-date-entry.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7178101913251976451" datatype="html">
+        <source>month</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/form/event-date-entry/event-date-entry.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6479044529603381727" datatype="html">
+        <source>year</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/form/event-date-entry/event-date-entry.component.html</context>
+          <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="935187492052582731" datatype="html">
@@ -1421,6 +1477,31 @@
           <context context-type="linenumber">67,68</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="3817498941817715969" datatype="html">
+        <source>Pages</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/route/page/page.component.html</context>
+          <context context-type="linenumber">9,11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5399965515961120951" datatype="html">
+        <source>Upcoming Events</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/route/page/page.component.html</context>
+          <context context-type="linenumber">61,62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6939776118536344513" datatype="html">
+        <source> No Events Planned </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/route/page/page.component.html</context>
+          <context context-type="linenumber">85,86</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="3609983727027804587" datatype="html">
         <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Total Records<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>: <x id="INTERPOLATION" equiv-text="{{ observeTotalCount() | async }}"/> </source>
         <context-group purpose="location">
@@ -1468,13 +1549,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
           <context context-type="linenumber">14</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3817498941817715969" datatype="html">
-        <source>Pages</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/generic/primitive/config-mode.ts</context>
-          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="414887388288176527" datatype="html">

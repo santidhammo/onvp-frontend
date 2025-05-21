@@ -56,4 +56,10 @@ export class PageRequestService {
 
     return String(content);
   }
+
+  async events(): Promise<PageResponse[]> {
+    return await firstValueFrom(
+      this.http.get<PageResponse[]>(`/api/pages/v1/events`),
+    );
+  }
 }

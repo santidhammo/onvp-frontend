@@ -6,6 +6,8 @@
         role="tablist"
         aria-orientation="vertical"
       >
+        <h4 i18n class="align-self-center text-secondary">Pages</h4>
+
         <ng-container *ngFor="let page of observeMainMenu | async">
           <button
             class="btn text-start border border-1 border-dark-subtle text-primary"
@@ -42,11 +44,46 @@
         </ng-container>
       </div>
     </div>
-    <div class="col-10">
+    <div class="col-8">
       <div class="m-3">
         <div class="tab-content">
           <div [innerHtml]="observeContent | async"></div>
         </div>
+      </div>
+    </div>
+
+    <div class="col-2">
+      <div
+        class="nav flex-column nav-pills btn-group-vertical"
+        role="tablist"
+        aria-orientation="vertical"
+      >
+        <h4 i18n class="align-self-center text-secondary">Upcoming Events</h4>
+        <ng-container *ngFor="let page of observeEvents | async">
+          <button
+            class="btn text-start border border-1 border-dark-subtle text-primary"
+            [ngClass]="{
+              'active bg-primary text-light':
+                (observePageId | async) == page.id ||
+                (observeSubMenu | async)?.parentId == page.id,
+            }"
+            role="tab"
+            (click)="setPage(page.id)"
+          >
+            {{ page.title }}<br />
+            <small>
+              {{ page.eventDate?.day }}-{{ page.eventDate?.month }}-{{
+                page.eventDate?.year
+              }}
+              - {{ page.endEventDate?.day }}-{{ page.endEventDate?.month }}-{{
+                page.endEventDate?.year
+              }}
+            </small>
+          </button>
+        </ng-container>
+        <ng-container *ngIf="(observeEvents | async)?.length === 0" i18n>
+          No Events Planned
+        </ng-container>
       </div>
     </div>
   </div>

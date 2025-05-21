@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { PaginatorComponent } from '../../search/paginator/paginator.component';
 import { AsyncPipe, NgClass, NgForOf, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { RegisterMemberComponent } from '../register-member/register-member.component';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SearchResult } from '../../../model/search/search-result';
 import { ErrorHandlerService } from '../../../services/handlers/error-handler.service';
@@ -14,10 +13,10 @@ import { SubmitComponent } from '../../form/submit/submit.component';
 import { CreatePageComponent } from '../create-page/create-page.component';
 import { PagePublicationComponent } from '../page-publication/page-publication.component';
 import { PageCommandService } from '../../../services/backend/command/page-command.service';
-import { UnregisterMemberComponent } from '../unregister-member/unregister-member.component';
 import { RemovePageComponent } from '../remove-page/remove-page.component';
 import { RemoveParentPageComponent } from '../remove-parent-page/remove-parent-page.component';
 import { SetParentPageComponent } from '../set-parent-page/set-parent-page.component';
+import { EditPageDetailsComponent } from '../edit-page-details/edit-page-details.component';
 
 @Component({
   selector: 'config-pages',
@@ -37,6 +36,7 @@ import { SetParentPageComponent } from '../set-parent-page/set-parent-page.compo
     RemovePageComponent,
     RemoveParentPageComponent,
     SetParentPageComponent,
+    EditPageDetailsComponent,
   ],
   templateUrl: './pages.component.html',
 })
@@ -51,7 +51,8 @@ export class PagesComponent implements OnInit {
 
   protected publicationPageId$ = new BehaviorSubject<number | null>(null);
 
-  protected titleQuery: string = '';
+  // This subject is set whenever the edit page action os to be started for a page
+  protected editPageId$ = new BehaviorSubject<number | null>(null);
 
   // This subject is set whenever the remove action is to be performed for a page
   protected removePageId$ = new BehaviorSubject<number | null>(null);
@@ -61,6 +62,8 @@ export class PagesComponent implements OnInit {
 
   // This subject is set whenever the remove parent page action is to be started for page
   protected removeParentPageId$ = new BehaviorSubject<number | null>(null);
+
+  protected titleQuery: string = '';
 
   constructor(
     private pageRequestService: PageRequestService,

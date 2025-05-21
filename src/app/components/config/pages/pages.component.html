@@ -114,6 +114,12 @@
             >Publication</a
           >
           <a
+            (click)="editPageId$.next(row.id)"
+            class="btn btn-outline-primary"
+            i18n
+            >Page Details</a
+          >
+          <a
             class="btn btn-outline-primary"
             (click)="setDefaultPage(row.id)"
             [ngClass]="{ active: (observeDefaultPage | async) === row.id }"
@@ -156,6 +162,15 @@ The following component is used to create new pages
   [enabledInput]="createEnabled$.asObservable()"
   (onSaved)="refreshSearch(); createEnabled$.next(false)"
   (onCancelled)="createEnabled$.next(false)"
+/>
+
+<!--
+The following component is used to edit the details of the page
+-->
+<config-edit-page-details
+  [pageIdObservableInput]="editPageId$.asObservable()"
+  (onSaved)="editPageId$.next(null)"
+  (onCancelled)="editPageId$.next(null)"
 />
 
 <!--

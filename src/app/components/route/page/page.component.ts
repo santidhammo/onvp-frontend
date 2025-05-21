@@ -15,9 +15,11 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 export class PageComponent implements OnInit {
   private mainMenuPageIds$ = new BehaviorSubject<Set<number>>(new Set());
   private mainMenu$ = new BehaviorSubject<PageResponse[]>([]);
+  private events$ = new BehaviorSubject<PageResponse[]>([]);
   private subMenu$ = new BehaviorSubject<SubMenu>(SubMenu.empty);
   private content$ = new BehaviorSubject<String>('');
   private pageId$ = new BehaviorSubject<number>(0);
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -35,6 +37,7 @@ export class PageComponent implements OnInit {
           }),
         ),
       );
+      this.events$.next(await this.pageRequestService.events());
       this.startObservingParamMap();
     } catch (error) {
       this.errorHandlerService.handle(error);
@@ -90,6 +93,10 @@ export class PageComponent implements OnInit {
 
   get observeMainMenu(): Observable<PageResponse[]> {
     return this.mainMenu$.asObservable();
+  }
+
+  get observeEvents(): Observable<PageResponse[]> {
+    return this.events$.asObservable();
   }
 
   get observeContent(): Observable<String> {

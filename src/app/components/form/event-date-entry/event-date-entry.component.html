@@ -1,0 +1,83 @@
+<!--
+  ~  ONVP Frontend - Frontend of the ONVP website
+  ~
+  ~ Copyright (c) 2024.  Sjoerd van Leent
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License, or (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU Affero General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Affero General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<div class="form-group row form-group">
+  <label [for]="name" class="control-label" *ngIf="title.length > 0">{{
+    title
+  }}</label>
+
+  <div class="d-flex">
+    <div class="row align-items-center">
+      <div class="col-1">
+        <input type="checkbox" [(ngModel)]="isSet" />
+      </div>
+      <div class="col-3">
+        <input
+          title="day"
+          i18n-title
+          type="number"
+          class="form-control"
+          [id]="nameDay"
+          [name]="nameDay"
+          [(ngModel)]="value.day"
+          (change)="filteredOnChange(value)"
+          #model="ngModel"
+          (focusout)="displayInvalid = true"
+          [disabled]="!isSet"
+        />
+      </div>
+      <div class="col-3">
+        <input
+          title="month"
+          i18n-title
+          type="number"
+          class="form-control"
+          [id]="nameMonth"
+          [name]="nameMonth"
+          [(ngModel)]="value.month"
+          (change)="filteredOnChange(value)"
+          #model="ngModel"
+          (focusout)="displayInvalid = true"
+          [disabled]="!isSet"
+        />
+      </div>
+      <div class="col-3">
+        <input
+          title="year"
+          i18n-title
+          type="number"
+          class="form-control"
+          [id]="nameYear"
+          [name]="nameYear"
+          [(ngModel)]="value.year"
+          (change)="filteredOnChange(value)"
+          #model="ngModel"
+          (focusout)="displayInvalid = true"
+          [disabled]="!isSet"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="ngControl.invalid && displayInvalid" class="alert alert-danger">
+    <div *ngFor="let error of errorsService.getAllErrors(title, ngControl)">
+      {{ error }}
+    </div>
+  </div>
+</div>

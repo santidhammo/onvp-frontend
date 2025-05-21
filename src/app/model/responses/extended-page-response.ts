@@ -9,4 +9,5 @@ export interface ExtendedPageResponse extends PageResponse {
   orderNumber: number;
   roles: Role[];
   parentId: number | null | undefined;
+  endEventDate: EventDate | null | undefined;
 }

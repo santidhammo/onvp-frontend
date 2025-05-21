@@ -632,64 +632,104 @@
         <source>Mailing</source>
         <target>E-mailbezorging</target>
       </trans-unit>
+      <trans-unit id="2664440151613207191" datatype="html">
+        <source>Select the template to delete:</source>
+        <target>Selecteer het sjabloon om te verwijderen:</target>
+      </trans-unit>
+      <trans-unit id="7603580469063055084" datatype="html">
+        <source> To manage email templates, start the email template wizard. </source>
+        <target> Om e-mailsjablonen te beheren, start de e-mailsjabloon-wijzer. </target>
+      </trans-unit>
+      <trans-unit id="7043578476388367358" datatype="html">
+        <source>Template Wizard</source>
+        <target>Sjabloon Wijzer</target>
+      </trans-unit>
+      <trans-unit id="6692300903410092038" datatype="html">
+        <source> To send emails, start the email wizard. </source>
+        <target> Om e-mails te versturen, start de e-mail-wijzer. </target>
+      </trans-unit>
+      <trans-unit id="8679968422683467567" datatype="html">
+        <source>Email Wizard</source>
+        <target>E-mail Wijzer</target>
+      </trans-unit>
+      <trans-unit id="220550782947016929" datatype="html">
+        <source>Order</source>
+        <target>Volgorde</target>
+      </trans-unit>
+      <trans-unit id="5573486145935722913" datatype="html">
+        <source>Up</source>
+        <target>Op</target>
+      </trans-unit>
+      <trans-unit id="375247309021166846" datatype="html">
+        <source>Down</source>
+        <target>Neer</target>
+      </trans-unit>
+      <trans-unit id="2580412475539681027" datatype="html">
+        <source>Remove Page</source>
+        <target>Verwijder Pagina</target>
+      </trans-unit>
+      <trans-unit id="8218245269184468150" datatype="html">
+        <source>Remove Parent Page</source>
+        <target>Verwijder Ouderpagina</target>
+      </trans-unit>
+      <trans-unit id="3287911962265929749" datatype="html">
+      <source> Are you sure to remove the parent from page with title: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeTitle() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
+        &gt;"/>? </source>
+        <target>`Weet u zeker dat u de ouderpagina wilt verwijderen van pagina met titel: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeTitle() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
+        &gt;"/>? </target>
+      </trans-unit>
+      <trans-unit id="1464035834243065887" datatype="html">
+        <source>Parent Page</source>
+        <target>Ouderpagina</target>
+      </trans-unit>
+      <trans-unit id="7782604929945181148" datatype="html">
+        <source>Set Parent</source>
+        <target>Stel Ouder In</target>
+      </trans-unit>
+      <trans-unit id="2584198196512700941" datatype="html">
+        <source>Remove Parent</source>
+        <target>Verwijder Ouder</target>
+      </trans-unit>
+      <trans-unit id="6320319413541466015" datatype="html">
+        <source>day</source>
+        <target>dag</target>
+      </trans-unit>
+      <trans-unit id="7178101913251976451" datatype="html">
+        <source>month</source>
+        <target>maand</target>
+      </trans-unit>
+      <trans-unit id="6479044529603381727" datatype="html">
+        <source>year</source>
+        <target>jaar</target>
+      </trans-unit>
+      <trans-unit id="6103545303908378803" datatype="html">
+        <source>Edit Page Details</source>
+        <target>Paginadetails bewerken</target>
+      </trans-unit>
+      <trans-unit id="5701618810648052610" datatype="html">
+        <source>Title</source>
+        <target>Titel</target>
+      </trans-unit>
+      <trans-unit id="8853562655417273701" datatype="html">
+        <source>Start Event</source>
+        <target>Start Evenement</target>
+      </trans-unit>
+      <trans-unit id="1484969694484664107" datatype="html">
+        <source>End Event</source>
+        <target>Eind Evenement</target>
+      </trans-unit>
+      <trans-unit id="184187784006110577" datatype="html">
+        <source>Page Details</source>
+        <target>Paginadetails</target>
+      </trans-unit>
+      <trans-unit id="5399965515961120951" datatype="html">
+        <source>Upcoming Events</source>
+        <target>Evenementenagenda</target>
+      </trans-unit>
+      <trans-unit id="6939776118536344513" datatype="html">
+        <source> No Events Planned </source>
+        <target> Geen Evenementen Gepland </target>
+      </trans-unit>
     </body>
-    <trans-unit id="2664440151613207191" datatype="html">
-      <source>Select the template to delete:</source>
-      <target>Selecteer het sjabloon om te verwijderen:</target>
-    </trans-unit>
-    <trans-unit id="7603580469063055084" datatype="html">
-      <source> To manage email templates, start the email template wizard. </source>
-      <target> Om e-mailsjablonen te beheren, start de e-mailsjabloon-wijzer. </target>
-    </trans-unit>
-    <trans-unit id="7043578476388367358" datatype="html">
-      <source>Template Wizard</source>
-      <target>Sjabloon Wijzer</target>
-    </trans-unit>
-    <trans-unit id="6692300903410092038" datatype="html">
-      <source> To send emails, start the email wizard. </source>
-      <target> Om e-mails te versturen, start de e-mail-wijzer. </target>
-    </trans-unit>
-    <trans-unit id="8679968422683467567" datatype="html">
-      <source>Email Wizard</source>
-      <target>E-mail Wijzer</target>
-    </trans-unit>
-    <trans-unit id="220550782947016929" datatype="html">
-      <source>Order</source>
-      <target>Volgorde</target>
-    </trans-unit>
-    <trans-unit id="5573486145935722913" datatype="html">
-      <source>Up</source>
-      <target>Op</target>
-    </trans-unit>
-    <trans-unit id="375247309021166846" datatype="html">
-      <source>Down</source>
-      <target>Neer</target>
-    </trans-unit>
-    <trans-unit id="2580412475539681027" datatype="html">
-      <source>Remove Page</source>
-      <target>Verwijder Pagina</target>
-    </trans-unit>
-    <trans-unit id="8218245269184468150" datatype="html">
-      <source>Remove Parent Page</source>
-      <target>Verwijder Ouderpagina</target>
-    </trans-unit>
-    <trans-unit id="3287911962265929749" datatype="html">
-    <source> Are you sure to remove the parent from page with title: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeTitle() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
-      &gt;"/>? </source>
-      <target>`Weet u zeker dat u de ouderpagina wilt verwijderen van pagina met titel: <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ observeTitle() | async }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong
-      &gt;"/>? </target>
-    </trans-unit>
-    <trans-unit id="1464035834243065887" datatype="html">
-      <source>Parent Page</source>
-      <target>Ouderpagina</target>
-    </trans-unit>
-    <trans-unit id="7782604929945181148" datatype="html">
-      <source>Set Parent</source>
-      <target>Stel Ouder In</target>
-    </trans-unit>
-    <trans-unit id="2584198196512700941" datatype="html">
-      <source>Remove Parent</source>
-      <target>Verwijder Ouder</target>
-    </trans-unit>
   </file>
 </xliff>
