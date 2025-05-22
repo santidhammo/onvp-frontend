@@ -35,11 +35,22 @@ export class EventDateEntryComponent implements ControlValueAccessor {
   @Input() title!: string;
 
   protected displayInvalid: boolean = false;
-  protected value: EventDate = EventDate.today();
-  protected isSet: boolean = false;
+  protected value: EventDate | null = null;
+  protected tempValue = EventDate.today();
 
-  onChange = (_: EventDate) => {};
+  onChange = (_: EventDate | null) => {};
   onTouched = () => {};
+  set checked(checked: boolean) {
+    if (checked) {
+      this.value = EventDate.today();
+    } else {
+      this.value = null;
+    }
+  }
+
+  get checked(): boolean {
+    return this.value !== null;
+  }
 
   get nameDay(): string {
     return this.name + '.day';
@@ -63,13 +74,11 @@ export class EventDateEntryComponent implements ControlValueAccessor {
   }
 
   writeValue(obj: any): void {
-    if (obj !== undefined) {
-      if (obj == null) {
-        this.isSet = false;
-      } else {
-        this.isSet = true;
-        this.value = obj;
-      }
+    if (obj !== undefined && obj !== null) {
+      this.value = obj as EventDate;
+      this.tempValue = this.value;
+    } else {
+      this.value = null;
     }
   }
   registerOnChange(fn: any): void {
@@ -80,38 +89,42 @@ export class EventDateEntryComponent implements ControlValueAccessor {
   }
 
   filteredOnChange(value: EventDate) {
-    if (value.month > 12) {
-      value.month = 12;
-    }
+    if (this.checked) {
+      if (value.month > 12) {
+        value.month = 12;
+      }
 
-    if (value.month < 1) {
-      value.month = 1;
-    }
+      if (value.month < 1) {
+        value.month = 1;
+      }
 
-    if (value.year < 2000) {
-      value.year = 2000;
-    }
+      if (value.year < 2000) {
+        value.year = 2000;
+      }
 
-    if (value.day < 1) {
-      value.day = 1;
-    } else {
-      if (value.month in [1, 3, 5, 7, 8, 10, 12] && value.day > 31) {
-        value.day = 31;
-      } else if (value.month in [4, 6, 9, 11] && value.day > 30) {
-        value.day = 30;
+      if (value.day < 1) {
+        value.day = 1;
       } else {
-        if (value.year % 4 == 0 && value.year % 400 != 0) {
-          if (value.day > 29) {
-            value.day = 29;
-          }
+        if (value.month in [1, 3, 5, 7, 8, 10, 12] && value.day > 31) {
+          value.day = 31;
+        } else if (value.month in [4, 6, 9, 11] && value.day > 30) {
+          value.day = 30;
         } else {
-          if (value.day > 28) {
-            value.day = 28;
+          if (value.year % 4 == 0 && value.year % 400 != 0) {
+            if (value.day > 29) {
+              value.day = 29;
+            }
+          } else {
+            if (value.day > 28) {
+              value.day = 28;
+            }
           }
         }
       }
+      this.value = value;
+    } else {
+      this.value = null;
     }
-
-    this.onChange(value);
+    this.onChange(this.value);
   }
 }

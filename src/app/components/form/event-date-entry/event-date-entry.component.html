@@ -25,7 +25,11 @@
   <div class="d-flex">
     <div class="row align-items-center">
       <div class="col-1">
-        <input type="checkbox" [(ngModel)]="isSet" />
+        <input
+          type="checkbox"
+          [(ngModel)]="checked"
+          (change)="filteredOnChange(tempValue)"
+        />
       </div>
       <div class="col-3">
         <input
@@ -35,11 +39,11 @@
           class="form-control"
           [id]="nameDay"
           [name]="nameDay"
-          [(ngModel)]="value.day"
-          (change)="filteredOnChange(value)"
+          [(ngModel)]="tempValue.day"
+          (change)="filteredOnChange(tempValue)"
           #model="ngModel"
           (focusout)="displayInvalid = true"
-          [disabled]="!isSet"
+          [disabled]="value == null"
         />
       </div>
       <div class="col-3">
@@ -50,11 +54,11 @@
           class="form-control"
           [id]="nameMonth"
           [name]="nameMonth"
-          [(ngModel)]="value.month"
-          (change)="filteredOnChange(value)"
+          [(ngModel)]="tempValue.month"
+          (change)="filteredOnChange(tempValue)"
           #model="ngModel"
           (focusout)="displayInvalid = true"
-          [disabled]="!isSet"
+          [disabled]="value == null"
         />
       </div>
       <div class="col-3">
@@ -65,11 +69,11 @@
           class="form-control"
           [id]="nameYear"
           [name]="nameYear"
-          [(ngModel)]="value.year"
-          (change)="filteredOnChange(value)"
+          [(ngModel)]="tempValue.year"
+          (change)="filteredOnChange(tempValue)"
           #model="ngModel"
           (focusout)="displayInvalid = true"
-          [disabled]="!isSet"
+          [disabled]="value == null"
         />
       </div>
     </div>
