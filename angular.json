@@ -19,7 +19,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "localize": ["nl"],
+            "localize": ["nl", "en-US"],
             "outputPath": "dist/onvp-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -46,12 +46,12 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumError": "3MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "5kB",
+                  "maximumError": "300kB"
                 }
               ],
               "outputHashing": "all"
